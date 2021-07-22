@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Miracle Mile Conifer Species &middot; </title>
+        <meta name="description" content="Load the libraries library(rgbif) library(tidyverse) library(data.table) library(maps) library(leaflet)  Pull observations and Specimens pinus_balfouriana &lt;- occ_data(scientificName = &quot;Pinus balfouriana&quot;, hasCoordinate = TRUE, limit = 10000) # pinus_balfouriana head(gbif_citation(pinus_balfouriana), 2) ## [[1]] ## &lt;&lt;rgbif citation&gt;&gt; ## Citation: Ueda K (2021). iNaturalist Research-grade Observations. ## iNaturalist.org. Occurrence dataset https://doi.org/10.15468/ab3s5x ## accessed via GBIF.org on 2021-06-22.. Accessed from R via rgbif ## (https://github.com/ropensci/rgbif) on 2021-06-22 ## Rights: http://creativecommons.">
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="generator" content="Hugo 0.82.0" />
+        <meta name="robots" content="index,follow">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <link rel="stylesheet" href="https://bids-global-change.github.io/dist/site.css">
+        <link rel="stylesheet" href="https://bids-global-change.github.io/dist/syntax.css">
+        
+        
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300&subset=latin,cyrillic-ext,latin-ext,cyrillic">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+        
+        
+        
+        
+        
+
+    </head>
+    <body>
+        
+
+        <div id="wrapper">
+            <header class="site-header">
+                <div class="container">
+                    <div class="site-title-wrapper">
+                        
+                            <a class="site-logo" href="">
+                                <img src="#ZgotmplZ" alt="" />
+                            </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                    </div>
+
+                    <ul class="site-nav">
+                        
+    <li class="site-nav-item">
+        <a href="/post/">Blog</a>
+    </li>
+
+    <li class="site-nav-item">
+        <a href="/project/">Projects</a>
+    </li>
+
+    <li class="site-nav-item">
+        <a href="/page/about/">About</a>
+    </li>
+
+    <li class="site-nav-item">
+        <a href="/page/contact/">contact</a>
+    </li>
+
+    <li class="site-nav-item">
+        <a href="/page/links/">links</a>
+    </li>
+
+    <li class="site-nav-item">
+        <a href="https://github.com/https://github.com/BIDS-Global-Change/">GitHub</a>
+    </li>
+
+    <li class="site-nav-item">
+        <a href="https://twitter.com/rjcmarkelz">Twitter</a>
+    </li>
+
+
+                    </ul>
+                </div>
+            </header>
+
+            <div id="container">
+
+
+<link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/routeros.min.css" rel="stylesheet">
+
+
+<div class="container">
+    <article class="post-container" itemscope="" itemtype="http://schema.org/BlogPosting">
+        <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">Miracle Mile Conifer Species</h1>
+    
+    <p class="post-date post-line">
+        <span>Published <time datetime="2021-06-17" itemprop="datePublished">Thu, Jun 17, 2021</time></span>
+        <span>by</span>
+        <span itemscope="" itemprop="author" itemtype="https://schema.org/Person">
+            <span itemprop="name">
+                <a href="#" itemprop="url" rel="author">RJ Cody Markelz</a>
+            </span>
+        </span>
+    </p>
+    
+</header>
+
+        <div class="post-content clearfix" itemprop="articleBody">
+    
+
+    
+<script src="https://bids-global-change.github.io/2021/06/17/gbif-miracle-mile-species/index_files/header-attrs/header-attrs.js"></script>
+<script src="https://bids-global-change.github.io/2021/06/17/gbif-miracle-mile-species/index_files/htmlwidgets/htmlwidgets.js"></script>
+<script src="https://bids-global-change.github.io/2021/06/17/gbif-miracle-mile-species/index_files/jquery/jquery.min.js"></script>
+<link href="https://bids-global-change.github.io/2021/06/17/gbif-miracle-mile-species/index_files/leaflet/leaflet.css" rel="stylesheet" />
+<script src="https://bids-global-change.github.io/2021/06/17/gbif-miracle-mile-species/index_files/leaflet/leaflet.js"></script>
+<link href="https://bids-global-change.github.io/2021/06/17/gbif-miracle-mile-species/index_files/leafletfix/leafletfix.css" rel="stylesheet" />
+<script src="https://bids-global-change.github.io/2021/06/17/gbif-miracle-mile-species/index_files/proj4/proj4.min.js"></script>
+<script src="https://bids-global-change.github.io/2021/06/17/gbif-miracle-mile-species/index_files/Proj4Leaflet/proj4leaflet.js"></script>
+<link href="https://bids-global-change.github.io/2021/06/17/gbif-miracle-mile-species/index_files/rstudio_leaflet/rstudio_leaflet.css" rel="stylesheet" />
+<script src="https://bids-global-change.github.io/2021/06/17/gbif-miracle-mile-species/index_files/leaflet-binding/leaflet.js"></script>
+
+
+<div id="load-the-libraries" class="section level1">
+<h1>Load the libraries</h1>
+<pre class="r"><code>library(rgbif)
+library(tidyverse)
+library(data.table)
+library(maps)
+library(leaflet)</code></pre>
+</div>
+<div id="pull-observations-and-specimens" class="section level1">
+<h1>Pull observations and Specimens</h1>
+<pre class="r"><code>pinus_balfouriana &lt;- occ_data(scientificName = &quot;Pinus balfouriana&quot;, hasCoordinate = TRUE, limit = 10000)
+# pinus_balfouriana
+head(gbif_citation(pinus_balfouriana), 2)</code></pre>
+<pre><code>## [[1]]
+## &lt;&lt;rgbif citation&gt;&gt;
+##    Citation: Ueda K (2021). iNaturalist Research-grade Observations.
+##         iNaturalist.org. Occurrence dataset https://doi.org/10.15468/ab3s5x
+##         accessed via GBIF.org on 2021-06-22.. Accessed from R via rgbif
+##         (https://github.com/ropensci/rgbif) on 2021-06-22
+##    Rights: http://creativecommons.org/licenses/by-nc/4.0/legalcode
+## 
+## [[2]]
+## &lt;&lt;rgbif citation&gt;&gt;
+##    Citation: Humboldt State University (2021). HSC - Humboldt State University
+##         Vascular Plant Herbarium. Occurrence dataset
+##         https://doi.org/10.15468/qguk7r accessed via GBIF.org on 2021-06-22..
+##         Accessed from R via rgbif (https://github.com/ropensci/rgbif) on
+##         2021-06-22
+##    Rights: http://creativecommons.org/licenses/by-nc/4.0/legalcode</code></pre>
+<pre class="r"><code>head(names(pinus_balfouriana$data))</code></pre>
+<pre><code>## [1] &quot;key&quot;              &quot;scientificName&quot;   &quot;decimalLatitude&quot;  &quot;decimalLongitude&quot;
+## [5] &quot;issues&quot;           &quot;datasetKey&quot;</code></pre>
+<p>The default GBIF query returns 126 columns of data in the</p>
+<pre class="r"><code>pinus_balfouriana_coords &lt;- pinus_balfouriana$data[ , c(&quot;decimalLongitude&quot;, &quot;decimalLatitude&quot;,
+ &quot;individualCount&quot;, &quot;occurrenceStatus&quot;, &quot;coordinateUncertaintyInMeters&quot;,
+  &quot;institutionCode&quot;, &quot;references&quot;)]</code></pre>
+<pre class="r"><code># check out how the data is structured
+head(pinus_balfouriana_coords)</code></pre>
+<pre><code>## # A tibble: 6 x 7
+##   decimalLongitude decimalLatitude individualCount occurrenceStatus
+##              &lt;dbl&gt;           &lt;dbl&gt;           &lt;int&gt; &lt;chr&gt;           
+## 1            -123.            40.7              NA PRESENT         
+## 2            -123.            40.2              NA PRESENT         
+## 3            -123.            41.2              NA PRESENT         
+## 4            -118.            35.9              NA PRESENT         
+## 5            -118.            36.4              NA PRESENT         
+## 6            -122.            41.3              NA PRESENT         
+## # … with 3 more variables: coordinateUncertaintyInMeters &lt;dbl&gt;,
+## #   institutionCode &lt;chr&gt;, references &lt;chr&gt;</code></pre>
+<pre class="r"><code>summary(pinus_balfouriana_coords)</code></pre>
+<pre><code>##  decimalLongitude   decimalLatitude individualCount occurrenceStatus  
+##  Min.   :-123.212   Min.   :35.92   Min.   :1       Length:339        
+##  1st Qu.:-122.493   1st Qu.:36.50   1st Qu.:1       Class :character  
+##  Median :-118.550   Median :36.77   Median :1       Mode  :character  
+##  Mean   :-119.441   Mean   :38.05   Mean   :1                         
+##  3rd Qu.:-118.319   3rd Qu.:40.93   3rd Qu.:1                         
+##  Max.   :   4.508   Max.   :50.83   Max.   :1                         
+##                                     NA&#39;s   :337                       
+##  coordinateUncertaintyInMeters institutionCode     references       
+##  Min.   :    2.00              Length:339         Length:339        
+##  1st Qu.:   12.75              Class :character   Class :character  
+##  Median :  225.00              Mode  :character   Mode  :character  
+##  Mean   : 2430.58                                                   
+##  3rd Qu.:  845.50                                                   
+##  Max.   :28519.00                                                   
+##  NA&#39;s   :121</code></pre>
+<pre class="r"><code># pinus_balfouriana_coords$decimalLongitude # remove this row of bad data
+pinus_balfouriana_coords &lt;- slice(pinus_balfouriana_coords, -(278))</code></pre>
+<pre class="r"><code># two map functions... be clear! There are a few map functions with these different libraries loaded.
+#?map()
+maps::map(database = &quot;state&quot;, region = &quot;california&quot;)
+points(pinus_balfouriana_coords[ , c(&quot;decimalLongitude&quot;, &quot;decimalLatitude&quot;)], pch = &quot;.&quot;, col = &quot;red&quot;, cex = 3)</code></pre>
+<p><img src="https://bids-global-change.github.io/2021/06/17/gbif-miracle-mile-species/index_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p>Subset our search to only Northern California</p>
+<pre class="r"><code>mm_geometry &lt;- paste(&#39;POLYGON((-124.4323 42.0021, -121.5045 42.0021, -121.5045 40.194, -124.4323 40.194, -124.4323 42.0021))&#39;)</code></pre>
+<pre class="r"><code>pinus_balfouriana &lt;- occ_data(scientificName = &quot;Pinus balfouriana&quot;, hasCoordinate = TRUE, limit = 10000,
+                     geometry = mm_geometry )
+head(pinus_balfouriana)</code></pre>
+<pre><code>## $meta
+## $meta$offset
+## [1] 0
+## 
+## $meta$limit
+## [1] 300
+## 
+## $meta$endOfRecords
+## [1] TRUE
+## 
+## $meta$count
+## [1] 91
+## 
+## 
+## $data
+## # A tibble: 91 x 117
+##    key    scientificName  decimalLatitude decimalLongitude issues   datasetKey  
+##    &lt;chr&gt;  &lt;chr&gt;                     &lt;dbl&gt;            &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt;       
+##  1 26201… Pinus balfouri…            40.7            -123. cdround… 50c9509d-22…
+##  2 28143… Pinus balfouri…            41.2            -123. cdround… 50c9509d-22…
+##  3 28509… Pinus balfouri…            41.3            -122. cdround… 50c9509d-22…
+##  4 28622… Pinus balfouri…            41.3            -123. cdround… 50c9509d-22…
+##  5 30676… Pinus balfouri…            40.9            -123. cdround… 50c9509d-22…
+##  6 28506… Pinus balfouri…            41.3            -122. cdround… 50c9509d-22…
+##  7 28510… Pinus balfouri…            41.3            -122. cdround… 50c9509d-22…
+##  8 28512… Pinus balfouri…            41.2            -123. cdround… 50c9509d-22…
+##  9 28512… Pinus balfouri…            41.2            -123. cdround… 50c9509d-22…
+## 10 28512… Pinus balfouri…            41.2            -123. cdround… 50c9509d-22…
+## # … with 81 more rows, and 111 more variables: publishingOrgKey &lt;chr&gt;,
+## #   installationKey &lt;chr&gt;, publishingCountry &lt;chr&gt;, protocol &lt;chr&gt;,
+## #   lastCrawled &lt;chr&gt;, lastParsed &lt;chr&gt;, crawlId &lt;int&gt;,
+## #   hostingOrganizationKey &lt;chr&gt;, basisOfRecord &lt;chr&gt;, occurrenceStatus &lt;chr&gt;,
+## #   taxonKey &lt;int&gt;, kingdomKey &lt;int&gt;, phylumKey &lt;int&gt;, classKey &lt;int&gt;,
+## #   orderKey &lt;int&gt;, familyKey &lt;int&gt;, genusKey &lt;int&gt;, speciesKey &lt;int&gt;,
+## #   acceptedTaxonKey &lt;int&gt;, acceptedScientificName &lt;chr&gt;, kingdom &lt;chr&gt;,
+## #   phylum &lt;chr&gt;, order &lt;chr&gt;, family &lt;chr&gt;, genus &lt;chr&gt;, species &lt;chr&gt;,
+## #   genericName &lt;chr&gt;, specificEpithet &lt;chr&gt;, taxonRank &lt;chr&gt;,
+## #   taxonomicStatus &lt;chr&gt;, iucnRedListCategory &lt;chr&gt;, dateIdentified &lt;chr&gt;,
+## #   coordinateUncertaintyInMeters &lt;dbl&gt;, stateProvince &lt;chr&gt;, year &lt;int&gt;,
+## #   month &lt;int&gt;, day &lt;int&gt;, eventDate &lt;chr&gt;, modified &lt;chr&gt;,
+## #   lastInterpreted &lt;chr&gt;, references &lt;chr&gt;, license &lt;chr&gt;, isInCluster &lt;lgl&gt;,
+## #   geodeticDatum &lt;chr&gt;, class &lt;chr&gt;, countryCode &lt;chr&gt;, country &lt;chr&gt;,
+## #   rightsHolder &lt;chr&gt;, identifier &lt;chr&gt;, http://unknown.org/nick &lt;chr&gt;,
+## #   verbatimEventDate &lt;chr&gt;, datasetName &lt;chr&gt;, verbatimLocality &lt;chr&gt;,
+## #   gbifID &lt;chr&gt;, collectionCode &lt;chr&gt;, occurrenceID &lt;chr&gt;, taxonID &lt;chr&gt;,
+## #   catalogNumber &lt;chr&gt;, recordedBy &lt;chr&gt;,
+## #   http://unknown.org/occurrenceDetails &lt;chr&gt;, institutionCode &lt;chr&gt;,
+## #   rights &lt;chr&gt;, eventTime &lt;chr&gt;, identifiedBy &lt;chr&gt;, identificationID &lt;chr&gt;,
+## #   occurrenceRemarks &lt;chr&gt;, informationWithheld &lt;chr&gt;, elevation &lt;dbl&gt;,
+## #   recordNumber &lt;chr&gt;, habitat &lt;chr&gt;, http://unknown.org/recordId &lt;chr&gt;,
+## #   county &lt;chr&gt;, locality &lt;chr&gt;, otherCatalogNumbers &lt;chr&gt;,
+## #   startDayOfYear &lt;chr&gt;, collectionID &lt;chr&gt;, higherClassification &lt;chr&gt;,
+## #   verbatimTaxonRank &lt;chr&gt;, institutionKey &lt;chr&gt;, projectId &lt;chr&gt;,
+## #   individualCount &lt;int&gt;, elevationAccuracy &lt;dbl&gt;, collectionKey &lt;chr&gt;,
+## #   type &lt;chr&gt;, locationRemarks &lt;chr&gt;,
+## #   http://unknown.org/recordEnteredBy &lt;chr&gt;, verbatimElevation &lt;chr&gt;,
+## #   reproductiveCondition &lt;chr&gt;, continent &lt;chr&gt;, institutionID &lt;chr&gt;,
+## #   dynamicProperties &lt;chr&gt;, fieldNumber &lt;chr&gt;, language &lt;chr&gt;,
+## #   preparations &lt;chr&gt;, higherGeography &lt;chr&gt;, disposition &lt;chr&gt;,
+## #   accessRights &lt;chr&gt;, nomenclaturalCode &lt;chr&gt;, endDayOfYear &lt;chr&gt;,
+## #   identificationRemarks &lt;chr&gt;, …</code></pre>
+<pre class="r"><code>pinus_balfouriana_coords &lt;- pinus_balfouriana$data[ , c(&quot;decimalLongitude&quot;, &quot;decimalLatitude&quot;,
+ &quot;individualCount&quot;, &quot;occurrenceStatus&quot;, &quot;coordinateUncertaintyInMeters&quot;,
+  &quot;institutionCode&quot;, &quot;references&quot;)]</code></pre>
+<p>Plot the data in a few different ways to see if there is anything strange.</p>
+<pre class="r"><code>plot(pinus_balfouriana_coords$decimalLongitude, pinus_balfouriana_coords$decimalLatitude) # examine the data</code></pre>
+<p><img src="https://bids-global-change.github.io/2021/06/17/gbif-miracle-mile-species/index_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<pre class="r"><code>pinus_balfouriana_coords %&gt;% leaflet() %&gt;% addTiles() %&gt;%
+addMarkers(~decimalLongitude, ~decimalLatitude)</code></pre>
+<div id="htmlwidget-1" style="width:672px;height:480px;" class="leaflet html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]},{"method":"addMarkers","args":[[40.65773,41.215313,41.316711,41.30745,40.922437,41.31575,41.317367,41.212264,41.222706,41.229703,41.319594,41.221478,41.221528,41.316612,41.351883,41.240508,41.316621,40.926688,41.215205,41.212628,40.944371,41.316998,41.204272,41.315939,40.930603,40.196389,41.318484,40.945768,41.303091,41.301945,40.921978,41.317516,41.302778,41.302223,40.890842,41.091073,41.565592,41.000792,41.318205,41.316868,41.58765,40.958771,41.360536,41.316667,41.32,41.303298,40.940952,41.06,41.341306,41.341306,41.341306,41.341306,41.34131,41.34131,41.341306,41.3191669990644,41.24197,41.3083,40.94282,41.3065,40.95556,41.0185,41.3026,41.1666,41.0492,41.305,40.9752,41.3522,41.3031,41.316667,41.316667,41.32,41.32,41.05,41.748333,41.05,41.356667,40.954517,41.0529819260038,40.205,41.5794843270466,41.57003,41.57003,41.3162,41.5777,41.3195,41.3197746338961,41.319722,41.3693,41.3166,41.28],[-122.649697,-122.785662,-122.487091,-122.956587,-122.883972,-122.489281,-122.489616,-122.79026,-122.787711,-122.786461,-122.482687,-122.789056,-122.788978,-122.486575,-122.984507,-122.764137,-122.486099,-122.884712,-122.785995,-122.789438,-122.888217,-122.490301,-122.793547,-122.489123,-122.87459,-122.973333,-122.487147,-122.907149,-122.947325,-122.956108,-122.88378,-122.48941,-122.952225,-122.954422,-122.959784,-122.970327,-123.211345,-123.049686,-122.494852,-122.491801,-123.080931,-122.880363,-122.584725,-122.483333,-122.48,-122.954574,-122.887428,-122.92,-122.533667,-122.533667,-122.533667,-122.533667,-122.53367,-122.53367,-122.533667,-122.505278,-122.94758,-122.4885,-122.90701,-122.9546,-122.88089,-122.9716,-122.9528,-122.8055,-122.9159,-122.958333,-123.0688,-122.5902,-122.9389,-122.483333,-122.483333,-122.483333,-122.483333,-122.9,-123.133333,-122.91,-122.566667,-122.893359,-122.914241783539,-122.98139,-123.198990691566,-123.21158,-123.21158,-122.4849,-123.2043,-122.4793,-122.477529641097,-122.479167,-122.3498,-122.4867,-122.68],null,null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},null,null,null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"limits":{"lat":[40.196389,41.748333],"lng":[-123.21158,-122.3498]}},"evals":[],"jsHooks":[]}</script>
+<div id="multiple-species" class="section level2">
+<h2>Multiple species</h2>
+<p>First test the workflow with only a few species then do entire batch.</p>
+<pre class="r"><code># mm_species &lt;- c(&quot;Pinus balfouriana&quot;, &quot;pinus albicaulis&quot;, &quot;pinus monticola&quot;)
+
+mm_species &lt;- c(&quot;Pinus balfouriana&quot;, &quot;pinus albicaulis&quot;, &quot;pinus monticola&quot;, &quot;pinus jeffreyi&quot;, &quot;pinus ponderosa&quot;, &quot;pinus contorta&quot;, &quot;pinus lambertiana&quot;, &quot;abies concolor&quot;, &quot;abies magnifica&quot;, &quot;abies lasiocarpa&quot;, &quot;picea engelmannii&quot;, &quot;picea breweriana&quot;, &quot;tsuga mertensiana&quot;, &quot;pseudotsuga menziesii&quot;, &quot;taxus brevifolia&quot;, &quot;calocedrus decurrens&quot;, &quot;juniperus communis&quot;, &quot;juniperus occidentalis&quot;)
+
+mm_all &lt;- occ_data(scientificName = mm_species, hasCoordinate = TRUE, limit = 10000,
+                   geometry = mm_geometry)
+summary(mm_all)</code></pre>
+<pre><code>##                        Length Class  Mode
+## Pinus balfouriana      2      -none- list
+## pinus albicaulis       2      -none- list
+## pinus monticola        2      -none- list
+## pinus jeffreyi         2      -none- list
+## pinus ponderosa        2      -none- list
+## pinus contorta         2      -none- list
+## pinus lambertiana      2      -none- list
+## abies concolor         2      -none- list
+## abies magnifica        2      -none- list
+## abies lasiocarpa       2      -none- list
+## picea engelmannii      2      -none- list
+## picea breweriana       2      -none- list
+## tsuga mertensiana      2      -none- list
+## pseudotsuga menziesii  2      -none- list
+## taxus brevifolia       2      -none- list
+## calocedrus decurrens   2      -none- list
+## juniperus communis     2      -none- list
+## juniperus occidentalis 2      -none- list</code></pre>
+<pre class="r"><code>mm_species_coords_list &lt;- vector(&quot;list&quot;, length(mm_species))
+names(mm_species_coords_list) &lt;- mm_species
+
+for (x in mm_species) {
+  coords &lt;- mm_all[[x]]$data[ , c(&quot;decimalLongitude&quot;, &quot;decimalLatitude&quot;, &quot;occurrenceStatus&quot;, &quot;coordinateUncertaintyInMeters&quot;, &quot;institutionCode&quot;, &quot;references&quot;)]
+  mm_species_coords_list[[x]] &lt;- data.frame(species = x, coords)
+}</code></pre>
+<p>Take a look at the output.</p>
+<pre class="r"><code>lapply(mm_species_coords_list, head)</code></pre>
+<pre><code>## $`Pinus balfouriana`
+##             species decimalLongitude decimalLatitude occurrenceStatus
+## 1 Pinus balfouriana        -122.6497        40.65773          PRESENT
+## 2 Pinus balfouriana        -122.7857        41.21531          PRESENT
+## 3 Pinus balfouriana        -122.4871        41.31671          PRESENT
+## 4 Pinus balfouriana        -122.9566        41.30745          PRESENT
+## 5 Pinus balfouriana        -122.8840        40.92244          PRESENT
+## 6 Pinus balfouriana        -122.4893        41.31575          PRESENT
+##   coordinateUncertaintyInMeters institutionCode
+## 1                          7880     iNaturalist
+## 2                             5     iNaturalist
+## 3                             5     iNaturalist
+## 4                           258     iNaturalist
+## 5                             5     iNaturalist
+## 6                          1689     iNaturalist
+##                                          references
+## 1 https://www.inaturalist.org/observations/44672814
+## 2 https://www.inaturalist.org/observations/51134921
+## 3 https://www.inaturalist.org/observations/52646764
+## 4 https://www.inaturalist.org/observations/55657354
+## 5 https://www.inaturalist.org/observations/53280933
+## 6 https://www.inaturalist.org/observations/56962142
+## 
+## $`pinus albicaulis`
+##            species decimalLongitude decimalLatitude occurrenceStatus
+## 1 pinus albicaulis        -121.5563        40.47525          PRESENT
+## 2 pinus albicaulis        -121.5464        40.46732          PRESENT
+## 3 pinus albicaulis        -123.0972        41.56221          PRESENT
+## 4 pinus albicaulis        -122.2036        41.36302          PRESENT
+## 5 pinus albicaulis        -122.2245        41.72079          PRESENT
+## 6 pinus albicaulis        -122.9493        41.30327          PRESENT
+##   coordinateUncertaintyInMeters institutionCode
+## 1                            NA     iNaturalist
+## 2                            NA     iNaturalist
+## 3                           289     iNaturalist
+## 4                             5     iNaturalist
+## 5                             5     iNaturalist
+## 6                            NA     iNaturalist
+##                                          references
+## 1 https://www.inaturalist.org/observations/51331189
+## 2 https://www.inaturalist.org/observations/51284643
+## 3 https://www.inaturalist.org/observations/55653190
+## 4 https://www.inaturalist.org/observations/54230017
+## 5 https://www.inaturalist.org/observations/53691358
+## 6 https://www.inaturalist.org/observations/55357264
+## 
+## $`pinus monticola`
+##           species decimalLongitude decimalLatitude occurrenceStatus
+## 1 pinus monticola        -122.5609        41.37088          PRESENT
+## 2 pinus monticola        -122.5069        41.27407          PRESENT
+## 3 pinus monticola        -122.5441        41.34964          PRESENT
+## 4 pinus monticola        -122.8544        40.95637          PRESENT
+## 5 pinus monticola        -121.5324        40.47945          PRESENT
+## 6 pinus monticola        -122.8874        41.03366          PRESENT
+##   coordinateUncertaintyInMeters institutionCode
+## 1                           495     iNaturalist
+## 2                             6     iNaturalist
+## 3                            NA     iNaturalist
+## 4                          1836     iNaturalist
+## 5                            10     iNaturalist
+## 6                            10     iNaturalist
+##                                          references
+## 1 https://www.inaturalist.org/observations/80778918
+## 2 https://www.inaturalist.org/observations/47535071
+## 3 https://www.inaturalist.org/observations/55064034
+## 4 https://www.inaturalist.org/observations/54566491
+## 5 https://www.inaturalist.org/observations/53430138
+## 6 https://www.inaturalist.org/observations/57492376
+## 
+## $`pinus jeffreyi`
+##          species decimalLongitude decimalLatitude occurrenceStatus
+## 1 pinus jeffreyi        -123.9084        41.85082          PRESENT
+## 2 pinus jeffreyi        -123.9617        41.86157          PRESENT
+## 3 pinus jeffreyi        -122.4636        41.40165          PRESENT
+## 4 pinus jeffreyi        -121.5540        40.47569          PRESENT
+## 5 pinus jeffreyi        -122.8747        41.04969          PRESENT
+## 6 pinus jeffreyi        -122.8745        41.01237          PRESENT
+##   coordinateUncertaintyInMeters institutionCode
+## 1                             4     iNaturalist
+## 2                            30     iNaturalist
+## 3                            10     iNaturalist
+## 4                            NA     iNaturalist
+## 5                            10     iNaturalist
+## 6                             5     iNaturalist
+##                                          references
+## 1 https://www.inaturalist.org/observations/75272815
+## 2 https://www.inaturalist.org/observations/74890403
+## 3 https://www.inaturalist.org/observations/38363907
+## 4 https://www.inaturalist.org/observations/55248186
+## 5 https://www.inaturalist.org/observations/57494858
+## 6 https://www.inaturalist.org/observations/57491703
+## 
+## $`pinus ponderosa`
+##           species decimalLongitude decimalLatitude occurrenceStatus
+## 1 pinus ponderosa        -122.0537        41.71903          PRESENT
+## 2 pinus ponderosa        -122.0249        41.24127          PRESENT
+## 3 pinus ponderosa        -122.3159        40.79919          PRESENT
+## 4 pinus ponderosa        -122.9296        41.33682          PRESENT
+## 5 pinus ponderosa        -122.8238        40.99068          PRESENT
+## 6 pinus ponderosa        -122.3173        40.79381          PRESENT
+##   coordinateUncertaintyInMeters institutionCode
+## 1                            NA     iNaturalist
+## 2                          3003     iNaturalist
+## 3                           175     iNaturalist
+## 4                            NA     iNaturalist
+## 5                            10     iNaturalist
+## 6                             6     iNaturalist
+##                                          references
+## 1 https://www.inaturalist.org/observations/72501796
+## 2 https://www.inaturalist.org/observations/42704470
+## 3 https://www.inaturalist.org/observations/46446868
+## 4 https://www.inaturalist.org/observations/55357250
+## 5 https://www.inaturalist.org/observations/57554443
+## 6 https://www.inaturalist.org/observations/20712803
+## 
+## $`pinus contorta`
+##          species decimalLongitude decimalLatitude occurrenceStatus
+## 1 pinus contorta        -124.1460        40.88226          PRESENT
+## 2 pinus contorta        -124.1545        40.87932          PRESENT
+## 3 pinus contorta        -124.1095        40.95212          PRESENT
+## 4 pinus contorta        -124.1048        40.94524          PRESENT
+## 5 pinus contorta        -124.1592        40.86330          PRESENT
+## 6 pinus contorta        -124.1476        40.88602          PRESENT
+##   coordinateUncertaintyInMeters institutionCode
+## 1                           792     iNaturalist
+## 2                             4     iNaturalist
+## 3                          6023     iNaturalist
+## 4                          4983     iNaturalist
+## 5                            NA     iNaturalist
+## 6                          2290     iNaturalist
+##                                          references
+## 1 https://www.inaturalist.org/observations/67487911
+## 2 https://www.inaturalist.org/observations/67415283
+## 3 https://www.inaturalist.org/observations/68889593
+## 4 https://www.inaturalist.org/observations/68777129
+## 5 https://www.inaturalist.org/observations/70065656
+## 6 https://www.inaturalist.org/observations/70125937
+## 
+## $`pinus lambertiana`
+##             species decimalLongitude decimalLatitude occurrenceStatus
+## 1 pinus lambertiana        -122.3069        41.14966          PRESENT
+## 2 pinus lambertiana        -122.3794        41.23823          PRESENT
+## 3 pinus lambertiana        -122.4340        41.21545          PRESENT
+## 4 pinus lambertiana        -123.6724        41.81163          PRESENT
+## 5 pinus lambertiana        -122.0085        41.23241          PRESENT
+## 6 pinus lambertiana        -123.6903        41.25987          PRESENT
+##   coordinateUncertaintyInMeters institutionCode
+## 1                            20     iNaturalist
+## 2                           468     iNaturalist
+## 3                           239     iNaturalist
+## 4                            61     iNaturalist
+## 5                             9     iNaturalist
+## 6                            10     iNaturalist
+##                                          references
+## 1 https://www.inaturalist.org/observations/68316814
+## 2 https://www.inaturalist.org/observations/74145574
+## 3 https://www.inaturalist.org/observations/79863404
+## 4 https://www.inaturalist.org/observations/52747626
+## 5 https://www.inaturalist.org/observations/53961005
+## 6 https://www.inaturalist.org/observations/55246863
+## 
+## $`abies concolor`
+##          species decimalLongitude decimalLatitude occurrenceStatus
+## 1 abies concolor        -122.2561        41.33435          PRESENT
+## 2 abies concolor        -122.3284        41.28617          PRESENT
+## 3 abies concolor        -122.4648        41.41202          PRESENT
+## 4 abies concolor        -122.1635        40.81214          PRESENT
+## 5 abies concolor        -122.2125        41.30781          PRESENT
+## 6 abies concolor        -121.5994        40.49396          PRESENT
+##   coordinateUncertaintyInMeters institutionCode
+## 1                          1208     iNaturalist
+## 2                             5     iNaturalist
+## 3                         27785     iNaturalist
+## 4                           321     iNaturalist
+## 5                           349     iNaturalist
+## 6                            NA     iNaturalist
+##                                          references
+## 1 https://www.inaturalist.org/observations/67978898
+## 2 https://www.inaturalist.org/observations/68262270
+## 3 https://www.inaturalist.org/observations/80273232
+## 4 https://www.inaturalist.org/observations/48296279
+## 5 https://www.inaturalist.org/observations/45230470
+## 6 https://www.inaturalist.org/observations/50473923
+## 
+## $`abies magnifica`
+##           species decimalLongitude decimalLatitude occurrenceStatus
+## 1 abies magnifica        -122.5609        41.37088          PRESENT
+## 2 abies magnifica        -121.5289        40.44457          PRESENT
+## 3 abies magnifica        -121.5332        40.47965          PRESENT
+## 4 abies magnifica        -122.9318        41.33514          PRESENT
+## 5 abies magnifica        -122.8538        40.95315          PRESENT
+## 6 abies magnifica        -122.9674        41.03889          PRESENT
+##   coordinateUncertaintyInMeters institutionCode
+## 1                           494     iNaturalist
+## 2                             9     iNaturalist
+## 3                            10     iNaturalist
+## 4                            NA     iNaturalist
+## 5                          1349     iNaturalist
+## 6                            NA     iNaturalist
+##                                          references
+## 1 https://www.inaturalist.org/observations/80778801
+## 2 https://www.inaturalist.org/observations/38448794
+## 3 https://www.inaturalist.org/observations/53430136
+## 4 https://www.inaturalist.org/observations/55357251
+## 5 https://www.inaturalist.org/observations/55640533
+## 6 https://www.inaturalist.org/observations/56040832
+## 
+## $`abies lasiocarpa`
+##            species decimalLongitude decimalLatitude occurrenceStatus
+## 1 abies lasiocarpa        -122.9557        41.30732          PRESENT
+## 2 abies lasiocarpa        -122.9553        41.30740          PRESENT
+## 3 abies lasiocarpa        -122.9553        41.30740          PRESENT
+## 4 abies lasiocarpa        -122.8379        41.20520          PRESENT
+## 5 abies lasiocarpa        -122.8555        41.20540          PRESENT
+## 6 abies lasiocarpa        -123.0665        41.47780          PRESENT
+##   coordinateUncertaintyInMeters institutionCode
+## 1                            NA     iNaturalist
+## 2                           100             HSC
+## 3                           100             HSC
+## 4                           410             HSC
+## 5                           140             HSC
+## 6                           608             HSC
+##                                                               references
+## 1                      https://www.inaturalist.org/observations/55357263
+## 2 https://cch2.org/portal/collections/individual/index.php?occid=1831992
+## 3 https://cch2.org/portal/collections/individual/index.php?occid=1832077
+## 4 https://cch2.org/portal/collections/individual/index.php?occid=1820814
+## 5 https://cch2.org/portal/collections/individual/index.php?occid=1820815
+## 6 https://cch2.org/portal/collections/individual/index.php?occid=1790421
+## 
+## $`picea engelmannii`
+##             species decimalLongitude decimalLatitude occurrenceStatus
+## 1 picea engelmannii        -122.9391        41.31732          PRESENT
+## 2 picea engelmannii        -122.9384        41.31825          PRESENT
+## 3 picea engelmannii        -122.8847        41.36470          PRESENT
+## 4 picea engelmannii        -122.9044        41.32240          PRESENT
+## 5 picea engelmannii        -123.3233        41.27269          PRESENT
+## 6 picea engelmannii        -122.9346        41.28650          PRESENT
+##   coordinateUncertaintyInMeters institutionCode
+## 1                            NA     iNaturalist
+## 2                            NA     iNaturalist
+## 3                           432             HSC
+## 4                           556             HSC
+## 5                         16145            SDSU
+## 6                           641             HSC
+##                                                               references
+## 1                       https://www.inaturalist.org/observations/7562745
+## 2                       https://www.inaturalist.org/observations/7548468
+## 3 https://cch2.org/portal/collections/individual/index.php?occid=1780426
+## 4 https://cch2.org/portal/collections/individual/index.php?occid=1788881
+## 5  https://cch2.org/portal/collections/individual/index.php?occid=376020
+## 6 https://cch2.org/portal/collections/individual/index.php?occid=1771604
+## 
+## $`picea breweriana`
+##            species decimalLongitude decimalLatitude occurrenceStatus
+## 1 picea breweriana        -123.0218        40.93312          PRESENT
+## 2 picea breweriana        -123.7120        41.58564          PRESENT
+## 3 picea breweriana        -123.2508        41.99421          PRESENT
+## 4 picea breweriana        -122.9319        41.29703          PRESENT
+## 5 picea breweriana        -123.1721        41.93560          PRESENT
+## 6 picea breweriana        -123.0492        41.01316          PRESENT
+##   coordinateUncertaintyInMeters institutionCode
+## 1                            NA     iNaturalist
+## 2                            NA     iNaturalist
+## 3                             5     iNaturalist
+## 4                            NA     iNaturalist
+## 5                            15     iNaturalist
+## 6                           100     iNaturalist
+##                                          references
+## 1 https://www.inaturalist.org/observations/79244493
+## 2 https://www.inaturalist.org/observations/79240091
+## 3 https://www.inaturalist.org/observations/44977448
+## 4 https://www.inaturalist.org/observations/49835824
+## 5 https://www.inaturalist.org/observations/51316956
+## 6 https://www.inaturalist.org/observations/53063479
+## 
+## $`tsuga mertensiana`
+##             species decimalLongitude decimalLatitude occurrenceStatus
+## 1 tsuga mertensiana        -122.5609        41.37088          PRESENT
+## 2 tsuga mertensiana        -121.5440        40.47517          PRESENT
+## 3 tsuga mertensiana        -121.5447        40.46971          PRESENT
+## 4 tsuga mertensiana        -122.4843        41.19861          PRESENT
+## 5 tsuga mertensiana        -122.4928        41.19534          PRESENT
+## 6 tsuga mertensiana        -122.9665        41.35922          PRESENT
+##   coordinateUncertaintyInMeters institutionCode
+## 1                           494     iNaturalist
+## 2                            NA     iNaturalist
+## 3                            NA     iNaturalist
+## 4                             5     iNaturalist
+## 5                            10     iNaturalist
+## 6                            10     iNaturalist
+##                                          references
+## 1 https://www.inaturalist.org/observations/80778872
+## 2 https://www.inaturalist.org/observations/51265729
+## 3 https://www.inaturalist.org/observations/51276231
+## 4 https://www.inaturalist.org/observations/54155592
+## 5 https://www.inaturalist.org/observations/54156390
+## 6 https://www.inaturalist.org/observations/54300578
+## 
+## $`pseudotsuga menziesii`
+##                 species decimalLongitude decimalLatitude occurrenceStatus
+## 1 pseudotsuga menziesii        -122.3288        41.28564          PRESENT
+## 2 pseudotsuga menziesii        -122.3245        41.33528          PRESENT
+## 3 pseudotsuga menziesii        -121.6510        41.01174          PRESENT
+## 4 pseudotsuga menziesii        -124.0741        40.87472          PRESENT
+## 5 pseudotsuga menziesii        -124.0900        40.93659          PRESENT
+## 6 pseudotsuga menziesii        -124.0923        40.86232          PRESENT
+##   coordinateUncertaintyInMeters institutionCode
+## 1                            20     iNaturalist
+## 2                          1813     iNaturalist
+## 3                            NA     iNaturalist
+## 4                            87     iNaturalist
+## 5                            NA     iNaturalist
+## 6                             5     iNaturalist
+##                                          references
+## 1 https://www.inaturalist.org/observations/68262192
+## 2 https://www.inaturalist.org/observations/68041924
+## 3 https://www.inaturalist.org/observations/68355591
+## 4 https://www.inaturalist.org/observations/67883461
+## 5 https://www.inaturalist.org/observations/68729380
+## 6 https://www.inaturalist.org/observations/69374164
+## 
+## $`taxus brevifolia`
+##            species decimalLongitude decimalLatitude occurrenceStatus
+## 1 taxus brevifolia        -122.2789        41.20344          PRESENT
+## 2 taxus brevifolia        -122.3886        41.00921          PRESENT
+## 3 taxus brevifolia        -123.8560        40.35910          PRESENT
+## 4 taxus brevifolia        -122.3369        41.37660          PRESENT
+## 5 taxus brevifolia        -122.3447        41.25296          PRESENT
+## 6 taxus brevifolia        -122.3629        41.33040          PRESENT
+##   coordinateUncertaintyInMeters institutionCode
+## 1                         27816     iNaturalist
+## 2                         27847     iNaturalist
+## 3                         27969     iNaturalist
+## 4                         27816     iNaturalist
+## 5                         27816     iNaturalist
+## 6                         27816     iNaturalist
+##                                          references
+## 1 https://www.inaturalist.org/observations/67975690
+## 2 https://www.inaturalist.org/observations/68934219
+## 3 https://www.inaturalist.org/observations/70183730
+## 4 https://www.inaturalist.org/observations/38013886
+## 5 https://www.inaturalist.org/observations/39384321
+## 6 https://www.inaturalist.org/observations/38687419
+## 
+## $`calocedrus decurrens`
+##                species decimalLongitude decimalLatitude occurrenceStatus
+## 1 calocedrus decurrens        -122.3288        41.28562          PRESENT
+## 2 calocedrus decurrens        -122.3061        41.15973          PRESENT
+## 3 calocedrus decurrens        -123.6779        40.76674          PRESENT
+## 4 calocedrus decurrens        -123.7306        40.87421          PRESENT
+## 5 calocedrus decurrens        -124.0922        40.94123          PRESENT
+## 6 calocedrus decurrens        -123.8450        40.90786          PRESENT
+##   coordinateUncertaintyInMeters institutionCode
+## 1                            20     iNaturalist
+## 2                             5     iNaturalist
+## 3                             4     iNaturalist
+## 4                          1088     iNaturalist
+## 5                            NA     iNaturalist
+## 6                         13736     iNaturalist
+##                                          references
+## 1 https://www.inaturalist.org/observations/68261333
+## 2 https://www.inaturalist.org/observations/68139671
+## 3 https://www.inaturalist.org/observations/68185977
+## 4 https://www.inaturalist.org/observations/68620500
+## 5 https://www.inaturalist.org/observations/70404871
+## 6 https://www.inaturalist.org/observations/70486336
+## 
+## $`juniperus communis`
+##              species decimalLongitude decimalLatitude occurrenceStatus
+## 1 juniperus communis        -123.7138        41.57635          PRESENT
+## 2 juniperus communis        -122.5609        41.37088          PRESENT
+## 3 juniperus communis        -122.5423        41.37738          PRESENT
+## 4 juniperus communis        -123.9678        41.84778          PRESENT
+## 5 juniperus communis        -124.0188        41.92018          PRESENT
+## 6 juniperus communis        -122.5539        41.37494          PRESENT
+##   coordinateUncertaintyInMeters institutionCode
+## 1                            NA     iNaturalist
+## 2                           494     iNaturalist
+## 3                            40     iNaturalist
+## 4                            NA     iNaturalist
+## 5                            30     iNaturalist
+## 6                            NA     iNaturalist
+##                                          references
+## 1 https://www.inaturalist.org/observations/79474437
+## 2 https://www.inaturalist.org/observations/80778248
+## 3 https://www.inaturalist.org/observations/82206129
+## 4 https://www.inaturalist.org/observations/37971194
+## 5 https://www.inaturalist.org/observations/42646201
+## 6 https://www.inaturalist.org/observations/52096727
+## 
+## $`juniperus occidentalis`
+##                  species decimalLongitude decimalLatitude occurrenceStatus
+## 1 juniperus occidentalis        -122.4227        41.87949          PRESENT
+## 2 juniperus occidentalis        -122.3594        41.93000          PRESENT
+## 3 juniperus occidentalis        -122.4739        41.55478          PRESENT
+## 4 juniperus occidentalis        -122.3106        41.30987          PRESENT
+## 5 juniperus occidentalis        -122.2804        41.53399          PRESENT
+## 6 juniperus occidentalis        -122.3180        41.56981          PRESENT
+##   coordinateUncertaintyInMeters institutionCode
+## 1                           211     iNaturalist
+## 2                            65     iNaturalist
+## 3                            NA     iNaturalist
+## 4                          4767     iNaturalist
+## 5                             5     iNaturalist
+## 6                          3599     iNaturalist
+##                                          references
+## 1 https://www.inaturalist.org/observations/68521334
+## 2 https://www.inaturalist.org/observations/68972729
+## 3 https://www.inaturalist.org/observations/71680593
+## 4 https://www.inaturalist.org/observations/72579839
+## 5 https://www.inaturalist.org/observations/41709076
+## 6 https://www.inaturalist.org/observations/52301132</code></pre>
+<pre class="r"><code># lapply(mm_species_coords_list, tail) # uncomment if you want to see the tail</code></pre>
+<p>Using the rbindlist() function from the data.frame package to take all of the species observations from a list to a large data.frame.</p>
+<pre class="r"><code>tree_df &lt;- rbindlist(mm_species_coords_list, fill = T)
+dim(tree_df)</code></pre>
+<pre><code>## [1] 3097    7</code></pre>
+<pre class="r"><code>head(tree_df)</code></pre>
+<pre><code>##              species decimalLongitude decimalLatitude occurrenceStatus
+## 1: Pinus balfouriana        -122.6497        40.65773          PRESENT
+## 2: Pinus balfouriana        -122.7857        41.21531          PRESENT
+## 3: Pinus balfouriana        -122.4871        41.31671          PRESENT
+## 4: Pinus balfouriana        -122.9566        41.30745          PRESENT
+## 5: Pinus balfouriana        -122.8840        40.92244          PRESENT
+## 6: Pinus balfouriana        -122.4893        41.31575          PRESENT
+##    coordinateUncertaintyInMeters institutionCode
+## 1:                          7880     iNaturalist
+## 2:                             5     iNaturalist
+## 3:                             5     iNaturalist
+## 4:                           258     iNaturalist
+## 5:                             5     iNaturalist
+## 6:                          1689     iNaturalist
+##                                           references
+## 1: https://www.inaturalist.org/observations/44672814
+## 2: https://www.inaturalist.org/observations/51134921
+## 3: https://www.inaturalist.org/observations/52646764
+## 4: https://www.inaturalist.org/observations/55657354
+## 5: https://www.inaturalist.org/observations/53280933
+## 6: https://www.inaturalist.org/observations/56962142</code></pre>
+<p>Plot all of the species on the California map.</p>
+<pre class="r"><code>maps::map(database = &quot;state&quot;, region = &quot;california&quot;)
+points(tree_df[ , c(&quot;decimalLongitude&quot;, &quot;decimalLatitude&quot;)], pch = &quot;.&quot;, col = &quot;blue&quot;, cex = 3)</code></pre>
+<p><img src="https://bids-global-change.github.io/2021/06/17/gbif-miracle-mile-species/index_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+<p>Plot all of the species using ggplot in case you want to do something a bit fancier.</p>
+<pre class="r"><code>mm_species_plot1  &lt;- ggplot(tree_df, aes(x=decimalLongitude, y = decimalLatitude, color = species)) +
+       geom_point() + labs(color = &quot;Species&quot;, title = &quot;MM Zone&quot;)
+mm_species_plot1</code></pre>
+<p><img src="https://bids-global-change.github.io/2021/06/17/gbif-miracle-mile-species/index_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<p>Now that the data is somewhat organized we will be doing some exploratory data analysis next.</p>
+</div>
+</div>
+
+</div>
+
+        <footer class="post-footer clearfix">
+        <p class="post-tags">
+            <span>Tagged:</span>
+                <a href="/tags/species-distribution/">species distribution</a>, 
+                <a href="/tags/modeling/">modeling</a>, 
+                <a href="/tags/gbif/">GBIF</a>, 
+                <a href="/tags/gis/">GIS</a>, 
+                <a href="/tags/maps/">maps</a>
+        </p>
+    <div class="share">
+    </div>
+</footer>
+
+        
+    </article>
+</div>
+
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="site-title-wrapper">
+                    <h1 class="site-title">
+                        <a href="https://bids-global-change.github.io/">BIDS- Environmental</a>
+                    </h1>
+                    <a class="button-square button-jump-top js-jump-top" href="#" aria-label="Back to Top">
+                        <i class="fa fa-angle-up" aria-hidden="true"></i>
+                    </a>
+                </div>
+
+                <p class="footer-copyright">
+                    <span>&copy; 2021 / Powered by <a href="https://gohugo.io/">Hugo</a></span>
+                </p>
+                <p class="footer-copyright">
+                    <span><a href="https://github.com/roryg/ghostwriter">Ghostwriter theme</a> By <a href="http://jollygoodthemes.com">JollyGoodThemes</a></span>
+                    <span>/ <a href="https://github.com/jbub/ghostwriter">Ported</a> to Hugo By <a href="https://github.com/jbub">jbub</a></span>
+                </p>
+            </div>
+        </footer>
+
+        <script src="https://bids-global-change.github.io/js/jquery-1.11.3.min.js"></script>
+        <script src="https://bids-global-change.github.io/js/jquery.fitvids.js"></script>
+        <script src="https://bids-global-change.github.io/js/scripts.js"></script>
+    </body>
+</html>
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+
+<script>
+hljs.configure({languages: []});
+hljs.initHighlightingOnLoad();
+</script>
+

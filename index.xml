@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>BIDS- Environmental</title>
+    <link>https://bids-global-change.github.io/</link>
+    <description>Recent content on BIDS- Environmental</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 06 Jul 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://bids-global-change.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>eDNA data types</title>
+      <link>https://bids-global-change.github.io/2021/07/06/edna-data-types/</link>
+      <pubDate>Tue, 06 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://bids-global-change.github.io/2021/07/06/edna-data-types/</guid>
+      <description>  </description>
+    </item>
+    
+    <item>
+      <title>Links</title>
+      <link>https://bids-global-change.github.io/page/links/</link>
+      <pubDate>Thu, 01 Jul 2021 02:13:50 +0000</pubDate>
+      
+      <guid>https://bids-global-change.github.io/page/links/</guid>
+      <description>General Datasets pyregence fire 17TB
+cal conservation genomics
+Geospatial Innovation Facility
+Geospatial Biodiversity Database
+Specific GBIF datasets
+Weislander Historic Data
+Cal Flora
+UC Reserve System Data Portal
+UC Collections
+NOAA Climate, Weather, Tides
+Species List
+Merced Data
+trefle dataset
+inaturalist
+cal wildlife
+cal wildlife database
+forest service global change
+shasta-trinity rare plants
+Fire GIS data National Fire Dataset
+USGS Fire Data
+US Wildfire Decision Tools
+California Wildfire Dataset 1
+California Wildfire Dataset 2</description>
+    </item>
+    
+    <item>
+      <title>Cycle Commuting and Nature Observations</title>
+      <link>https://bids-global-change.github.io/2021/06/23/gbif-mlk-cycling-nature/</link>
+      <pubDate>Wed, 23 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://bids-global-change.github.io/2021/06/23/gbif-mlk-cycling-nature/</guid>
+      <description>MLK Shoreline and iNaturalist Observations For the last few years I commuted to work most days by bicycle along the Martin Luther King Jr. Regional Shoreline Park in Oakland, CA. This will be a series of data science posts exploring personal data collected by my smart watch and publicly available weather, nature and biodiversity data. It is my hope that this will show into the brain of how a data scientist thinks, learns, asks questions, creates models, and visualizes data from right in their back yard through a series of posts.</description>
+    </item>
+    
+    <item>
+      <title>Miracle Mile Conifer Species</title>
+      <link>https://bids-global-change.github.io/2021/06/17/gbif-miracle-mile-species/</link>
+      <pubDate>Thu, 17 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://bids-global-change.github.io/2021/06/17/gbif-miracle-mile-species/</guid>
+      <description>Load the libraries library(rgbif) library(tidyverse) library(data.table) library(maps) library(leaflet)  Pull observations and Specimens pinus_balfouriana &amp;lt;- occ_data(scientificName = &amp;quot;Pinus balfouriana&amp;quot;, hasCoordinate = TRUE, limit = 10000) # pinus_balfouriana head(gbif_citation(pinus_balfouriana), 2) ## [[1]] ## &amp;lt;&amp;lt;rgbif citation&amp;gt;&amp;gt; ## Citation: Ueda K (2021). iNaturalist Research-grade Observations. ## iNaturalist.org. Occurrence dataset https://doi.org/10.15468/ab3s5x ## accessed via GBIF.org on 2021-06-22.. Accessed from R via rgbif ## (https://github.com/ropensci/rgbif) on 2021-06-22 ## Rights: http://creativecommons.</description>
+    </item>
+    
+    <item>
+      <title>Biodiversity and Fire</title>
+      <link>https://bids-global-change.github.io/project/biodiversity-fire/</link>
+      <pubDate>Tue, 13 Apr 2021 02:13:50 +0000</pubDate>
+      
+      <guid>https://bids-global-change.github.io/project/biodiversity-fire/</guid>
+      <description>About project A project that combines data science, modeling, biodiversity, invasive species and fire to answer questions across Californian ecosystems.</description>
+    </item>
+    
+    <item>
+      <title>About</title>
+      <link>https://bids-global-change.github.io/page/about/</link>
+      <pubDate>Tue, 18 Nov 2014 02:13:50 +0000</pubDate>
+      
+      <guid>https://bids-global-change.github.io/page/about/</guid>
+      <description>About Work As we enter an era of unprecedented amounts of data, we face the defining challenge of our age - global environmental change. From automated environmental sensors to satellite imaging to emerging DNA technologies, the data that describes the world around us will aid in how we approach the many challenges of climate change. By harnessing this data we can observe how are planet is changing and through data science approaches allow us to predict, and further define, how we as a society can respond and remediate the effects of our climate uncertain future.</description>
+    </item>
+    
+    <item>
+      <title>Contact Page</title>
+      <link>https://bids-global-change.github.io/page/contact/</link>
+      <pubDate>Tue, 18 Nov 2014 02:13:50 +0000</pubDate>
+      
+      <guid>https://bids-global-change.github.io/page/contact/</guid>
+      <description>Contact Email: rjcmarkelz {at} berkeley.edu Twitter: rjcmarkelz Github: rjcmarkelz linkedin: codymarkelz </description>
+    </item>
+    
+  </channel>
+</rss>

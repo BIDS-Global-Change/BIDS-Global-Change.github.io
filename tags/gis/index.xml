@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>GIS on BIDS- Environmental</title>
+    <link>https://bids-global-change.github.io/tags/gis/</link>
+    <description>Recent content in GIS on BIDS- Environmental</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 23 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://bids-global-change.github.io/tags/gis/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Cycle Commuting and Nature Observations</title>
+      <link>https://bids-global-change.github.io/2021/06/23/gbif-mlk-cycling-nature/</link>
+      <pubDate>Wed, 23 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://bids-global-change.github.io/2021/06/23/gbif-mlk-cycling-nature/</guid>
+      <description>MLK Shoreline and iNaturalist Observations For the last few years I commuted to work most days by bicycle along the Martin Luther King Jr. Regional Shoreline Park in Oakland, CA. This will be a series of data science posts exploring personal data collected by my smart watch and publicly available weather, nature and biodiversity data. It is my hope that this will show into the brain of how a data scientist thinks, learns, asks questions, creates models, and visualizes data from right in their back yard through a series of posts.</description>
+    </item>
+    
+    <item>
+      <title>Miracle Mile Conifer Species</title>
+      <link>https://bids-global-change.github.io/2021/06/17/gbif-miracle-mile-species/</link>
+      <pubDate>Thu, 17 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://bids-global-change.github.io/2021/06/17/gbif-miracle-mile-species/</guid>
+      <description>Load the libraries library(rgbif) library(tidyverse) library(data.table) library(maps) library(leaflet)  Pull observations and Specimens pinus_balfouriana &amp;lt;- occ_data(scientificName = &amp;quot;Pinus balfouriana&amp;quot;, hasCoordinate = TRUE, limit = 10000) # pinus_balfouriana head(gbif_citation(pinus_balfouriana), 2) ## [[1]] ## &amp;lt;&amp;lt;rgbif citation&amp;gt;&amp;gt; ## Citation: Ueda K (2021). iNaturalist Research-grade Observations. ## iNaturalist.org. Occurrence dataset https://doi.org/10.15468/ab3s5x ## accessed via GBIF.org on 2021-06-22.. Accessed from R via rgbif ## (https://github.com/ropensci/rgbif) on 2021-06-22 ## Rights: http://creativecommons.</description>
+    </item>
+    
+  </channel>
+</rss>

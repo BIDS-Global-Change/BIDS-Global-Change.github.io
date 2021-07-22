@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>modeling on BIDS- Environmental</title>
+    <link>https://bids-global-change.github.io/tags/modeling/</link>
+    <description>Recent content in modeling on BIDS- Environmental</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 17 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://bids-global-change.github.io/tags/modeling/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Miracle Mile Conifer Species</title>
+      <link>https://bids-global-change.github.io/2021/06/17/gbif-miracle-mile-species/</link>
+      <pubDate>Thu, 17 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://bids-global-change.github.io/2021/06/17/gbif-miracle-mile-species/</guid>
+      <description>Load the libraries library(rgbif) library(tidyverse) library(data.table) library(maps) library(leaflet)  Pull observations and Specimens pinus_balfouriana &amp;lt;- occ_data(scientificName = &amp;quot;Pinus balfouriana&amp;quot;, hasCoordinate = TRUE, limit = 10000) # pinus_balfouriana head(gbif_citation(pinus_balfouriana), 2) ## [[1]] ## &amp;lt;&amp;lt;rgbif citation&amp;gt;&amp;gt; ## Citation: Ueda K (2021). iNaturalist Research-grade Observations. ## iNaturalist.org. Occurrence dataset https://doi.org/10.15468/ab3s5x ## accessed via GBIF.org on 2021-06-22.. Accessed from R via rgbif ## (https://github.com/ropensci/rgbif) on 2021-06-22 ## Rights: http://creativecommons.</description>
+    </item>
+    
+  </channel>
+</rss>
