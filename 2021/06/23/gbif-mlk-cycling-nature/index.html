@@ -11,8 +11,8 @@
         <meta name="robots" content="index,follow">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
-        <link rel="stylesheet" href="https://bids-global-change.github.io/dist/site.css">
-        <link rel="stylesheet" href="https://bids-global-change.github.io/dist/syntax.css">
+        <link rel="stylesheet" href="/dist/site.css">
+        <link rel="stylesheet" href="/dist/syntax.css">
         
         
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300&subset=latin,cyrillic-ext,latin-ext,cyrillic">
@@ -110,16 +110,16 @@
     
 
     
-<script src="https://bids-global-change.github.io/2021/06/23/gbif-mlk-cycling-nature/index_files/header-attrs/header-attrs.js"></script>
-<script src="https://bids-global-change.github.io/2021/06/23/gbif-mlk-cycling-nature/index_files/htmlwidgets/htmlwidgets.js"></script>
-<script src="https://bids-global-change.github.io/2021/06/23/gbif-mlk-cycling-nature/index_files/jquery/jquery.min.js"></script>
-<link href="https://bids-global-change.github.io/2021/06/23/gbif-mlk-cycling-nature/index_files/leaflet/leaflet.css" rel="stylesheet" />
-<script src="https://bids-global-change.github.io/2021/06/23/gbif-mlk-cycling-nature/index_files/leaflet/leaflet.js"></script>
-<link href="https://bids-global-change.github.io/2021/06/23/gbif-mlk-cycling-nature/index_files/leafletfix/leafletfix.css" rel="stylesheet" />
-<script src="https://bids-global-change.github.io/2021/06/23/gbif-mlk-cycling-nature/index_files/proj4/proj4.min.js"></script>
-<script src="https://bids-global-change.github.io/2021/06/23/gbif-mlk-cycling-nature/index_files/Proj4Leaflet/proj4leaflet.js"></script>
-<link href="https://bids-global-change.github.io/2021/06/23/gbif-mlk-cycling-nature/index_files/rstudio_leaflet/rstudio_leaflet.css" rel="stylesheet" />
-<script src="https://bids-global-change.github.io/2021/06/23/gbif-mlk-cycling-nature/index_files/leaflet-binding/leaflet.js"></script>
+<script src="/2021/06/23/gbif-mlk-cycling-nature/index_files/header-attrs/header-attrs.js"></script>
+<script src="/2021/06/23/gbif-mlk-cycling-nature/index_files/htmlwidgets/htmlwidgets.js"></script>
+<script src="/2021/06/23/gbif-mlk-cycling-nature/index_files/jquery/jquery.min.js"></script>
+<link href="/2021/06/23/gbif-mlk-cycling-nature/index_files/leaflet/leaflet.css" rel="stylesheet" />
+<script src="/2021/06/23/gbif-mlk-cycling-nature/index_files/leaflet/leaflet.js"></script>
+<link href="/2021/06/23/gbif-mlk-cycling-nature/index_files/leafletfix/leafletfix.css" rel="stylesheet" />
+<script src="/2021/06/23/gbif-mlk-cycling-nature/index_files/proj4/proj4.min.js"></script>
+<script src="/2021/06/23/gbif-mlk-cycling-nature/index_files/Proj4Leaflet/proj4leaflet.js"></script>
+<link href="/2021/06/23/gbif-mlk-cycling-nature/index_files/rstudio_leaflet/rstudio_leaflet.css" rel="stylesheet" />
+<script src="/2021/06/23/gbif-mlk-cycling-nature/index_files/leaflet-binding/leaflet.js"></script>
 
 
 <div id="mlk-shoreline-and-inaturalist-observations" class="section level1">
@@ -223,14 +223,14 @@ dim(mlk_bio)</code></pre>
 <pre class="r"><code>mlk_bio_P1  &lt;- ggplot(mlk_bio, aes(x=longitude, y = latitude, color = quality_grade)) +
        geom_point() + labs(color = &quot;Obs Grade&quot;)
 mlk_bio_P1</code></pre>
-<p><img src="https://bids-global-change.github.io/2021/06/23/gbif-mlk-cycling-nature/index_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p><img src="/2021/06/23/gbif-mlk-cycling-nature/index_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
 <p>Fortunately this area is near a population center with many biology experts so we have a large fraction of the observations of “research” grade. Let’s plot the different taxa observations on reduced dataframe that only includes the research grade observations.</p>
 <pre class="r"><code>mlk_bio_research &lt;- subset(mlk_bio, quality_grade == &quot;research&quot;)
 
 mlk_bio_P2  &lt;- ggplot(mlk_bio_research, aes(x=longitude, y = latitude, color = iconic_taxon_name)) +
        geom_point() + labs(color = &quot;Taxon&quot;, title = &quot;MLK Shoreline iNaturalist Observations&quot;)
 mlk_bio_P2</code></pre>
-<p><img src="https://bids-global-change.github.io/2021/06/23/gbif-mlk-cycling-nature/index_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p><img src="/2021/06/23/gbif-mlk-cycling-nature/index_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
 <p>Take a look with the Open Maps overlay. Definitely over plotted, but will deal with that in the next post.</p>
 <pre class="r"><code>mlk_bio_research %&gt;% leaflet() %&gt;% addTiles() %&gt;%
 addMarkers(~longitude, ~latitude)</code></pre>
@@ -345,7 +345,7 @@ addPolylines(~lon, ~lat, color = &#39;blue&#39;, opacity = 1, weight = 10)</code
   geom_histogram()
 speed_plot</code></pre>
 <pre><code>## Warning: Removed 130 rows containing non-finite values (stat_bin).</code></pre>
-<p><img src="https://bids-global-change.github.io/2021/06/23/gbif-mlk-cycling-nature/index_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+<p><img src="/2021/06/23/gbif-mlk-cycling-nature/index_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
 <p>Basic data looking okay. On to writing the next tutorials.</p>
 <!--
 The watch that I have has the ability to detect heart rate and it works fairly well if your wrist is not moving around compared to the much more accurate heart rate strap. Here I create a new column of data that breaks up the heart rate information into different zones roughly corresponding to different physiological states. These zones are defined by -->
@@ -378,7 +378,7 @@ The watch that I have has the ability to detect heart rate and it works fairly w
             <div class="container">
                 <div class="site-title-wrapper">
                     <h1 class="site-title">
-                        <a href="https://bids-global-change.github.io/">BIDS- Environmental</a>
+                        <a href="/">BIDS- Environmental</a>
                     </h1>
                     <a class="button-square button-jump-top js-jump-top" href="#" aria-label="Back to Top">
                         <i class="fa fa-angle-up" aria-hidden="true"></i>
@@ -395,9 +395,9 @@ The watch that I have has the ability to detect heart rate and it works fairly w
             </div>
         </footer>
 
-        <script src="https://bids-global-change.github.io/js/jquery-1.11.3.min.js"></script>
-        <script src="https://bids-global-change.github.io/js/jquery.fitvids.js"></script>
-        <script src="https://bids-global-change.github.io/js/scripts.js"></script>
+        <script src="/js/jquery-1.11.3.min.js"></script>
+        <script src="/js/jquery.fitvids.js"></script>
+        <script src="/js/scripts.js"></script>
     </body>
 </html>
 

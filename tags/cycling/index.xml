@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>cycling on BIDS- Environmental</title>
-    <link>https://bids-global-change.github.io/tags/cycling/</link>
+    <link>/tags/cycling/</link>
     <description>Recent content in cycling on BIDS- Environmental</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 23 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://bids-global-change.github.io/tags/cycling/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 23 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="/tags/cycling/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Cycle Commuting and Nature Observations</title>
-      <link>https://bids-global-change.github.io/2021/06/23/gbif-mlk-cycling-nature/</link>
+      <link>/2021/06/23/gbif-mlk-cycling-nature/</link>
       <pubDate>Wed, 23 Jun 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://bids-global-change.github.io/2021/06/23/gbif-mlk-cycling-nature/</guid>
+      <guid>/2021/06/23/gbif-mlk-cycling-nature/</guid>
       <description>MLK Shoreline and iNaturalist Observations For the last few years I commuted to work most days by bicycle along the Martin Luther King Jr. Regional Shoreline Park in Oakland, CA. This will be a series of data science posts exploring personal data collected by my smart watch and publicly available weather, nature and biodiversity data. It is my hope that this will show into the brain of how a data scientist thinks, learns, asks questions, creates models, and visualizes data from right in their back yard through a series of posts.</description>
     </item>
     

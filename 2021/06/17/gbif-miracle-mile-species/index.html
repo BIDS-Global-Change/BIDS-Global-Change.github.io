@@ -11,8 +11,8 @@
         <meta name="robots" content="index,follow">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
-        <link rel="stylesheet" href="https://bids-global-change.github.io/dist/site.css">
-        <link rel="stylesheet" href="https://bids-global-change.github.io/dist/syntax.css">
+        <link rel="stylesheet" href="/dist/site.css">
+        <link rel="stylesheet" href="/dist/syntax.css">
         
         
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300&subset=latin,cyrillic-ext,latin-ext,cyrillic">
@@ -108,16 +108,16 @@
     
 
     
-<script src="https://bids-global-change.github.io/2021/06/17/gbif-miracle-mile-species/index_files/header-attrs/header-attrs.js"></script>
-<script src="https://bids-global-change.github.io/2021/06/17/gbif-miracle-mile-species/index_files/htmlwidgets/htmlwidgets.js"></script>
-<script src="https://bids-global-change.github.io/2021/06/17/gbif-miracle-mile-species/index_files/jquery/jquery.min.js"></script>
-<link href="https://bids-global-change.github.io/2021/06/17/gbif-miracle-mile-species/index_files/leaflet/leaflet.css" rel="stylesheet" />
-<script src="https://bids-global-change.github.io/2021/06/17/gbif-miracle-mile-species/index_files/leaflet/leaflet.js"></script>
-<link href="https://bids-global-change.github.io/2021/06/17/gbif-miracle-mile-species/index_files/leafletfix/leafletfix.css" rel="stylesheet" />
-<script src="https://bids-global-change.github.io/2021/06/17/gbif-miracle-mile-species/index_files/proj4/proj4.min.js"></script>
-<script src="https://bids-global-change.github.io/2021/06/17/gbif-miracle-mile-species/index_files/Proj4Leaflet/proj4leaflet.js"></script>
-<link href="https://bids-global-change.github.io/2021/06/17/gbif-miracle-mile-species/index_files/rstudio_leaflet/rstudio_leaflet.css" rel="stylesheet" />
-<script src="https://bids-global-change.github.io/2021/06/17/gbif-miracle-mile-species/index_files/leaflet-binding/leaflet.js"></script>
+<script src="/2021/06/17/gbif-miracle-mile-species/index_files/header-attrs/header-attrs.js"></script>
+<script src="/2021/06/17/gbif-miracle-mile-species/index_files/htmlwidgets/htmlwidgets.js"></script>
+<script src="/2021/06/17/gbif-miracle-mile-species/index_files/jquery/jquery.min.js"></script>
+<link href="/2021/06/17/gbif-miracle-mile-species/index_files/leaflet/leaflet.css" rel="stylesheet" />
+<script src="/2021/06/17/gbif-miracle-mile-species/index_files/leaflet/leaflet.js"></script>
+<link href="/2021/06/17/gbif-miracle-mile-species/index_files/leafletfix/leafletfix.css" rel="stylesheet" />
+<script src="/2021/06/17/gbif-miracle-mile-species/index_files/proj4/proj4.min.js"></script>
+<script src="/2021/06/17/gbif-miracle-mile-species/index_files/Proj4Leaflet/proj4leaflet.js"></script>
+<link href="/2021/06/17/gbif-miracle-mile-species/index_files/rstudio_leaflet/rstudio_leaflet.css" rel="stylesheet" />
+<script src="/2021/06/17/gbif-miracle-mile-species/index_files/leaflet-binding/leaflet.js"></script>
 
 
 <div id="load-the-libraries" class="section level1">
@@ -192,7 +192,7 @@ pinus_balfouriana_coords &lt;- slice(pinus_balfouriana_coords, -(278))</code></p
 #?map()
 maps::map(database = &quot;state&quot;, region = &quot;california&quot;)
 points(pinus_balfouriana_coords[ , c(&quot;decimalLongitude&quot;, &quot;decimalLatitude&quot;)], pch = &quot;.&quot;, col = &quot;red&quot;, cex = 3)</code></pre>
-<p><img src="https://bids-global-change.github.io/2021/06/17/gbif-miracle-mile-species/index_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p><img src="/2021/06/17/gbif-miracle-mile-species/index_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 <p>Subset our search to only Northern California</p>
 <pre class="r"><code>mm_geometry &lt;- paste(&#39;POLYGON((-124.4323 42.0021, -121.5045 42.0021, -121.5045 40.194, -124.4323 40.194, -124.4323 42.0021))&#39;)</code></pre>
 <pre class="r"><code>pinus_balfouriana &lt;- occ_data(scientificName = &quot;Pinus balfouriana&quot;, hasCoordinate = TRUE, limit = 10000,
@@ -264,7 +264,7 @@ head(pinus_balfouriana)</code></pre>
   &quot;institutionCode&quot;, &quot;references&quot;)]</code></pre>
 <p>Plot the data in a few different ways to see if there is anything strange.</p>
 <pre class="r"><code>plot(pinus_balfouriana_coords$decimalLongitude, pinus_balfouriana_coords$decimalLatitude) # examine the data</code></pre>
-<p><img src="https://bids-global-change.github.io/2021/06/17/gbif-miracle-mile-species/index_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<p><img src="/2021/06/17/gbif-miracle-mile-species/index_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
 <pre class="r"><code>pinus_balfouriana_coords %&gt;% leaflet() %&gt;% addTiles() %&gt;%
 addMarkers(~decimalLongitude, ~decimalLatitude)</code></pre>
 <div id="htmlwidget-1" style="width:672px;height:480px;" class="leaflet html-widget"></div>
@@ -750,12 +750,12 @@ dim(tree_df)</code></pre>
 <p>Plot all of the species on the California map.</p>
 <pre class="r"><code>maps::map(database = &quot;state&quot;, region = &quot;california&quot;)
 points(tree_df[ , c(&quot;decimalLongitude&quot;, &quot;decimalLatitude&quot;)], pch = &quot;.&quot;, col = &quot;blue&quot;, cex = 3)</code></pre>
-<p><img src="https://bids-global-change.github.io/2021/06/17/gbif-miracle-mile-species/index_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+<p><img src="/2021/06/17/gbif-miracle-mile-species/index_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
 <p>Plot all of the species using ggplot in case you want to do something a bit fancier.</p>
 <pre class="r"><code>mm_species_plot1  &lt;- ggplot(tree_df, aes(x=decimalLongitude, y = decimalLatitude, color = species)) +
        geom_point() + labs(color = &quot;Species&quot;, title = &quot;MM Zone&quot;)
 mm_species_plot1</code></pre>
-<p><img src="https://bids-global-change.github.io/2021/06/17/gbif-miracle-mile-species/index_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<p><img src="/2021/06/17/gbif-miracle-mile-species/index_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
 <p>Now that the data is somewhat organized we will be doing some exploratory data analysis next.</p>
 </div>
 </div>
@@ -786,7 +786,7 @@ mm_species_plot1</code></pre>
             <div class="container">
                 <div class="site-title-wrapper">
                     <h1 class="site-title">
-                        <a href="https://bids-global-change.github.io/">BIDS- Environmental</a>
+                        <a href="/">BIDS- Environmental</a>
                     </h1>
                     <a class="button-square button-jump-top js-jump-top" href="#" aria-label="Back to Top">
                         <i class="fa fa-angle-up" aria-hidden="true"></i>
@@ -803,9 +803,9 @@ mm_species_plot1</code></pre>
             </div>
         </footer>
 
-        <script src="https://bids-global-change.github.io/js/jquery-1.11.3.min.js"></script>
-        <script src="https://bids-global-change.github.io/js/jquery.fitvids.js"></script>
-        <script src="https://bids-global-change.github.io/js/scripts.js"></script>
+        <script src="/js/jquery-1.11.3.min.js"></script>
+        <script src="/js/jquery.fitvids.js"></script>
+        <script src="/js/scripts.js"></script>
     </body>
 </html>
 

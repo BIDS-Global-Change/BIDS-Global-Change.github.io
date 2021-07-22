@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Pages on BIDS- Environmental</title>
-    <link>https://bids-global-change.github.io/page/</link>
+    <link>/page/</link>
     <description>Recent content in Pages on BIDS- Environmental</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 01 Jul 2021 02:13:50 +0000</lastBuildDate><atom:link href="https://bids-global-change.github.io/page/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 01 Jul 2021 02:13:50 +0000</lastBuildDate><atom:link href="/page/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Links</title>
-      <link>https://bids-global-change.github.io/page/links/</link>
+      <link>/page/links/</link>
       <pubDate>Thu, 01 Jul 2021 02:13:50 +0000</pubDate>
       
-      <guid>https://bids-global-change.github.io/page/links/</guid>
+      <guid>/page/links/</guid>
       <description>General Datasets pyregence fire 17TB
 cal conservation genomics
 Geospatial Innovation Facility
@@ -40,19 +40,19 @@ California Wildfire Dataset 2</description>
     
     <item>
       <title>About</title>
-      <link>https://bids-global-change.github.io/page/about/</link>
+      <link>/page/about/</link>
       <pubDate>Tue, 18 Nov 2014 02:13:50 +0000</pubDate>
       
-      <guid>https://bids-global-change.github.io/page/about/</guid>
+      <guid>/page/about/</guid>
       <description>About Work As we enter an era of unprecedented amounts of data, we face the defining challenge of our age - global environmental change. From automated environmental sensors to satellite imaging to emerging DNA technologies, the data that describes the world around us will aid in how we approach the many challenges of climate change. By harnessing this data we can observe how are planet is changing and through data science approaches allow us to predict, and further define, how we as a society can respond and remediate the effects of our climate uncertain future.</description>
     </item>
     
     <item>
       <title>Contact Page</title>
-      <link>https://bids-global-change.github.io/page/contact/</link>
+      <link>/page/contact/</link>
       <pubDate>Tue, 18 Nov 2014 02:13:50 +0000</pubDate>
       
-      <guid>https://bids-global-change.github.io/page/contact/</guid>
+      <guid>/page/contact/</guid>
       <description>Contact Email: rjcmarkelz {at} berkeley.edu Twitter: rjcmarkelz Github: rjcmarkelz linkedin: codymarkelz </description>
     </item>
     
