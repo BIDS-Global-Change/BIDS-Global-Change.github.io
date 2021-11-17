@@ -8,12 +8,12 @@
     <language>en-us</language>
     <lastBuildDate>Wed, 23 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Cycle Commuting and Nature Observations</title>
-      <link>/2021/06/23/gbif-mlk-cycling-nature/</link>
+      <title>MLK Shoreline iNaturalist data</title>
+      <link>/2021/06/23/inaturalist-mlk-nature/</link>
       <pubDate>Wed, 23 Jun 2021 00:00:00 +0000</pubDate>
       
-      <guid>/2021/06/23/gbif-mlk-cycling-nature/</guid>
-      <description>MLK Shoreline and iNaturalist Observations For the last few years I commuted to work most days by bicycle along the Martin Luther King Jr. Regional Shoreline Park in Oakland, CA. This will be a series of data science posts exploring personal data collected by my smart watch and publicly available weather, nature and biodiversity data. It is my hope that this will show into the brain of how a data scientist thinks, learns, asks questions, creates models, and visualizes data from right in their back yard through a series of posts.</description>
+      <guid>/2021/06/23/inaturalist-mlk-nature/</guid>
+      <description>MLK Shoreline and iNaturalist Observations For the last few years I commuted to work most days by bicycle along the Martin Luther King Jr. Regional Shoreline Park in Oakland, CA. This will be a series of data science posts exploring personal data collected by my smart watch and publicly available weather, nature and biodiversity data collected in this park. It is my hope that this will show into the brain of how a data scientist thinks, learns, asks questions, creates models, and visualizes data from right in their back yard through a series of posts.</description>
     </item>
     
     <item>
@@ -22,7 +22,8 @@
       <pubDate>Thu, 17 Jun 2021 00:00:00 +0000</pubDate>
       
       <guid>/2021/06/17/gbif-miracle-mile-species/</guid>
-      <description>Load the libraries library(rgbif) library(tidyverse) library(data.table) library(maps) library(leaflet)  Pull observations and Specimens pinus_balfouriana &amp;lt;- occ_data(scientificName = &amp;quot;Pinus balfouriana&amp;quot;, hasCoordinate = TRUE, limit = 10000) # pinus_balfouriana head(gbif_citation(pinus_balfouriana), 2) ## [[1]] ## &amp;lt;&amp;lt;rgbif citation&amp;gt;&amp;gt; ## Citation: Ueda K (2021). iNaturalist Research-grade Observations. ## iNaturalist.org. Occurrence dataset https://doi.org/10.15468/ab3s5x ## accessed via GBIF.org on 2021-06-22.. Accessed from R via rgbif ## (https://github.com/ropensci/rgbif) on 2021-06-22 ## Rights: http://creativecommons.</description>
+      <description>Introduction Overall, my research aims to understand how environmental factors, like wild fires, influence biodiversity. One of the most used databases for measuring biodiversity is the Global Biodiversity Information Facility GBIF. This is post is a brief introduction of how to use GBIF, using the example of mapping a few conifer species in California.
+Load the libraries library(rgbif) library(tidyverse) library(data.table) library(maps) library(leaflet)   Part 1 -Mapping one species Using the R package function occ_data() request data from the GBIF database with the species name, selecting the observations that have a coordinate, and limiting the query to 10000 observations.</description>
     </item>
     
   </channel>
