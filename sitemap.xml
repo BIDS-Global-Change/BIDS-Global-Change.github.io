@@ -3,7 +3,34 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>/</loc>
-    <lastmod>2021-07-01T02:13:50+00:00</lastmod>
+    <lastmod>2021-12-15T09:07:38-08:00</lastmod>
+  </url><url>
+    <loc>/categories/</loc>
+    <lastmod>2021-12-15T09:07:38-08:00</lastmod>
+  </url><url>
+    <loc>/2021/12/15/introduction-to-obsidian/</loc>
+    <lastmod>2021-12-15T09:07:38-08:00</lastmod>
+  </url><url>
+    <loc>/tags/obsidian/</loc>
+    <lastmod>2021-12-15T09:07:38-08:00</lastmod>
+  </url><url>
+    <loc>/categories/obsidian-research/</loc>
+    <lastmod>2021-12-15T09:07:38-08:00</lastmod>
+  </url><url>
+    <loc>/post/</loc>
+    <lastmod>2021-12-15T09:07:38-08:00</lastmod>
+  </url><url>
+    <loc>/tags/project-management/</loc>
+    <lastmod>2021-12-15T09:07:38-08:00</lastmod>
+  </url><url>
+    <loc>/tags/research/</loc>
+    <lastmod>2021-12-15T09:07:38-08:00</lastmod>
+  </url><url>
+    <loc>/tags/</loc>
+    <lastmod>2021-12-15T09:07:38-08:00</lastmod>
+  </url><url>
+    <loc>/tags/tools/</loc>
+    <lastmod>2021-12-15T09:07:38-08:00</lastmod>
   </url><url>
     <loc>/page/links/</loc>
     <lastmod>2021-07-01T02:13:50+00:00</lastmod>
@@ -24,12 +51,6 @@
     <lastmod>2021-06-23T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/tags/nature/</loc>
-    <lastmod>2021-06-23T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/post/</loc>
-    <lastmod>2021-06-23T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/tags/</loc>
     <lastmod>2021-06-23T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/tags/gbif/</loc>
@@ -55,7 +76,5 @@
   </url><url>
     <loc>/page/contact/</loc>
     <lastmod>2014-11-18T02:13:50+00:00</lastmod>
-  </url><url>
-    <loc>/categories/</loc>
   </url>
 </urlset>

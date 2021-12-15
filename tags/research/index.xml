@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>research on BIDS- Environmental</title>
+    <link>/tags/research/</link>
+    <description>Recent content in research on BIDS- Environmental</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 15 Dec 2021 09:07:38 -0800</lastBuildDate><atom:link href="/tags/research/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Introduction to Obsidian</title>
+      <link>/2021/12/15/introduction-to-obsidian/</link>
+      <pubDate>Wed, 15 Dec 2021 09:07:38 -0800</pubDate>
+      
+      <guid>/2021/12/15/introduction-to-obsidian/</guid>
+      <description>What is it? Obsidian is a way to take notes in markdown and link those notes together. Linking ideas is a powerful way to form new ones and reinforce old ones. Obsidian is fairly flexible, has a large number of extensions, an active community for ideas and troubleshooting, and is kind of an addictive productivity tool.
+Why is it interesting? I was originally attracted to this option because I spend a lot of my time making markdown documents as part of daily research activities.</description>
+    </item>
+    
+  </channel>
+</rss>
