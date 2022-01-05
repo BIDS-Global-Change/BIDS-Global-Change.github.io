@@ -6,11 +6,11 @@
     <description>Recent content in Tags on BIDS- Environmental</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 15 Dec 2021 09:07:38 -0800</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 01 Jan 2022 09:07:38 -0800</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>obsidian</title>
       <link>/tags/obsidian/</link>
-      <pubDate>Wed, 15 Dec 2021 09:07:38 -0800</pubDate>
+      <pubDate>Sat, 01 Jan 2022 09:07:38 -0800</pubDate>
       
       <guid>/tags/obsidian/</guid>
       <description></description>
@@ -19,7 +19,7 @@
     <item>
       <title>project management</title>
       <link>/tags/project-management/</link>
-      <pubDate>Wed, 15 Dec 2021 09:07:38 -0800</pubDate>
+      <pubDate>Sat, 01 Jan 2022 09:07:38 -0800</pubDate>
       
       <guid>/tags/project-management/</guid>
       <description></description>
@@ -28,7 +28,7 @@
     <item>
       <title>research</title>
       <link>/tags/research/</link>
-      <pubDate>Wed, 15 Dec 2021 09:07:38 -0800</pubDate>
+      <pubDate>Sat, 01 Jan 2022 09:07:38 -0800</pubDate>
       
       <guid>/tags/research/</guid>
       <description></description>
@@ -37,9 +37,18 @@
     <item>
       <title>tools</title>
       <link>/tags/tools/</link>
-      <pubDate>Wed, 15 Dec 2021 09:07:38 -0800</pubDate>
+      <pubDate>Sat, 01 Jan 2022 09:07:38 -0800</pubDate>
       
       <guid>/tags/tools/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>zotero</title>
+      <link>/tags/zotero/</link>
+      <pubDate>Sat, 01 Jan 2022 09:07:38 -0800</pubDate>
+      
+      <guid>/tags/zotero/</guid>
       <description></description>
     </item>
     
