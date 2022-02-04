@@ -6,7 +6,28 @@
     <description>Recent content on BIDS- Environmental</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 01 Jan 2022 09:07:38 -0800</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 01 Feb 2022 09:07:38 -0800</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>UC Reserve System Environmental Data - 1</title>
+      <link>/2022/02/01/uc-reserve-system-environmental-data-1/</link>
+      <pubDate>Tue, 01 Feb 2022 09:07:38 -0800</pubDate>
+      
+      <guid>/2022/02/01/uc-reserve-system-environmental-data-1/</guid>
+      <description>This post was to fulfill two small goals. I wanted to explore the publicly available UC Reserve Data and learn how to host small datasets within the blogdown blog framework that this website is written in. I also wanted to make sure I could save small output analyses and come back to them at a later date.
+There is a good discussion of how hugo can handle internal datasets and how to organize the datasets here.</description>
+    </item>
+    
+    <item>
+      <title>Scraping Weather Data</title>
+      <link>/2022/01/15/scraping-weather-data/</link>
+      <pubDate>Sat, 15 Jan 2022 09:07:38 -0800</pubDate>
+      
+      <guid>/2022/01/15/scraping-weather-data/</guid>
+      <description>A quick post showing how to extract data from a website and make a few plots. I chose the Mount Shasta Avalanche Center data because I monitor this everyday throughout the season to see how the avalanche forecast changes and how the snowpack is developing.
+R vest There is a great website scraping package that is part of the tidyverse called Rvest. Check out the Documentation.
+library(rvest) library(tidyverse) library(lubridate) html &amp;lt;- read_html(&amp;quot;https://www.</description>
+    </item>
+    
     <item>
       <title>Zotero &#43; Obsidian</title>
       <link>/2022/01/01/zotero-obsidian/</link>

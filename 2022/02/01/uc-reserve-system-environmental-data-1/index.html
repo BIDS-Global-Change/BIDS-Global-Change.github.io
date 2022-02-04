@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>UC Reserve System Environmental Data - 1 &middot; </title>
+        <meta name="description" content="This post was to fulfill two small goals. I wanted to explore the publicly available UC Reserve Data and learn how to host small datasets within the blogdown blog framework that this website is written in. I also wanted to make sure I could save small output analyses and come back to them at a later date.
+There is a good discussion of how hugo can handle internal datasets and how to organize the datasets here.">
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="generator" content="Hugo 0.82.0" />
+        <meta name="robots" content="index,follow">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <link rel="stylesheet" href="/dist/site.css">
+        <link rel="stylesheet" href="/dist/syntax.css">
+        
+        
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300&subset=latin,cyrillic-ext,latin-ext,cyrillic">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+        
+        
+        
+        
+        
+
+    </head>
+    <body>
+        
+
+        <div id="wrapper">
+            <header class="site-header">
+                <div class="container">
+                    <div class="site-title-wrapper">
+                        
+                            <a class="site-logo" href="">
+                                <img src="#ZgotmplZ" alt="" />
+                            </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                    </div>
+
+                    <ul class="site-nav">
+                        
+    <li class="site-nav-item">
+        <a href="/post/">Blog</a>
+    </li>
+
+    <li class="site-nav-item">
+        <a href="/project/">Projects</a>
+    </li>
+
+    <li class="site-nav-item">
+        <a href="/page/about/">About</a>
+    </li>
+
+    <li class="site-nav-item">
+        <a href="/page/contact/">contact</a>
+    </li>
+
+    <li class="site-nav-item">
+        <a href="/page/links/">links</a>
+    </li>
+
+    <li class="site-nav-item">
+        <a href="https://github.com/BIDS-Global-Change/">GitHub</a>
+    </li>
+
+    <li class="site-nav-item">
+        <a href="https://twitter.com/rjcmarkelz">Twitter</a>
+    </li>
+
+
+                    </ul>
+                </div>
+            </header>
+
+            <div id="container">
+
+
+<link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/routeros.min.css" rel="stylesheet">
+
+
+<div class="container">
+    <article class="post-container" itemscope="" itemtype="http://schema.org/BlogPosting">
+        <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">UC Reserve System Environmental Data - 1</h1>
+    
+    <p class="post-date post-line">
+        <span>Published <time datetime="2022-02-01" itemprop="datePublished">Tue, Feb 1, 2022</time></span>
+        <span>by</span>
+        <span itemscope="" itemprop="author" itemtype="https://schema.org/Person">
+            <span itemprop="name">
+                <a href="#" itemprop="url" rel="author">RJ Cody Markelz</a>
+            </span>
+        </span>
+    </p>
+    
+</header>
+
+        <div class="post-content clearfix" itemprop="articleBody">
+    
+
+    
+<script src="/2022/02/01/uc-reserve-system-environmental-data-1/index_files/header-attrs/header-attrs.js"></script>
+
+
+<p>This post was to fulfill two small goals. I wanted to explore the publicly available UC Reserve Data and learn how to host small datasets within the <a href="https://bookdown.org/yihui/blogdown/">blogdown blog framework</a> that this website is written in. I also wanted to make sure I could save small output analyses and come back to them at a later date.</p>
+<p>There is a good discussion of how <a href="https://gohugo.io/">hugo</a> can handle internal datasets and how to organize the datasets <a href="https://blogdown-demo.rbind.io/2018/02/27/r-file-paths/">here</a>. I only found this post after playing around with various configurations so this could save some headache.</p>
+<p>The UC Reserve System has a many <a href="https://ucnrs.org/research-resources/">data sources</a> including species lists. For this post I used the <a href="https://ucnrs.org/plant-list/">Plant Species List</a> Excel File compiled by Brian P. Haggerty and Susan J. Mazer of UC Santa Barbara. I did a little data cleaning on this multi-tabbed spreadsheet. I will do a short post on that process soon.</p>
+<pre class="r"><code>library(tidyverse)
+eco_data &lt;- read.csv(&quot;../../../static/data/reserve-eco-data.csv&quot;)</code></pre>
+<p>Take a quick look at how the data is structured.</p>
+<pre class="r"><code>glimpse(eco_data)</code></pre>
+<pre><code>## Rows: 36
+## Columns: 11
+## $ UC.Natural.Reserve                        &lt;chr&gt; &quot;Año Nuevo Island Reserve (s…
+## $ X..Unique.Species..excluding.ssp....var.. &lt;int&gt; 0, 42, 55, 87, 150, 159, 170…
+## $ X..Taxa.including.ssp....var.             &lt;int&gt; 0, 45, 72, 88, 151, 162, 173…
+## $ Reserve.Size..ha.                         &lt;int&gt; 10, 18624, 8, 11, 69, 22, 24…
+## $ Elevation.Low..m.                         &lt;int&gt; 0, 0, 0, 0, 0, 1250, 21, 0, …
+## $ Elevation.High..m.                        &lt;int&gt; 13, 742, 2, 15, 12, 4012, 58…
+## $ Elevation.Range..m.                       &lt;int&gt; 13, 742, 2, 15, 12, 2762, 37…
+## $ Precipitation..cm.                        &lt;int&gt; 50, 50, 22, 62, 77, 32, 46, …
+## $ Temperature.Low...C.                      &lt;chr&gt; &quot;4&quot;, &quot;10&quot;, &quot;9&quot;, &quot;12&quot;, &quot;6&quot;, &quot;…
+## $ Temperature.High...C.                     &lt;chr&gt; &quot;24&quot;, &quot;22&quot;, &quot;25&quot;, &quot;15&quot;, &quot;24&quot;…
+## $ X                                         &lt;chr&gt; &quot;24&quot;, &quot;22&quot;, &quot;25&quot;, &quot;15&quot;, &quot;24&quot;…</code></pre>
+<p>Data clean up and header labeling.</p>
+<pre class="r"><code>eco_data &lt;- eco_data[1:10]
+names(eco_data)[1:10] &lt;- paste(c(&quot;reserve&quot;, &quot;unique&quot;, &quot;taxa&quot;, &quot;size&quot;, &quot;elevation_low&quot;, &quot;elevation_high&quot;, &quot;elevation_range&quot;,&quot;precip&quot;, &quot;temp_low&quot;, &quot;temp_high&quot;))
+names(eco_data)</code></pre>
+<pre><code>##  [1] &quot;reserve&quot;         &quot;unique&quot;          &quot;taxa&quot;            &quot;size&quot;           
+##  [5] &quot;elevation_low&quot;   &quot;elevation_high&quot;  &quot;elevation_range&quot; &quot;precip&quot;         
+##  [9] &quot;temp_low&quot;        &quot;temp_high&quot;</code></pre>
+<pre class="r"><code>eco_data$temp_high &lt;- as.numeric(eco_data$temp_high)</code></pre>
+<pre><code>## Warning: NAs introduced by coercion</code></pre>
+<p>The classic precipitation vs. temperature ecological plot.</p>
+<pre class="r"><code>classic &lt;- ggplot(eco_data, aes(x=temp_high, y = precip)) +
+geom_point() +
+scale_x_continuous(name=&quot;High Temp (C)&quot;) +
+scale_y_continuous(name=&quot;Precipitation (mm)&quot;)
+classic</code></pre>
+<pre><code>## Warning: Removed 5 rows containing missing values (geom_point).</code></pre>
+<p><img src="/2022/02/01/uc-reserve-system-environmental-data-1/index_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p>Another quick plot.</p>
+<pre class="r"><code>elevation_plot1 &lt;- ggplot(eco_data, aes(x=elevation_range, y = unique)) +
+geom_point() +
+scale_x_continuous(name=&quot;Elevation Range (m)&quot;) +
+scale_y_continuous(name=&quot;Number of Unique Species&quot;)
+elevation_plot1</code></pre>
+<pre><code>## Warning: Removed 4 rows containing missing values (geom_point).</code></pre>
+<p><img src="/2022/02/01/uc-reserve-system-environmental-data-1/index_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+
+</div>
+
+        <footer class="post-footer clearfix">
+        <p class="post-tags">
+            <span>Tagged:</span>
+                <a href="/tags/data/">data</a>, 
+                <a href="/tags/research/">research</a>, 
+                <a href="/tags/forest/">forest</a>, 
+                <a href="/tags/reserve/">reserve</a>, 
+                <a href="/tags/fire/">fire</a>, 
+                <a href="/tags/tutorial/">tutorial</a>
+        </p>
+    <div class="share">
+    </div>
+</footer>
+
+        
+    </article>
+</div>
+
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="site-title-wrapper">
+                    <h1 class="site-title">
+                        <a href="/">BIDS- Environmental</a>
+                    </h1>
+                    <a class="button-square button-jump-top js-jump-top" href="#" aria-label="Back to Top">
+                        <i class="fa fa-angle-up" aria-hidden="true"></i>
+                    </a>
+                </div>
+
+                <p class="footer-copyright">
+                    <span>&copy; 2022 / Powered by <a href="https://gohugo.io/">Hugo</a></span>
+                </p>
+                <p class="footer-copyright">
+                    <span><a href="https://github.com/roryg/ghostwriter">Ghostwriter theme</a> By <a href="http://jollygoodthemes.com">JollyGoodThemes</a></span>
+                    <span>/ <a href="https://github.com/jbub/ghostwriter">Ported</a> to Hugo By <a href="https://github.com/jbub">jbub</a></span>
+                </p>
+            </div>
+        </footer>
+
+        <script src="/js/jquery-1.11.3.min.js"></script>
+        <script src="/js/jquery.fitvids.js"></script>
+        <script src="/js/scripts.js"></script>
+    </body>
+</html>
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+
+<script>
+hljs.configure({languages: []});
+hljs.initHighlightingOnLoad();
+</script>
+

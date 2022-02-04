@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>scraping on BIDS- Environmental</title>
+    <link>/tags/scraping/</link>
+    <description>Recent content in scraping on BIDS- Environmental</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 15 Jan 2022 09:07:38 -0800</lastBuildDate><atom:link href="/tags/scraping/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Scraping Weather Data</title>
+      <link>/2022/01/15/scraping-weather-data/</link>
+      <pubDate>Sat, 15 Jan 2022 09:07:38 -0800</pubDate>
+      
+      <guid>/2022/01/15/scraping-weather-data/</guid>
+      <description>A quick post showing how to extract data from a website and make a few plots. I chose the Mount Shasta Avalanche Center data because I monitor this everyday throughout the season to see how the avalanche forecast changes and how the snowpack is developing.
+R vest There is a great website scraping package that is part of the tidyverse called Rvest. Check out the Documentation.
+library(rvest) library(tidyverse) library(lubridate) html &amp;lt;- read_html(&amp;quot;https://www.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>UC Reserve System Environmental Data - I &middot; </title>
+        <meta name="description" content="# library(tidyverse) # eco_data &lt;- read.csv(&quot;/Users/rjcmarkelz/Documents/Projects/THINK/git.repos/BIDS/bids-global-change-blog/static/data/reserve-eco-data.csv&quot;) list.files(&quot;../../static&quot;) ## character(0) # head(eco_data) # tail(eco_data) # names(eco_data) # str(eco_data) # # eco_data &lt;- eco_data[1:10] # names(eco_data)[1:10] &lt;- paste(c(&quot;reserve&quot;, &quot;unique&quot;, &quot;taxa&quot;, &quot;size&quot;, &quot;elevation_low&quot;, &quot;elevation_high&quot;, &quot;elevation_range&quot;,&quot;precip&quot;, &quot;temp_low&quot;, &quot;temp_high&quot;)) # names(eco_data) # eco_data$temp_high &lt;- as.numeric(eco_data$temp_high) # # # p &lt;- ggplot(eco_data, aes(x=elevation_range, y = unique, color = reserve)) &#43; # geom_point() # p # # p &lt;- ggplot(eco_data, aes(x=elevation_range, y = unique)) &#43; # geom_point() &#43; # scale_x_continuous(name=&quot;Elevation Range (m)&quot;) &#43; # scale_y_continuous(name=&quot;Number of Unique Species&quot;) # p # # p &lt;- ggplot(eco_data, aes(x=elevation_range, y = unique)) &#43; # geom_point() &#43; # scale_x_continuous(name=&quot;Elevation Range (m)&quot;, size = 20) &#43; # scale_y_continuous(name=&quot;Number of Unique Species&quot;) # p # setwd(&quot;/Users/rjcmarkelz/Documents/git.">
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="generator" content="Hugo 0.82.0" />
+        <meta name="robots" content="index,follow">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <link rel="stylesheet" href="/dist/site.css">
+        <link rel="stylesheet" href="/dist/syntax.css">
+        
+        
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300&subset=latin,cyrillic-ext,latin-ext,cyrillic">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+        
+        
+        
+        
+        
+
+    </head>
+    <body>
+        
+
+        <div id="wrapper">
+            <header class="site-header">
+                <div class="container">
+                    <div class="site-title-wrapper">
+                        
+                            <a class="site-logo" href="">
+                                <img src="#ZgotmplZ" alt="" />
+                            </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                    </div>
+
+                    <ul class="site-nav">
+                        
+    <li class="site-nav-item">
+        <a href="/post/">Blog</a>
+    </li>
+
+    <li class="site-nav-item">
+        <a href="/project/">Projects</a>
+    </li>
+
+    <li class="site-nav-item">
+        <a href="/page/about/">About</a>
+    </li>
+
+    <li class="site-nav-item">
+        <a href="/page/contact/">contact</a>
+    </li>
+
+    <li class="site-nav-item">
+        <a href="/page/links/">links</a>
+    </li>
+
+    <li class="site-nav-item">
+        <a href="https://github.com/BIDS-Global-Change/">GitHub</a>
+    </li>
+
+    <li class="site-nav-item">
+        <a href="https://twitter.com/rjcmarkelz">Twitter</a>
+    </li>
+
+
+                    </ul>
+                </div>
+            </header>
+
+            <div id="container">
+
+
+<link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/routeros.min.css" rel="stylesheet">
+
+
+<div class="container">
+    <article class="post-container" itemscope="" itemtype="http://schema.org/BlogPosting">
+        <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">UC Reserve System Environmental Data - I</h1>
+    
+    <p class="post-date post-line">
+        <span>Published <time datetime="2022-02-01" itemprop="datePublished">Tue, Feb 1, 2022</time></span>
+        <span>by</span>
+        <span itemscope="" itemprop="author" itemtype="https://schema.org/Person">
+            <span itemprop="name">
+                <a href="#" itemprop="url" rel="author">RJ Cody Markelz</a>
+            </span>
+        </span>
+    </p>
+    
+</header>
+
+        <div class="post-content clearfix" itemprop="articleBody">
+    
+
+    
+<script src="/2022/02/01/uc-reserve-system-environmental-data-i/index_files/header-attrs/header-attrs.js"></script>
+
+
+<pre class="r"><code># library(tidyverse)
+# eco_data &lt;- read.csv(&quot;/Users/rjcmarkelz/Documents/Projects/THINK/git.repos/BIDS/bids-global-change-blog/static/data/reserve-eco-data.csv&quot;)
+list.files(&quot;../../static&quot;)</code></pre>
+<pre><code>## character(0)</code></pre>
+<pre class="r"><code># head(eco_data)
+# tail(eco_data)
+# names(eco_data)
+# str(eco_data)
+#
+# eco_data &lt;- eco_data[1:10]
+# names(eco_data)[1:10] &lt;- paste(c(&quot;reserve&quot;, &quot;unique&quot;, &quot;taxa&quot;, &quot;size&quot;, &quot;elevation_low&quot;, &quot;elevation_high&quot;, &quot;elevation_range&quot;,&quot;precip&quot;, &quot;temp_low&quot;, &quot;temp_high&quot;))
+# names(eco_data)
+# eco_data$temp_high &lt;- as.numeric(eco_data$temp_high)
+#
+#
+# p &lt;- ggplot(eco_data, aes(x=elevation_range, y = unique, color = reserve)) +
+# geom_point()
+# p
+#
+# p &lt;- ggplot(eco_data, aes(x=elevation_range, y = unique)) +
+# geom_point() +
+# scale_x_continuous(name=&quot;Elevation Range (m)&quot;) +
+# scale_y_continuous(name=&quot;Number of Unique Species&quot;)
+# p
+#
+# p &lt;- ggplot(eco_data, aes(x=elevation_range, y = unique)) +
+# geom_point() +
+# scale_x_continuous(name=&quot;Elevation Range (m)&quot;, size = 20) +
+# scale_y_continuous(name=&quot;Number of Unique Species&quot;)
+# p
+# setwd(&quot;/Users/rjcmarkelz/Documents/git.repos/BIDS/DATA/output&quot;)
+# ggsave(&quot;reserve_unique_elevation_range.png&quot;)
+#
+#
+# p &lt;- ggplot(eco_data, aes(x=temp_high, y = precip)) +
+# geom_point() +
+# scale_x_continuous(name=&quot;High Temp (C)&quot;) +
+# scale_y_continuous(name=&quot;Precipitation (mm)&quot;)
+# p
+# setwd(&quot;/Users/rjcmarkelz/Documents/git.repos/BIDS/DATA/output&quot;)
+# ggsave(&quot;reserve_temp_precip.png&quot;)
+#
+#
+# p &lt;- ggplot(eco_data, aes(x=size, y = unique, color = reserve)) +
+# geom_point()
+# p</code></pre>
+
+</div>
+
+        <footer class="post-footer clearfix">
+        <p class="post-tags">
+            <span>Tagged:</span>
+                <a href="/tags/data/">data</a>, 
+                <a href="/tags/research/">research</a>, 
+                <a href="/tags/forest/">forest</a>, 
+                <a href="/tags/reserve/">reserve</a>, 
+                <a href="/tags/fire/">fire</a>, 
+                <a href="/tags/tutorial/">tutorial</a>
+        </p>
+    <div class="share">
+    </div>
+</footer>
+
+        
+    </article>
+</div>
+
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="site-title-wrapper">
+                    <h1 class="site-title">
+                        <a href="/">BIDS- Environmental</a>
+                    </h1>
+                    <a class="button-square button-jump-top js-jump-top" href="#" aria-label="Back to Top">
+                        <i class="fa fa-angle-up" aria-hidden="true"></i>
+                    </a>
+                </div>
+
+                <p class="footer-copyright">
+                    <span>&copy; 2022 / Powered by <a href="https://gohugo.io/">Hugo</a></span>
+                </p>
+                <p class="footer-copyright">
+                    <span><a href="https://github.com/roryg/ghostwriter">Ghostwriter theme</a> By <a href="http://jollygoodthemes.com">JollyGoodThemes</a></span>
+                    <span>/ <a href="https://github.com/jbub/ghostwriter">Ported</a> to Hugo By <a href="https://github.com/jbub">jbub</a></span>
+                </p>
+            </div>
+        </footer>
+
+        <script src="/js/jquery-1.11.3.min.js"></script>
+        <script src="/js/jquery.fitvids.js"></script>
+        <script src="/js/scripts.js"></script>
+    </body>
+</html>
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+
+<script>
+hljs.configure({languages: []});
+hljs.initHighlightingOnLoad();
+</script>
+
