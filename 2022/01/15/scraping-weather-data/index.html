@@ -127,40 +127,40 @@ html %&gt;%
     html_element(&quot;.msac-wx-history-table&quot;) %&gt;%
     html_table()</code></pre>
 <pre><code>## # A tibble: 13 × 2
-##    `Weather History Summary from Oct 1, 2021 to Jan 15, 2022` `Weather History …
+##    `Weather History Summary from Oct 1, 2021 to Feb 9, 2022` `Weather History S…
 ##    &lt;chr&gt;                                                                   &lt;dbl&gt;
 ##  1 Temp Max (°F)                                                            58  
 ##  2 Temp Min (°F)                                                             7.5
-##  3 Temp Avg (°F)                                                            30  
-##  4 Wind Max (mi/hr)                                                         41  
+##  3 Temp Avg (°F)                                                            32  
+##  4 Wind Max (mi/hr)                                                         57.5
 ##  5 Wind Min (mi/hr)                                                          0  
-##  6 Wind Avg (mi/hr)                                                         11  
-##  7 Wind Gust Max (mi/hr)                                                    55.2
+##  6 Wind Avg (mi/hr)                                                         12  
+##  7 Wind Gust Max (mi/hr)                                                    92.0
 ##  8 Total Snowfall (in)                                                     152. 
 ##  9 Total Accumulated Precipitation (Water Equivalent) (in)                  12.7
 ## 10 Max Snowfall in 24 Hrs (in)                                              20.6
 ## 11 Snow Depth Max (in)                                                      81.5
 ## 12 Snow Depth Min (in)                                                       0  
-## 13 Snow Depth Avg (in)                                                      42</code></pre>
+## 13 Snow Depth Avg (in)                                                      48</code></pre>
 <pre class="r"><code># Right click on the page and get the xpath to a specific table
 xpath &lt;- &quot;/html/body/div[2]/main/div/article/div/table[2]&quot;
 weather &lt;- html_nodes(html, xpath = xpath)
 html_table(weather)</code></pre>
 <pre><code>## [[1]]
-## # A tibble: 75 × 21
+## # A tibble: 100 × 21
 ##    `Observed and Fore… `Observed and Fore… `Observed and For… `Observed and For…
 ##    &lt;chr&gt;               &lt;chr&gt;               &lt;chr&gt;              &lt;chr&gt;             
 ##  1 &quot;&quot;                  Ob Temp (°F)        Ob Temp (°F)       Ob Temp (°F)      
 ##  2 &quot;Date&quot;              Min                 Max                Avg               
-##  3 &quot;2022 01/14&quot;        38                  49.5               43.5              
-##  4 &quot;2022 01/13&quot;        26.5                38                 31.5              
-##  5 &quot;2022 01/12&quot;        30                  52                 41.5              
-##  6 &quot;2022 01/11&quot;        35.5                49.5               41.5              
-##  7 &quot;2022 01/10&quot;        27                  40                 33.5              
-##  8 &quot;2022 01/09&quot;        26                  37                 31.5              
-##  9 &quot;2022 01/08&quot;        21.5                34.5               29                
-## 10 &quot;2022 01/07&quot;        21.5                27.5               25                
-## # … with 65 more rows, and 17 more variables:
+##  3 &quot;2022 02/08&quot;        37                  51                 42                
+##  4 &quot;2022 02/07&quot;        37.5                53                 43.5              
+##  5 &quot;2022 02/06&quot;        37                  47                 42.5              
+##  6 &quot;2022 02/05&quot;        34.5                48.5               42                
+##  7 &quot;2022 02/04&quot;        31                  46.5               37                
+##  8 &quot;2022 02/03&quot;        28                  39.5               32.5              
+##  9 &quot;2022 02/02&quot;        29                  43.5               37                
+## 10 &quot;2022 02/01&quot;        19.5                39                 31                
+## # … with 90 more rows, and 17 more variables:
 ## #   Observed and Forecast Weather by Day &lt;chr&gt;,
 ## #   Observed and Forecast Weather by Day &lt;chr&gt;,
 ## #   Observed and Forecast Weather by Day &lt;chr&gt;,
@@ -191,109 +191,77 @@ weather2 &lt;- weather2[-c(1,2),]
 
 # take a look
 glimpse(weather2)</code></pre>
-<pre><code>## Rows: 73
+<pre><code>## Rows: 98
 ## Columns: 21
-## $ date                          &lt;chr&gt; &quot;2022 01/14&quot;, &quot;2022 01/13&quot;, &quot;2022 01/12&quot;…
-## $ `Ob Temp (°F) Min`            &lt;chr&gt; &quot;38&quot;, &quot;26.5&quot;, &quot;30&quot;, &quot;35.5&quot;, &quot;27&quot;, &quot;26&quot;, …
-## $ `Ob Temp (°F) Max`            &lt;chr&gt; &quot;49.5&quot;, &quot;38&quot;, &quot;52&quot;, &quot;49.5&quot;, &quot;40&quot;, &quot;37&quot;, …
-## $ `Ob Temp (°F) Avg`            &lt;chr&gt; &quot;43.5&quot;, &quot;31.5&quot;, &quot;41.5&quot;, &quot;41.5&quot;, &quot;33.5&quot;, …
-## $ `Ob Wind (mi/hr) Min`         &lt;chr&gt; &quot;3&quot;, &quot;3.5&quot;, &quot;5&quot;, &quot;8.5&quot;, &quot;3&quot;, &quot;2&quot;, &quot;1&quot;, &quot;…
-## $ `Ob Wind (mi/hr) Max`         &lt;chr&gt; &quot;31&quot;, &quot;24&quot;, &quot;21.5&quot;, &quot;21.5&quot;, &quot;15.5&quot;, &quot;10.…
-## $ `Ob Wind (mi/hr) Avg`         &lt;chr&gt; &quot;18.5&quot;, &quot;12.5&quot;, &quot;11&quot;, &quot;12.5&quot;, &quot;9&quot;, &quot;&quot;, &quot;…
-## $ `Ob Wind (mi/hr) Gust`        &lt;chr&gt; &quot;49.07&quot;, &quot;42.93&quot;, &quot;36.8&quot;, &quot;36.8&quot;, &quot;30.66…
-## $ `Ob Wind (mi/hr) Dir`         &lt;chr&gt; &quot;E&quot;, &quot;WNW&quot;, &quot;W&quot;, &quot;WNW&quot;, &quot;W&quot;, &quot;SE&quot;, &quot;E&quot;, …
-## $ `Ob Snow (in) HS`             &lt;chr&gt; &quot;73.13&quot;, &quot;74.54&quot;, &quot;75.28&quot;, &quot;75.81&quot;, &quot;55.…
-## $ `Ob Snow (in) HN24`           &lt;chr&gt; &quot;0&quot;, &quot;0&quot;, &quot;0&quot;, &quot;0&quot;, &quot;0&quot;, &quot;0&quot;, &quot;0&quot;, &quot;1.6&quot;…
-## $ `Ob Snow (in) SWE`            &lt;chr&gt; &quot;0&quot;, &quot;0&quot;, &quot;0&quot;, &quot;0&quot;, &quot;0&quot;, &quot;0&quot;, &quot;0&quot;, &quot;0.25…
+## $ date                          &lt;chr&gt; &quot;2022 02/08&quot;, &quot;2022 02/07&quot;, &quot;2022 02/06&quot;…
+## $ `Ob Temp (°F) Min`            &lt;chr&gt; &quot;37&quot;, &quot;37.5&quot;, &quot;37&quot;, &quot;34.5&quot;, &quot;31&quot;, &quot;28&quot;, …
+## $ `Ob Temp (°F) Max`            &lt;chr&gt; &quot;51&quot;, &quot;53&quot;, &quot;47&quot;, &quot;48.5&quot;, &quot;46.5&quot;, &quot;39.5&quot;…
+## $ `Ob Temp (°F) Avg`            &lt;chr&gt; &quot;42&quot;, &quot;43.5&quot;, &quot;42.5&quot;, &quot;42&quot;, &quot;37&quot;, &quot;32.5&quot;…
+## $ `Ob Wind (mi/hr) Min`         &lt;chr&gt; &quot;2.5&quot;, &quot;1.5&quot;, &quot;0.5&quot;, &quot;1&quot;, &quot;0&quot;, &quot;2&quot;, &quot;5.5…
+## $ `Ob Wind (mi/hr) Max`         &lt;chr&gt; &quot;23&quot;, &quot;7&quot;, &quot;24.5&quot;, &quot;33.5&quot;, &quot;15.5&quot;, &quot;16&quot;,…
+## $ `Ob Wind (mi/hr) Avg`         &lt;chr&gt; &quot;9&quot;, &quot;3.5&quot;, &quot;12.5&quot;, &quot;16.5&quot;, &quot;5.5&quot;, &quot;7.5&quot;…
+## $ `Ob Wind (mi/hr) Gust`        &lt;chr&gt; &quot;36.8&quot;, &quot;24.54&quot;, &quot;36.8&quot;, &quot;49.07&quot;, &quot;30.66…
+## $ `Ob Wind (mi/hr) Dir`         &lt;chr&gt; &quot;ESE&quot;, &quot;SE&quot;, &quot;E&quot;, &quot;ENE&quot;, &quot;WNW&quot;, &quot;ESE&quot;, &quot;…
+## $ `Ob Snow (in) HS`             &lt;chr&gt; &quot;60.9&quot;, &quot;60.75&quot;, &quot;60.66&quot;, &quot;61.3&quot;, &quot;61.72…
+## $ `Ob Snow (in) HN24`           &lt;chr&gt; &quot;0&quot;, &quot;0&quot;, &quot;0&quot;, &quot;0&quot;, &quot;0&quot;, &quot;0&quot;, &quot;0&quot;, &quot;0&quot;, …
+## $ `Ob Snow (in) SWE`            &lt;chr&gt; &quot;0&quot;, &quot;0&quot;, &quot;0&quot;, &quot;0&quot;, &quot;0&quot;, &quot;0&quot;, &quot;0&quot;, &quot;0&quot;, …
 ## $ `Ob Snow (in) Total Snowfall` &lt;chr&gt; &quot;151.7&quot;, &quot;151.7&quot;, &quot;151.7&quot;, &quot;151.7&quot;, &quot;151…
-## $ `Fx Temp (°F) Min`            &lt;chr&gt; &quot;34&quot;, &quot;25&quot;, &quot;30&quot;, &quot;37&quot;, &quot;38&quot;, &quot;29&quot;, &quot;25&quot;…
-## $ `Fx Temp (°F) Max`            &lt;chr&gt; &quot;40&quot;, &quot;35&quot;, &quot;44&quot;, &quot;41&quot;, &quot;37&quot;, &quot;36&quot;, &quot;31&quot;…
-## $ `Fx Wind (mi/hr) Min`         &lt;chr&gt; &quot;10&quot;, &quot;45&quot;, &quot;25&quot;, &quot;25&quot;, &quot;45&quot;, &quot;15&quot;, &quot;15&quot;…
-## $ `Fx Wind (mi/hr) Max`         &lt;chr&gt; &quot;20&quot;, &quot;55&quot;, &quot;30&quot;, &quot;30&quot;, &quot;80&quot;, &quot;29&quot;, &quot;25&quot;…
-## $ `Fx Snow (in) Min`            &lt;chr&gt; &quot;0&quot;, &quot;0&quot;, &quot;0&quot;, &quot;0&quot;, &quot;0&quot;, &quot;0&quot;, &quot;0&quot;, &quot;2&quot;, …
-## $ `Fx Snow (in) Max`            &lt;chr&gt; &quot;0&quot;, &quot;0&quot;, &quot;0&quot;, &quot;0&quot;, &quot;0&quot;, &quot;0&quot;, &quot;0&quot;, &quot;5&quot;, …
-## $ `Fx Snow (in) SWE`            &lt;chr&gt; &quot;0&quot;, &quot;0&quot;, &quot;0&quot;, &quot;0&quot;, &quot;0&quot;, &quot;0&quot;, &quot;0&quot;, &quot;0.22…
+## $ `Fx Temp (°F) Min`            &lt;chr&gt; &quot;38&quot;, &quot;38&quot;, &quot;39&quot;, &quot;35&quot;, &quot;30&quot;, &quot;30&quot;, &quot;24&quot;…
+## $ `Fx Temp (°F) Max`            &lt;chr&gt; &quot;50&quot;, &quot;50&quot;, &quot;47&quot;, &quot;45&quot;, &quot;43&quot;, &quot;34&quot;, &quot;35&quot;…
+## $ `Fx Wind (mi/hr) Min`         &lt;chr&gt; &quot;15&quot;, &quot;15&quot;, &quot;10&quot;, &quot;15&quot;, &quot;10&quot;, &quot;20&quot;, &quot;50&quot;…
+## $ `Fx Wind (mi/hr) Max`         &lt;chr&gt; &quot;20&quot;, &quot;35&quot;, &quot;20&quot;, &quot;25&quot;, &quot;15&quot;, &quot;25&quot;, &quot;60&quot;…
+## $ `Fx Snow (in) Min`            &lt;chr&gt; &quot;0&quot;, &quot;0&quot;, &quot;0&quot;, &quot;0&quot;, &quot;0&quot;, &quot;0&quot;, &quot;0&quot;, &quot;0&quot;, …
+## $ `Fx Snow (in) Max`            &lt;chr&gt; &quot;0&quot;, &quot;0&quot;, &quot;0&quot;, &quot;0&quot;, &quot;0&quot;, &quot;0&quot;, &quot;0&quot;, &quot;0&quot;, …
+## $ `Fx Snow (in) SWE`            &lt;chr&gt; &quot;0&quot;, &quot;0&quot;, &quot;0&quot;, &quot;0&quot;, &quot;0&quot;, &quot;0&quot;, &quot;0&quot;, &quot;0&quot;, …
 ## $ `Fx Rating `                  &lt;chr&gt; &quot;LOW&quot;, &quot;LOW&quot;, &quot;LOW&quot;, &quot;LOW&quot;, &quot;LOW&quot;, &quot;LOW&quot;…</code></pre>
 <pre class="r"><code># columns that are numeric should be converted back to such. They were coerced into character vectors because of the first two rows were characters.
 weather2 &lt;- weather2 %&gt;%
-mutate_at(c(2:8), as.numeric)</code></pre>
-<pre><code>## Warning in mask$eval_all_mutate(quo): NAs introduced by coercion
+mutate_at(c(2:8), as.numeric)
 
-## Warning in mask$eval_all_mutate(quo): NAs introduced by coercion
-
-## Warning in mask$eval_all_mutate(quo): NAs introduced by coercion
-
-## Warning in mask$eval_all_mutate(quo): NAs introduced by coercion
-
-## Warning in mask$eval_all_mutate(quo): NAs introduced by coercion
-
-## Warning in mask$eval_all_mutate(quo): NAs introduced by coercion
-
-## Warning in mask$eval_all_mutate(quo): NAs introduced by coercion</code></pre>
-<pre class="r"><code>weather2 &lt;- weather2 %&gt;%
-mutate_at(c(10:20), as.numeric)</code></pre>
-<pre><code>## Warning in mask$eval_all_mutate(quo): NAs introduced by coercion
-
-## Warning in mask$eval_all_mutate(quo): NAs introduced by coercion
-
-## Warning in mask$eval_all_mutate(quo): NAs introduced by coercion
-
-## Warning in mask$eval_all_mutate(quo): NAs introduced by coercion
-
-## Warning in mask$eval_all_mutate(quo): NAs introduced by coercion
-
-## Warning in mask$eval_all_mutate(quo): NAs introduced by coercion
-
-## Warning in mask$eval_all_mutate(quo): NAs introduced by coercion
-
-## Warning in mask$eval_all_mutate(quo): NAs introduced by coercion
-
-## Warning in mask$eval_all_mutate(quo): NAs introduced by coercion
-
-## Warning in mask$eval_all_mutate(quo): NAs introduced by coercion
-
-## Warning in mask$eval_all_mutate(quo): NAs introduced by coercion</code></pre>
-<pre class="r"><code># coerce date column
 weather2 &lt;- weather2 %&gt;%
-mutate_at(1, as_date)</code></pre>
-<pre><code>## Warning: 3 failed to parse.</code></pre>
-<pre class="r"><code># take a quick look
+mutate_at(c(10:20), as.numeric)
+
+# coerce date column
+weather2 &lt;- weather2 %&gt;%
+mutate_at(1, as_date)
+
+# take a quick look
 head(weather2)</code></pre>
 <pre><code>##         date Ob Temp (°F) Min Ob Temp (°F) Max Ob Temp (°F) Avg
-## 3 2022-01-14             38.0             49.5             43.5
-## 4 2022-01-13             26.5             38.0             31.5
-## 5 2022-01-12             30.0             52.0             41.5
-## 6 2022-01-11             35.5             49.5             41.5
-## 7 2022-01-10             27.0             40.0             33.5
-## 8 2022-01-09             26.0             37.0             31.5
+## 3 2022-02-08             37.0             51.0             42.0
+## 4 2022-02-07             37.5             53.0             43.5
+## 5 2022-02-06             37.0             47.0             42.5
+## 6 2022-02-05             34.5             48.5             42.0
+## 7 2022-02-04             31.0             46.5             37.0
+## 8 2022-02-03             28.0             39.5             32.5
 ##   Ob Wind (mi/hr) Min Ob Wind (mi/hr) Max Ob Wind (mi/hr) Avg
-## 3                 3.0                31.0                18.5
-## 4                 3.5                24.0                12.5
-## 5                 5.0                21.5                11.0
-## 6                 8.5                21.5                12.5
-## 7                 3.0                15.5                 9.0
-## 8                 2.0                10.5                  NA
+## 3                 2.5                23.0                 9.0
+## 4                 1.5                 7.0                 3.5
+## 5                 0.5                24.5                12.5
+## 6                 1.0                33.5                16.5
+## 7                 0.0                15.5                 5.5
+## 8                 2.0                16.0                 7.5
 ##   Ob Wind (mi/hr) Gust Ob Wind (mi/hr) Dir Ob Snow (in) HS Ob Snow (in) HN24
-## 3                49.07                   E           73.13                 0
-## 4                42.93                 WNW           74.54                 0
-## 5                36.80                   W           75.28                 0
-## 6                36.80                 WNW           75.81                 0
-## 7                30.66                   W           55.60                 0
-## 8                30.66                  SE           77.52                 0
+## 3                36.80                 ESE           60.90                 0
+## 4                24.54                  SE           60.75                 0
+## 5                36.80                   E           60.66                 0
+## 6                49.07                 ENE           61.30                 0
+## 7                30.66                 WNW           61.72                 0
+## 8                30.66                 ESE           61.71                 0
 ##   Ob Snow (in) SWE Ob Snow (in) Total Snowfall Fx Temp (°F) Min
-## 3                0                       151.7               34
-## 4                0                       151.7               25
-## 5                0                       151.7               30
-## 6                0                       151.7               37
-## 7                0                       151.7               38
-## 8                0                       151.7               29
+## 3                0                       151.7               38
+## 4                0                       151.7               38
+## 5                0                       151.7               39
+## 6                0                       151.7               35
+## 7                0                       151.7               30
+## 8                0                       151.7               30
 ##   Fx Temp (°F) Max Fx Wind (mi/hr) Min Fx Wind (mi/hr) Max Fx Snow (in) Min
-## 3               40                  10                  20                0
-## 4               35                  45                  55                0
-## 5               44                  25                  30                0
-## 6               41                  25                  30                0
-## 7               37                  45                  80                0
-## 8               36                  15                  29                0
+## 3               50                  15                  20                0
+## 4               50                  15                  35                0
+## 5               47                  10                  20                0
+## 6               45                  15                  25                0
+## 7               43                  10                  15                0
+## 8               34                  20                  25                0
 ##   Fx Snow (in) Max Fx Snow (in) SWE Fx Rating 
 ## 3                0                0        LOW
 ## 4                0                0        LOW
@@ -302,39 +270,37 @@ head(weather2)</code></pre>
 ## 7                0                0        LOW
 ## 8                0                0        LOW</code></pre>
 <pre class="r"><code>glimpse(weather2)</code></pre>
-<pre><code>## Rows: 73
+<pre><code>## Rows: 98
 ## Columns: 21
-## $ date                          &lt;date&gt; 2022-01-14, 2022-01-13, 2022-01-12, 202…
-## $ `Ob Temp (°F) Min`            &lt;dbl&gt; 38.0, 26.5, 30.0, 35.5, 27.0, 26.0, 21.5…
-## $ `Ob Temp (°F) Max`            &lt;dbl&gt; 49.5, 38.0, 52.0, 49.5, 40.0, 37.0, 34.5…
-## $ `Ob Temp (°F) Avg`            &lt;dbl&gt; 43.5, 31.5, 41.5, 41.5, 33.5, 31.5, 29.0…
-## $ `Ob Wind (mi/hr) Min`         &lt;dbl&gt; 3.0, 3.5, 5.0, 8.5, 3.0, 2.0, 1.0, 13.5,…
-## $ `Ob Wind (mi/hr) Max`         &lt;dbl&gt; 31.0, 24.0, 21.5, 21.5, 15.5, 10.5, 26.0…
-## $ `Ob Wind (mi/hr) Avg`         &lt;dbl&gt; 18.5, 12.5, 11.0, 12.5, 9.0, NA, NA, 19.…
-## $ `Ob Wind (mi/hr) Gust`        &lt;dbl&gt; 49.07, 42.93, 36.80, 36.80, 30.66, 30.66…
-## $ `Ob Wind (mi/hr) Dir`         &lt;chr&gt; &quot;E&quot;, &quot;WNW&quot;, &quot;W&quot;, &quot;WNW&quot;, &quot;W&quot;, &quot;SE&quot;, &quot;E&quot;, …
-## $ `Ob Snow (in) HS`             &lt;dbl&gt; 73.13, 74.54, 75.28, 75.81, 55.60, 77.52…
-## $ `Ob Snow (in) HN24`           &lt;dbl&gt; 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.6, …
-## $ `Ob Snow (in) SWE`            &lt;dbl&gt; 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00…
+## $ date                          &lt;date&gt; 2022-02-08, 2022-02-07, 2022-02-06, 202…
+## $ `Ob Temp (°F) Min`            &lt;dbl&gt; 37.0, 37.5, 37.0, 34.5, 31.0, 28.0, 29.0…
+## $ `Ob Temp (°F) Max`            &lt;dbl&gt; 51.0, 53.0, 47.0, 48.5, 46.5, 39.5, 43.5…
+## $ `Ob Temp (°F) Avg`            &lt;dbl&gt; 42.0, 43.5, 42.5, 42.0, 37.0, 32.5, 37.0…
+## $ `Ob Wind (mi/hr) Min`         &lt;dbl&gt; 2.5, 1.5, 0.5, 1.0, 0.0, 2.0, 5.5, 6.5, …
+## $ `Ob Wind (mi/hr) Max`         &lt;dbl&gt; 23.0, 7.0, 24.5, 33.5, 15.5, 16.0, 47.5,…
+## $ `Ob Wind (mi/hr) Avg`         &lt;dbl&gt; 9.0, 3.5, 12.5, 16.5, 5.5, 7.5, 25.0, 20…
+## $ `Ob Wind (mi/hr) Gust`        &lt;dbl&gt; 36.80, 24.54, 36.80, 49.07, 30.66, 30.66…
+## $ `Ob Wind (mi/hr) Dir`         &lt;chr&gt; &quot;ESE&quot;, &quot;SE&quot;, &quot;E&quot;, &quot;ENE&quot;, &quot;WNW&quot;, &quot;ESE&quot;, &quot;…
+## $ `Ob Snow (in) HS`             &lt;dbl&gt; 60.90, 60.75, 60.66, 61.30, 61.72, 61.71…
+## $ `Ob Snow (in) HN24`           &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…
+## $ `Ob Snow (in) SWE`            &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…
 ## $ `Ob Snow (in) Total Snowfall` &lt;dbl&gt; 151.7, 151.7, 151.7, 151.7, 151.7, 151.7…
-## $ `Fx Temp (°F) Min`            &lt;dbl&gt; 34, 25, 30, 37, 38, 29, 25, 18, 29, 34, …
-## $ `Fx Temp (°F) Max`            &lt;dbl&gt; 40, 35, 44, 41, 37, 36, 31, 28, 34, 34, …
-## $ `Fx Wind (mi/hr) Min`         &lt;dbl&gt; 10, 45, 25, 25, 45, 15, 15, 40, 30, 40, …
-## $ `Fx Wind (mi/hr) Max`         &lt;dbl&gt; 20, 55, 30, 30, 80, 29, 25, 50, 40, 45, …
-## $ `Fx Snow (in) Min`            &lt;dbl&gt; 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00…
-## $ `Fx Snow (in) Max`            &lt;dbl&gt; 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 5.0, …
-## $ `Fx Snow (in) SWE`            &lt;dbl&gt; 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00…
+## $ `Fx Temp (°F) Min`            &lt;dbl&gt; 38, 38, 39, 35, 30, 30, 24, 19, 19, 31, …
+## $ `Fx Temp (°F) Max`            &lt;dbl&gt; 50, 50, 47, 45, 43, 34, 35, 32, 32, 43, …
+## $ `Fx Wind (mi/hr) Min`         &lt;dbl&gt; 15, 15, 10, 15, 10, 20, 50, 25, 20, 0, 5…
+## $ `Fx Wind (mi/hr) Max`         &lt;dbl&gt; 20, 35, 20, 25, 15, 25, 60, 30, 45, 5, 1…
+## $ `Fx Snow (in) Min`            &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…
+## $ `Fx Snow (in) Max`            &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…
+## $ `Fx Snow (in) SWE`            &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…
 ## $ `Fx Rating `                  &lt;chr&gt; &quot;LOW&quot;, &quot;LOW&quot;, &quot;LOW&quot;, &quot;LOW&quot;, &quot;LOW&quot;, &quot;LOW&quot;…</code></pre>
 <pre class="r"><code># Quick few plots to make sure everything looks reasonable
 weather_plot &lt;- ggplot(weather2, aes(x=date, y=`Fx Snow (in) Min`)) +
   geom_point()
 weather_plot</code></pre>
-<pre><code>## Warning: Removed 7 rows containing missing values (geom_point).</code></pre>
 <p><img src="/2022/01/15/scraping-weather-data/index_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
 <pre class="r"><code>weather_plot2 &lt;- ggplot(weather2, aes(x=date, y=`Fx Wind (mi/hr) Max`)) +
   geom_point()
 weather_plot2</code></pre>
-<pre><code>## Warning: Removed 27 rows containing missing values (geom_point).</code></pre>
 <p><img src="/2022/01/15/scraping-weather-data/index_files/figure-html/unnamed-chunk-4-2.png" width="672" /></p>
 <p>Up next: Making sure the data is cleaned up after the scrape and coercion.</p>
 <!-- # weather_plot2 <- ggplot(weather2, aes(x=date, y=`Ob Temp (°F) Avg`, color = `Fx Rating `)) +

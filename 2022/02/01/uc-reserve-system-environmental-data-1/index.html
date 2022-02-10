@@ -140,14 +140,12 @@ names(eco_data)</code></pre>
 ##  [5] &quot;elevation_low&quot;   &quot;elevation_high&quot;  &quot;elevation_range&quot; &quot;precip&quot;         
 ##  [9] &quot;temp_low&quot;        &quot;temp_high&quot;</code></pre>
 <pre class="r"><code>eco_data$temp_high &lt;- as.numeric(eco_data$temp_high)</code></pre>
-<pre><code>## Warning: NAs introduced by coercion</code></pre>
 <p>The classic precipitation vs. temperature ecological plot.</p>
 <pre class="r"><code>classic &lt;- ggplot(eco_data, aes(x=temp_high, y = precip)) +
 geom_point() +
 scale_x_continuous(name=&quot;High Temp (C)&quot;) +
 scale_y_continuous(name=&quot;Precipitation (mm)&quot;)
 classic</code></pre>
-<pre><code>## Warning: Removed 5 rows containing missing values (geom_point).</code></pre>
 <p><img src="/2022/02/01/uc-reserve-system-environmental-data-1/index_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
 <p>Another quick plot.</p>
 <pre class="r"><code>elevation_plot1 &lt;- ggplot(eco_data, aes(x=elevation_range, y = unique)) +
@@ -155,7 +153,6 @@ geom_point() +
 scale_x_continuous(name=&quot;Elevation Range (m)&quot;) +
 scale_y_continuous(name=&quot;Number of Unique Species&quot;)
 elevation_plot1</code></pre>
-<pre><code>## Warning: Removed 4 rows containing missing values (geom_point).</code></pre>
 <p><img src="/2022/02/01/uc-reserve-system-environmental-data-1/index_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 
 </div>
