@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Ski Touring Movement Data &middot; </title>
+        <meta name="description" content="When thinking about how to combine datasets to ask more complex questions it is important to determine where the overlaps in the datasets might be. As an example, The Mount Shasta Avalanche Center keeps records of seasonal weather and avalanche forecast data that I discussed in a previous post. I just made a small movement dataset from some of the ski tours I have done in the Mount Shasta area.">
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="generator" content="Hugo 0.82.0" />
+        <meta name="robots" content="index,follow">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <link rel="stylesheet" href="/dist/site.css">
+        <link rel="stylesheet" href="/dist/syntax.css">
+        
+        
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300&subset=latin,cyrillic-ext,latin-ext,cyrillic">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+        
+        
+        
+        
+        
+
+    </head>
+    <body>
+        
+
+        <div id="wrapper">
+            <header class="site-header">
+                <div class="container">
+                    <div class="site-title-wrapper">
+                        
+                            <a class="site-logo" href="">
+                                <img src="#ZgotmplZ" alt="" />
+                            </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                    </div>
+
+                    <ul class="site-nav">
+                        
+    <li class="site-nav-item">
+        <a href="/post/">Blog</a>
+    </li>
+
+    <li class="site-nav-item">
+        <a href="/project/">Projects</a>
+    </li>
+
+    <li class="site-nav-item">
+        <a href="/page/about/">About</a>
+    </li>
+
+    <li class="site-nav-item">
+        <a href="/page/contact/">contact</a>
+    </li>
+
+    <li class="site-nav-item">
+        <a href="/page/links/">links</a>
+    </li>
+
+    <li class="site-nav-item">
+        <a href="https://github.com/BIDS-Global-Change/">GitHub</a>
+    </li>
+
+    <li class="site-nav-item">
+        <a href="https://twitter.com/rjcmarkelz">Twitter</a>
+    </li>
+
+
+                    </ul>
+                </div>
+            </header>
+
+            <div id="container">
+
+
+<link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/routeros.min.css" rel="stylesheet">
+
+
+<div class="container">
+    <article class="post-container" itemscope="" itemtype="http://schema.org/BlogPosting">
+        <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">Ski Touring Movement Data</h1>
+    
+    <p class="post-date post-line">
+        <span>Published <time datetime="2022-02-15" itemprop="datePublished">Tue, Feb 15, 2022</time></span>
+        <span>by</span>
+        <span itemscope="" itemprop="author" itemtype="https://schema.org/Person">
+            <span itemprop="name">
+                <a href="#" itemprop="url" rel="author">RJ Cody Markelz</a>
+            </span>
+        </span>
+    </p>
+    
+</header>
+
+        <div class="post-content clearfix" itemprop="articleBody">
+    
+
+    
+<script src="/2022/02/15/ski-touring-movement-data/index_files/header-attrs/header-attrs.js"></script>
+
+
+<p>When thinking about how to combine datasets to ask more complex questions it is important to determine where the overlaps in the datasets might be. As an example, The <a href="https://www.shastaavalanche.org">Mount Shasta Avalanche Center</a> keeps records of seasonal weather and avalanche forecast data that I discussed in a previous post. I just made a small movement dataset from some of the ski tours I have done in the Mount Shasta area. Here are just a few summary views of the dataset below. In the next series of posts we will overlap the avalanche forecast data, weather data, and the ski touring movement data based on date, time, elevations, and aspects.</p>
+<pre class="r"><code>library(tidyverse)
+ski_data &lt;- read.csv(&quot;../../../static/data/SkiTouring.csv&quot;)</code></pre>
+<p>The data set has a number of interesting variables including my movement as I skied, some speed data, some altitude data, and some biometric heart rate data. All of the tours were in the 2019-2020 or the 2020-2021 ski season on the lower slopes of Mount Shasta, Ca.</p>
+<p>Take a quick look.</p>
+<pre class="r"><code>glimpse(ski_data)</code></pre>
+<pre><code>## Rows: 13,491
+## Columns: 17
+## $ timestamp      &lt;chr&gt; &quot;2020-01-18 18:33:31&quot;, &quot;2020-01-18 18:33:58&quot;, &quot;2020-01-…
+## $ position_lat   &lt;dbl&gt; 41.35011, 41.35010, 41.35012, 41.35014, 41.35016, 41.35…
+## $ position_long  &lt;dbl&gt; -122.2793, -122.2793, -122.2793, -122.2792, -122.2792, …
+## $ altitude       &lt;dbl&gt; NA, 1504.2, 1504.8, 1504.8, 1505.0, 1505.2, 1505.6, 150…
+## $ heart_rate     &lt;int&gt; NA, 55, 62, 62, 64, 64, 69, 66, 67, 76, 74, 73, 72, 70,…
+## $ cadence        &lt;int&gt; NA, 64, 48, 52, 49, 46, 46, 43, 43, 0, 48, 72, 75, 75, …
+## $ temperature    &lt;int&gt; NA, 24, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25,…
+## $ distance       &lt;int&gt; NA, NA, NA, NA, 7, 9, NA, 15, NA, NA, NA, 24, 26, 29, 3…
+## $ speed          &lt;dbl&gt; NA, NA, NA, NA, 0.5, 0.8, 1.1, 1.1, 0.7, 0.0, 0.0, 1.0,…
+## $ vertical_speed &lt;dbl&gt; NA, 0.00, 0.02, 0.00, 0.00, 0.00, 0.00, 0.00, 0.04, 0.0…
+## $ File_Path      &lt;chr&gt; &quot;Move_2020_01_18_10_33_29_Ski_touring.fit&quot;, &quot;Move_2020_…
+## $ activity       &lt;chr&gt; &quot;SkiTouring&quot;, &quot;SkiTouring&quot;, &quot;SkiTouring&quot;, &quot;SkiTouring&quot;,…
+## $ HRzone         &lt;chr&gt; NA, &quot;R&quot;, &quot;R&quot;, &quot;R&quot;, &quot;R&quot;, &quot;R&quot;, &quot;R&quot;, &quot;R&quot;, &quot;R&quot;, &quot;R&quot;, &quot;R&quot;, &quot;…
+## $ datetime       &lt;chr&gt; &quot;2020-01-18 18:33:31&quot;, &quot;2020-01-18 18:33:58&quot;, &quot;2020-01-…
+## $ year           &lt;int&gt; 2020, 2020, 2020, 2020, 2020, 2020, 2020, 2020, 2020, 2…
+## $ date           &lt;chr&gt; &quot;2020-01-18&quot;, &quot;2020-01-18&quot;, &quot;2020-01-18&quot;, &quot;2020-01-18&quot;,…
+## $ seconds        &lt;chr&gt; &quot;18:33:31&quot;, &quot;18:33:58&quot;, &quot;18:34:42&quot;, &quot;18:34:45&quot;, &quot;18:34:…</code></pre>
+<pre class="r"><code>summary(ski_data)</code></pre>
+<pre><code>##   timestamp          position_lat   position_long       altitude   
+##  Length:13491       Min.   :41.35   Min.   :-122.3   Min.   :1504  
+##  Class :character   1st Qu.:41.36   1st Qu.:-122.2   1st Qu.:1827  
+##  Mode  :character   Median :41.36   Median :-122.2   Median :2052  
+##                     Mean   :41.36   Mean   :-122.2   Mean   :2031  
+##                     3rd Qu.:41.36   3rd Qu.:-122.2   3rd Qu.:2262  
+##                     Max.   :41.37   Max.   :-122.2   Max.   :2532  
+##                                                      NA&#39;s   :8908  
+##    heart_rate        cadence        temperature       distance    
+##  Min.   : 42.00   Min.   :  0.00   Min.   :12.00   Min.   :   7   
+##  1st Qu.: 55.00   1st Qu.: 37.00   1st Qu.:19.00   1st Qu.:1640   
+##  Median : 71.00   Median : 48.00   Median :20.00   Median :3144   
+##  Mean   : 76.91   Mean   : 49.95   Mean   :20.83   Mean   :3309   
+##  3rd Qu.: 98.00   3rd Qu.: 69.00   3rd Qu.:22.00   3rd Qu.:4668   
+##  Max.   :148.00   Max.   :114.00   Max.   :31.00   Max.   :9317   
+##  NA&#39;s   :361      NA&#39;s   :8908     NA&#39;s   :8908    NA&#39;s   :10905  
+##      speed      vertical_speed    File_Path           activity        
+##  Min.   :0.00   Min.   :-1.180   Length:13491       Length:13491      
+##  1st Qu.:0.80   1st Qu.:-0.020   Class :character   Class :character  
+##  Median :1.00   Median : 0.040   Mode  :character   Mode  :character  
+##  Mean   :1.48   Mean   :-0.021                                        
+##  3rd Qu.:1.40   3rd Qu.: 0.100                                        
+##  Max.   :8.40   Max.   : 0.240                                        
+##  NA&#39;s   :8912   NA&#39;s   :8908                                          
+##     HRzone            datetime              year          date          
+##  Length:13491       Length:13491       Min.   :2020   Length:13491      
+##  Class :character   Class :character   1st Qu.:2020   Class :character  
+##  Mode  :character   Mode  :character   Median :2020   Mode  :character  
+##                                        Mean   :2020                     
+##                                        3rd Qu.:2020                     
+##                                        Max.   :2021                     
+##                                                                         
+##    seconds         
+##  Length:13491      
+##  Class :character  
+##  Mode  :character  
+##                    
+##                    
+##                    
+## </code></pre>
+<p>Make a quick plot using the latitude and longitude coordinates and color by the date of the tour.</p>
+<pre class="r"><code>ski_plot1 &lt;- ggplot(ski_data, aes(x = position_long, y = position_lat, color = date)) +
+                    coord_quickmap() + geom_point()
+ski_plot1</code></pre>
+<p><img src="/2022/02/15/ski-touring-movement-data/index_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+
+</div>
+
+        <footer class="post-footer clearfix">
+        <p class="post-tags">
+            <span>Tagged:</span>
+                <a href="/tags/data/">data</a>, 
+                <a href="/tags/visualization/">visualization</a>, 
+                <a href="/tags/data-integration/">data integration</a>, 
+                <a href="/tags/meta-data/">meta-data</a>
+        </p>
+    <div class="share">
+    </div>
+</footer>
+
+        
+    </article>
+</div>
+
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="site-title-wrapper">
+                    <h1 class="site-title">
+                        <a href="/">BIDS- Environmental</a>
+                    </h1>
+                    <a class="button-square button-jump-top js-jump-top" href="#" aria-label="Back to Top">
+                        <i class="fa fa-angle-up" aria-hidden="true"></i>
+                    </a>
+                </div>
+
+                <p class="footer-copyright">
+                    <span>&copy; 2022 / Powered by <a href="https://gohugo.io/">Hugo</a></span>
+                </p>
+                <p class="footer-copyright">
+                    <span><a href="https://github.com/roryg/ghostwriter">Ghostwriter theme</a> By <a href="http://jollygoodthemes.com">JollyGoodThemes</a></span>
+                    <span>/ <a href="https://github.com/jbub/ghostwriter">Ported</a> to Hugo By <a href="https://github.com/jbub">jbub</a></span>
+                </p>
+            </div>
+        </footer>
+
+        <script src="/js/jquery-1.11.3.min.js"></script>
+        <script src="/js/jquery.fitvids.js"></script>
+        <script src="/js/scripts.js"></script>
+    </body>
+</html>
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+
+<script>
+hljs.configure({languages: []});
+hljs.initHighlightingOnLoad();
+</script>
+

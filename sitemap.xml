@@ -3,13 +3,34 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>/</loc>
-    <lastmod>2022-02-01T09:07:38-08:00</lastmod>
+    <lastmod>2022-02-15T09:07:38-08:00</lastmod>
   </url><url>
     <loc>/categories/</loc>
-    <lastmod>2022-02-01T09:07:38-08:00</lastmod>
+    <lastmod>2022-02-15T09:07:38-08:00</lastmod>
   </url><url>
     <loc>/tags/data/</loc>
-    <lastmod>2022-02-01T09:07:38-08:00</lastmod>
+    <lastmod>2022-02-15T09:07:38-08:00</lastmod>
+  </url><url>
+    <loc>/tags/data-integration/</loc>
+    <lastmod>2022-02-15T09:07:38-08:00</lastmod>
+  </url><url>
+    <loc>/categories/data-movement-ski-touring-data-visualization/</loc>
+    <lastmod>2022-02-15T09:07:38-08:00</lastmod>
+  </url><url>
+    <loc>/tags/meta-data/</loc>
+    <lastmod>2022-02-15T09:07:38-08:00</lastmod>
+  </url><url>
+    <loc>/post/</loc>
+    <lastmod>2022-02-15T09:07:38-08:00</lastmod>
+  </url><url>
+    <loc>/2022/02/15/ski-touring-movement-data/</loc>
+    <lastmod>2022-02-15T09:07:38-08:00</lastmod>
+  </url><url>
+    <loc>/tags/</loc>
+    <lastmod>2022-02-15T09:07:38-08:00</lastmod>
+  </url><url>
+    <loc>/tags/visualization/</loc>
+    <lastmod>2022-02-15T09:07:38-08:00</lastmod>
   </url><url>
     <loc>/categories/data-research-forest-reserve-fire-tutorial/</loc>
     <lastmod>2022-02-01T09:07:38-08:00</lastmod>
@@ -20,16 +41,10 @@
     <loc>/tags/forest/</loc>
     <lastmod>2022-02-01T09:07:38-08:00</lastmod>
   </url><url>
-    <loc>/post/</loc>
-    <lastmod>2022-02-01T09:07:38-08:00</lastmod>
-  </url><url>
     <loc>/tags/research/</loc>
     <lastmod>2022-02-01T09:07:38-08:00</lastmod>
   </url><url>
     <loc>/tags/reserve/</loc>
-    <lastmod>2022-02-01T09:07:38-08:00</lastmod>
-  </url><url>
-    <loc>/tags/</loc>
     <lastmod>2022-02-01T09:07:38-08:00</lastmod>
   </url><url>
     <loc>/tags/tutorial/</loc>
@@ -39,9 +54,6 @@
     <lastmod>2022-02-01T09:07:38-08:00</lastmod>
   </url><url>
     <loc>/tags/extraction/</loc>
-    <lastmod>2022-01-15T09:07:38-08:00</lastmod>
-  </url><url>
-    <loc>/tags/meta-data/</loc>
     <lastmod>2022-01-15T09:07:38-08:00</lastmod>
   </url><url>
     <loc>/tags/scraping/</loc>

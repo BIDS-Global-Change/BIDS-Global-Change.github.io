@@ -6,7 +6,16 @@
     <description>Recent content on BIDS- Environmental</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 01 Feb 2022 09:07:38 -0800</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 15 Feb 2022 09:07:38 -0800</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ski Touring Movement Data</title>
+      <link>/2022/02/15/ski-touring-movement-data/</link>
+      <pubDate>Tue, 15 Feb 2022 09:07:38 -0800</pubDate>
+      
+      <guid>/2022/02/15/ski-touring-movement-data/</guid>
+      <description>When thinking about how to combine datasets to ask more complex questions it is important to determine where the overlaps in the datasets might be. As an example, The Mount Shasta Avalanche Center keeps records of seasonal weather and avalanche forecast data that I discussed in a previous post. I just made a small movement dataset from some of the ski tours I have done in the Mount Shasta area.</description>
+    </item>
+    
     <item>
       <title>UC Reserve System Environmental Data - 1</title>
       <link>/2022/02/01/uc-reserve-system-environmental-data-1/</link>
@@ -53,7 +62,8 @@ Why is it interesting? I was originally attracted to this option because I spend
       <pubDate>Thu, 01 Jul 2021 02:13:50 +0000</pubDate>
       
       <guid>/page/links/</guid>
-      <description>General Datasets ACE California Wildlife DB
+      <description>General Datasets UC Reserve Data
+ACE California Wildlife DB
 Terrestrial Significant Habitats
 Terrestrial Connectivity Model
 Terrestrial Resilience Maps
@@ -67,6 +77,7 @@ Cal Flora
 UC Reserve System Data Portal
 UC Collections
 NOAA Climate, Weather, Tides
+NOAA Climate Data Online
 Species List
 Merced Data
 trefle dataset
@@ -74,9 +85,7 @@ inaturalist
 cal wildlife
 cal wildlife database
 forest service global change
-forest service vegetation layers
-shasta-trinity rare plants
-Fire GIS data National Fire Dataset</description>
+forest service vegetation layers</description>
     </item>
     
     <item>
