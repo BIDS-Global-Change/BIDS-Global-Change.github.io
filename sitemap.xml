@@ -3,13 +3,61 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>/</loc>
-    <lastmod>2022-02-15T09:07:38-08:00</lastmod>
+    <lastmod>2022-03-01T09:07:38-08:00</lastmod>
   </url><url>
     <loc>/categories/</loc>
-    <lastmod>2022-02-15T09:07:38-08:00</lastmod>
+    <lastmod>2022-03-01T09:07:38-08:00</lastmod>
   </url><url>
     <loc>/tags/data/</loc>
-    <lastmod>2022-02-15T09:07:38-08:00</lastmod>
+    <lastmod>2022-03-01T09:07:38-08:00</lastmod>
+  </url><url>
+    <loc>/categories/data/</loc>
+    <lastmod>2022-03-01T09:07:38-08:00</lastmod>
+  </url><url>
+    <loc>/tags/gbif/</loc>
+    <lastmod>2022-03-01T09:07:38-08:00</lastmod>
+  </url><url>
+    <loc>/categories/gbif/</loc>
+    <lastmod>2022-03-01T09:07:38-08:00</lastmod>
+  </url><url>
+    <loc>/tags/gis/</loc>
+    <lastmod>2022-03-01T09:07:38-08:00</lastmod>
+  </url><url>
+    <loc>/categories/gis/</loc>
+    <lastmod>2022-03-01T09:07:38-08:00</lastmod>
+  </url><url>
+    <loc>/tags/maps/</loc>
+    <lastmod>2022-03-01T09:07:38-08:00</lastmod>
+  </url><url>
+    <loc>/categories/maps/</loc>
+    <lastmod>2022-03-01T09:07:38-08:00</lastmod>
+  </url><url>
+    <loc>/tags/modeling/</loc>
+    <lastmod>2022-03-01T09:07:38-08:00</lastmod>
+  </url><url>
+    <loc>/categories/modeling/</loc>
+    <lastmod>2022-03-01T09:07:38-08:00</lastmod>
+  </url><url>
+    <loc>/post/</loc>
+    <lastmod>2022-03-01T09:07:38-08:00</lastmod>
+  </url><url>
+    <loc>/tags/species-distribution/</loc>
+    <lastmod>2022-03-01T09:07:38-08:00</lastmod>
+  </url><url>
+    <loc>/categories/species-distribution/</loc>
+    <lastmod>2022-03-01T09:07:38-08:00</lastmod>
+  </url><url>
+    <loc>/tags/</loc>
+    <lastmod>2022-03-01T09:07:38-08:00</lastmod>
+  </url><url>
+    <loc>/tags/trout/</loc>
+    <lastmod>2022-03-01T09:07:38-08:00</lastmod>
+  </url><url>
+    <loc>/categories/trout/</loc>
+    <lastmod>2022-03-01T09:07:38-08:00</lastmod>
+  </url><url>
+    <loc>/2022/03/01/trout-and-food-species/</loc>
+    <lastmod>2022-03-01T09:07:38-08:00</lastmod>
   </url><url>
     <loc>/tags/data-integration/</loc>
     <lastmod>2022-02-15T09:07:38-08:00</lastmod>
@@ -20,13 +68,7 @@
     <loc>/tags/meta-data/</loc>
     <lastmod>2022-02-15T09:07:38-08:00</lastmod>
   </url><url>
-    <loc>/post/</loc>
-    <lastmod>2022-02-15T09:07:38-08:00</lastmod>
-  </url><url>
     <loc>/2022/02/15/ski-touring-movement-data/</loc>
-    <lastmod>2022-02-15T09:07:38-08:00</lastmod>
-  </url><url>
-    <loc>/tags/</loc>
     <lastmod>2022-02-15T09:07:38-08:00</lastmod>
   </url><url>
     <loc>/tags/visualization/</loc>
@@ -98,13 +140,7 @@
     <loc>/page/</loc>
     <lastmod>2021-07-01T02:13:50+00:00</lastmod>
   </url><url>
-    <loc>/tags/gis/</loc>
-    <lastmod>2021-06-23T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>/tags/inaturalist/</loc>
-    <lastmod>2021-06-23T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/tags/maps/</loc>
     <lastmod>2021-06-23T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/2021/06/23/inaturalist-mlk-nature/</loc>
@@ -113,16 +149,7 @@
     <loc>/tags/nature/</loc>
     <lastmod>2021-06-23T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/tags/gbif/</loc>
-    <lastmod>2021-06-17T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>/2021/06/17/gbif-miracle-mile-species/</loc>
-    <lastmod>2021-06-17T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/tags/modeling/</loc>
-    <lastmod>2021-06-17T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/tags/species-distribution/</loc>
     <lastmod>2021-06-17T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/project/biodiversity-fire/</loc>

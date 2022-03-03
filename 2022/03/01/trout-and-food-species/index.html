@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Trout and Food Species &middot; </title>
+        <meta name="description" content="Introduction In this post we will look at some spatial data of Rainbow Trout (Oncorhynchus mykiss) and one of thier food sources Blue Winged Olives (Baetis tricaudatus). We will take a look using publically available observation data from the GBIF database. See previous posts here and here for other examples of species occurance data.
+Load the necessary R libraries.
+library(rgbif) library(tidyverse) library(data.table) library(maps) library(leaflet) Pull in the species observation data from GBIF.">
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="generator" content="Hugo 0.82.0" />
+        <meta name="robots" content="index,follow">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <link rel="stylesheet" href="/dist/site.css">
+        <link rel="stylesheet" href="/dist/syntax.css">
+        
+        
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300&subset=latin,cyrillic-ext,latin-ext,cyrillic">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+        
+        
+        
+        
+        
+
+    </head>
+    <body>
+        
+
+        <div id="wrapper">
+            <header class="site-header">
+                <div class="container">
+                    <div class="site-title-wrapper">
+                        
+                            <a class="site-logo" href="">
+                                <img src="#ZgotmplZ" alt="" />
+                            </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                    </div>
+
+                    <ul class="site-nav">
+                        
+    <li class="site-nav-item">
+        <a href="/post/">Blog</a>
+    </li>
+
+    <li class="site-nav-item">
+        <a href="/project/">Projects</a>
+    </li>
+
+    <li class="site-nav-item">
+        <a href="/page/about/">About</a>
+    </li>
+
+    <li class="site-nav-item">
+        <a href="/page/contact/">contact</a>
+    </li>
+
+    <li class="site-nav-item">
+        <a href="/page/links/">links</a>
+    </li>
+
+    <li class="site-nav-item">
+        <a href="https://github.com/BIDS-Global-Change/">GitHub</a>
+    </li>
+
+    <li class="site-nav-item">
+        <a href="https://twitter.com/rjcmarkelz">Twitter</a>
+    </li>
+
+
+                    </ul>
+                </div>
+            </header>
+
+            <div id="container">
+
+
+<link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/routeros.min.css" rel="stylesheet">
+
+
+<div class="container">
+    <article class="post-container" itemscope="" itemtype="http://schema.org/BlogPosting">
+        <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">Trout and Food Species</h1>
+    
+    <p class="post-date post-line">
+        <span>Published <time datetime="2022-03-01" itemprop="datePublished">Tue, Mar 1, 2022</time></span>
+        <span>by</span>
+        <span itemscope="" itemprop="author" itemtype="https://schema.org/Person">
+            <span itemprop="name">
+                <a href="#" itemprop="url" rel="author">RJ Cody Markelz</a>
+            </span>
+        </span>
+    </p>
+    
+</header>
+
+        <div class="post-content clearfix" itemprop="articleBody">
+    
+
+    
+<script src="/2022/03/01/trout-and-food-species/index_files/header-attrs/header-attrs.js"></script>
+<script src="/2022/03/01/trout-and-food-species/index_files/htmlwidgets/htmlwidgets.js"></script>
+<script src="/2022/03/01/trout-and-food-species/index_files/jquery/jquery.min.js"></script>
+<link href="/2022/03/01/trout-and-food-species/index_files/leaflet/leaflet.css" rel="stylesheet" />
+<script src="/2022/03/01/trout-and-food-species/index_files/leaflet/leaflet.js"></script>
+<link href="/2022/03/01/trout-and-food-species/index_files/leafletfix/leafletfix.css" rel="stylesheet" />
+<script src="/2022/03/01/trout-and-food-species/index_files/proj4/proj4.min.js"></script>
+<script src="/2022/03/01/trout-and-food-species/index_files/Proj4Leaflet/proj4leaflet.js"></script>
+<link href="/2022/03/01/trout-and-food-species/index_files/rstudio_leaflet/rstudio_leaflet.css" rel="stylesheet" />
+<script src="/2022/03/01/trout-and-food-species/index_files/leaflet-binding/leaflet.js"></script>
+
+
+<p><img src="/static/img/RainbowTrout-BlueWingOlive.png" /></p>
+<div id="introduction" class="section level1">
+<h1>Introduction</h1>
+<p>In this post we will look at some spatial data of Rainbow Trout (<em>Oncorhynchus mykiss</em>) and one of thier food sources Blue Winged Olives (<em>Baetis tricaudatus</em>). We will take a look using publically available observation data from the GBIF database. See previous posts <a href="/2021/06/17/gbif-miracle-mile-species/">here</a> and <a href="/2021/06/23/inaturalist-mlk-nature/">here</a> for other examples of species occurance data.</p>
+<p>Load the necessary R libraries.</p>
+<pre class="r"><code>library(rgbif)
+library(tidyverse)
+library(data.table)
+library(maps)
+library(leaflet)</code></pre>
+<p>Pull in the species observation data from GBIF.</p>
+<pre class="r"><code>rb_trout &lt;- occ_data(scientificName = &quot;Oncorhynchus mykiss&quot;, hasCoordinate = TRUE, limit = 10000)
+bw_olive &lt;- occ_data(scientificName = &quot;Baetis tricaudatus&quot;, hasCoordinate = TRUE, limit = 10000)</code></pre>
+<p>Subset these datasets for only a few pieces of data.</p>
+<pre class="r"><code>rb_trout_coords &lt;- rb_trout$data[ , c(&quot;decimalLongitude&quot;, &quot;decimalLatitude&quot;,
+&quot;occurrenceStatus&quot;, &quot;coordinateUncertaintyInMeters&quot;, &quot;references&quot;)]
+bw_olive_coords &lt;- bw_olive$data[ , c(&quot;decimalLongitude&quot;, &quot;decimalLatitude&quot;,
+&quot;occurrenceStatus&quot;, &quot;coordinateUncertaintyInMeters&quot;, &quot;references&quot;)]</code></pre>
+<p>Plot on a map of California. Rainbow trout in red and Blue winged Olives in blue.</p>
+<pre class="r"><code>maps::map(database = &quot;state&quot;, region = &quot;california&quot;)
+points(rb_trout_coords[ , c(&quot;decimalLongitude&quot;, &quot;decimalLatitude&quot;)], pch = &quot;.&quot;, col = &quot;red&quot;, cex = 3)
+points(bw_olive_coords[ , c(&quot;decimalLongitude&quot;, &quot;decimalLatitude&quot;)], pch = &quot;.&quot;, col = &quot;blue&quot;, cex = 3)</code></pre>
+<p><img src="/2022/03/01/trout-and-food-species/index_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p>Subset our search to only Northern California and combine the query for both species.</p>
+<pre class="r"><code>norcal_geometry &lt;- paste(&#39;POLYGON((-124.4323 42.0021, -120 42.0021, -120 40.194, -124.4323 40.194, -124.4323 42.0021))&#39;)
+species &lt;- c(&quot;Oncorhynchus mykiss&quot;, &quot;Baetis tricaudatus&quot;)
+
+species_data &lt;- occ_data(scientificName = species, hasCoordinate = TRUE, limit = 10000,
+                   geometry = norcal_geometry)
+summary(species_data)</code></pre>
+<pre><code>##                     Length Class  Mode
+## Oncorhynchus mykiss 2      -none- list
+## Baetis tricaudatus  2      -none- list</code></pre>
+<p>Name the individual lists within the <code>species_data</code> object and pull out the relevant data for plotting.</p>
+<pre class="r"><code>species_data_coords_list &lt;- vector(&quot;list&quot;, length(species_data))
+names(species_data_coords_list) &lt;- species
+names(species_data_coords_list)</code></pre>
+<pre><code>## [1] &quot;Oncorhynchus mykiss&quot; &quot;Baetis tricaudatus&quot;</code></pre>
+<pre class="r"><code>for (x in species) {
+  coords &lt;- species_data[[x]]$data[ , c(&quot;decimalLongitude&quot;, &quot;decimalLatitude&quot;, &quot;occurrenceStatus&quot;, &quot;coordinateUncertaintyInMeters&quot;, &quot;institutionCode&quot;, &quot;references&quot;)]
+  species_data_coords_list[[x]] &lt;- data.frame(species = x, coords)
+}</code></pre>
+<p>Combine into single long dataframe for easier plotting.</p>
+<pre class="r"><code>trout_df &lt;- rbindlist(species_data_coords_list, fill = T)</code></pre>
+<p>There are only a few observations of the Blue Winged Olives that overlap the Rainbow Trout in this range.</p>
+<pre class="r"><code>species_plot1  &lt;- ggplot(trout_df, aes(x=decimalLongitude, y = decimalLatitude, color = species)) +
+       geom_point() +   scale_color_manual(values = c(&quot;Oncorhynchus mykiss&quot; = &quot;red&quot;, &quot;Baetis tricaudatus&quot; = &quot;blue&quot;)) +
+       labs(color = &quot;Species&quot;, title = &quot;Northern California Rainbow Trout and Blue Winged Olive&quot;)
+species_plot1</code></pre>
+<p><img src="/2022/03/01/trout-and-food-species/index_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<p>Plot the data on an actual map. The overlapping data points for Blue Winged Olives and Rainbow Trout are on the Trinity River, the McCloud River, and Rush Creek in the North Eastern part of the state in Modoc county.</p>
+<pre class="r"><code>palette &lt;- colorFactor(c(&quot;blue&quot;, &quot;red&quot;), domain = c(&quot;Oncorhynchus mykiss&quot;, &quot;Baetis tricaudatus&quot;))
+
+leaflet(trout_df) %&gt;% addTiles() %&gt;%
+  addCircleMarkers(~decimalLongitude, ~decimalLatitude,
+    color = ~palette(species),
+    stroke = FALSE, fillOpacity = 0.5
+  )</code></pre>
+<div id="htmlwidget-1" style="width:672px;height:480px;" class="leaflet html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]},{"method":"addCircleMarkers","args":[[40.855838,40.8703,40.817467,40.497116,41.711872,41.246761,41.113914,40.575192,40.79236,40.775825,41.305706,41.82665,41.114903,40.881281,40.59198,41.693722,41.099422,40.472,41.010105,40.874816,41.922042,41.922042,41.922042,40.901542,41.31863,40.202237,41.302842,41.656883,41.233278,40.263352,41.832706,41.383564,41.634227,41.234397,40.978458,40.890019,41.735598,40.841164,41.814499,40.548308,41.334314,41.335149,40.471394,41.80419,41.688039,40.752587,41.565078,41.208209,41.724358,41.701477,41.380657,41.360874,41.184253,40.590931,41.004608,40.32473,40.316288,40.476026,40.271214,40.271094,41.240953,40.9195,41.739556,41.872343,40.50969,40.271695,40.665369,40.694204,41.98828,41.4614,41.8263,41.2734,41.8047,40.2188,40.6568,40.2891,41.8438,41.844,41.3125,41.8443,41.0156,41.1406,40.4844,40.9297,40.4844,40.2266,41.1544,40.595,41.4903,41.135,41.3289,41.7472,40.2908,41.0919,41.3969,41.9917,41.0506,41.0906,41.2444,40.6028,41.49,41.802566,41.5722,40.4903,40.6978,40.6886,41.1969,40.6256,40.7286,40.9806,41.8617,41.4903,41.7083,40.8472,40.4336,40.8569,40.8625,40.8156,41.4903,40.4458,40.8653,40.6272,41.0483,41.2294,41.8883,40.7789,40.5272,40.8625,41.3625,41.3383,40.8625,40.8917,40.2528,40.5994,40.7186,40.7264,40.8011,40.9717,41.01,41.1942,41.3083,41.4211,41.5236,41.5331,41.5789,41.5833,41.997925,41.997925,40.907126,41.9922,41.833333,41.5,41.75,40.901695,40.3225,41.97946,40.46984,41.988611,41.229722,40.848879,40.238056,41.966667,40.984052,41.181238,41.485439,41.919335,40.309444,40.223611,40.984444,40.984444,40.289722,40.350278,40.591667,40.473333,40.932065,40.902545,40.914014,41.259825,40.68528,41.268396,41.244019,40.7186,41.22729,40.562222,40.581111,40.459784,40.720786,40.347855,40.698715,41.288456,41.604457,41.806944,40.846072,40.910018,40.919752,41.112022,40.942976,40.329274,40.263723,40.36764,41.020409,40.72677,40.963927,40.930877,40.678169,40.678169,40.614305,40.73015,41.994407,41.836492,41.940228,41.281829,40.387308,40.766552,41.544081,41.050722,41.972851,41.541887,40.453295,40.538577,40.644479,40.799321,41.61268,41.721121,40.467565,40.260261,41.907917,40.909889,41.847862,41.28694,40.538568,40.799321,40.804313,40.804313,40.804313,40.804313,40.804313,40.804313,40.804313,40.804313,40.307417,41.307246,41.306565,40.677778,40.677778,40.678333,40.677778,40.77015,40.716667,41.598553,41.249893,41.648016,41.297091,40.717,40.720001,40.87056,41.485677,41.061614,41.30664,40.638748,40.712575,41.6445,41.26155,41.30134,41.55942,41.55942,40.54351,40.67655],[-123.989205,-124.076883,-124.029157,-121.156926,-123.748661,-122.069708,-122.087205,-122.365106,-121.489307,-121.541681,-121.797308,-120.296367,-122.06892,-123.611883,-122.375663,-123.906864,-121.510042,-122.263712,-122.855754,-123.990862,-122.448447,-122.448447,-122.448447,-124.030333,-123.52752,-120.669395,-123.534667,-123.112717,-122.028591,-121.288668,-122.661118,-120.219444,-123.080908,-122.010667,-122.70208,-123.602317,-123.946934,-124.075386,-124.098117,-121.729247,-122.632501,-122.635063,-122.924178,-123.072633,-124.035361,-124.050046,-123.312218,-122.271953,-123.716031,-123.75396,-124.016299,-120.269812,-122.284728,-122.365531,-121.438314,-121.275667,-121.2338,-121.588472,-121.098024,-121.098371,-122.024314,-121.5525,-123.843887,-120.232841,-121.308587,-121.096222,-120.790671,-122.973128,-120.172826,-123.497,-124.114,-120.266,-124.109,-124.109,-123.98,-123.891,-124.031,-124.002,-123.047,-123.193,-123.578,-122.797,-123.016,-123.141,-123.906,-123,-123.569,-123.918,-122.029,-122.804,-122.843,-122.626,-123.455,-122.248,-123.83,-124.181,-122.935,-124.085,-123.328,-122.911,-122.029,-120.280666,-123.641,-123.613,-123.364,-122.932,-122.53,-122.956,-124.06,-122.507,-122.207,-122.029,-123.131,-123.399,-120.724,-122.489,-122.902,-121.722,-122.029,-122.946,-122.902,-123.373,-122.655,-120.405,-123.413,-123.335,-124.17,-122.902,-122.519,-122.918,-122.902,-123.808,-121.161,-122.541,-122.419,-122.793,-122.763,-123.067,-123.05,-122.714,-122.941,-123.225,-123.114,-123.106,-123.357,-123.087,-124.078269,-124.078269,-121.553952,-122.1902,-120.5,-120,-120,-121.548661,-121.306111,-124.205,-123.7382,-120.172778,-124.092778,-124.085544,-124.118056,-122.303056,-121.44525,-122.07252,-120.090946,-120.03216,-121.981944,-121.989722,-121.564444,-121.564444,-121.0375,-121.349444,-124.425,-121.331667,-121.540672,-123.809384,-123.916967,-121.941238,-120.51583,-124.09242,-124.091613,-122.419,-122.38325,-120.824444,-121.081111,-121.442656,-122.834753,-123.915127,-124.124725,-124.059125,-124.101107,-124.082343,-123.983654,-124.061398,-124.111379,-123.6885,-122.338531,-120.931369,-121.408123,-121.53909,-121.911888,-122.79453,-123.922783,-121.176616,-120.783617,-120.783617,-124.203197,-122.495441,-120.025187,-120.140802,-120.071893,-120.895043,-121.310398,-121.490803,-124.069621,-123.673468,-122.204342,-124.069832,-123.507199,-124.156625,-120.74278,-122.305849,-120.420242,-122.555223,-124.362248,-123.877222,-122.554548,-124.07431,-123.969274,-124.05861,-124.156644,-122.305849,-122.293309,-122.293309,-122.293309,-122.293309,-122.293309,-122.293309,-122.293309,-122.293309,-121.249318,-122.329502,-122.329455,-120.784167,-120.784167,-120.785,-120.784167,-122.303618,-122.8,-122.856555,-123.64325,-122.499404,-123.359716,-122.8,-122.800003,-123.95722,-122.84789,-123.687371,-122.329448,-120.7469,-122.818213,-120.2432,-121.95055,-120.85881,-120.29727,-120.29727,-121.49257,-121.43109],10,null,null,{"interactive":true,"className":"","stroke":false,"color":["#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF"],"weight":5,"opacity":0.5,"fill":true,"fillColor":["#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#FF0000","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF","#0000FF"],"fillOpacity":0.5},null,null,null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"limits":{"lat":[40.202237,41.997925],"lng":[-124.425,-120]}},"evals":[],"jsHooks":[]}</script>
+<p>Next up for this dataset is taking a look at dates of observations and overlapping those with weather and stream flow data from those river systems.</p>
+</div>
+
+</div>
+
+        <footer class="post-footer clearfix">
+        <p class="post-tags">
+            <span>Tagged:</span>
+                <a href="/tags/species-distribution/">species distribution</a>, 
+                <a href="/tags/modeling/">modeling</a>, 
+                <a href="/tags/gbif/">GBIF</a>, 
+                <a href="/tags/gis/">GIS</a>, 
+                <a href="/tags/maps/">maps</a>, 
+                <a href="/tags/data/">data</a>, 
+                <a href="/tags/trout/">trout</a>
+        </p>
+    <div class="share">
+    </div>
+</footer>
+
+        
+    </article>
+</div>
+
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="site-title-wrapper">
+                    <h1 class="site-title">
+                        <a href="/">BIDS- Environmental</a>
+                    </h1>
+                    <a class="button-square button-jump-top js-jump-top" href="#" aria-label="Back to Top">
+                        <i class="fa fa-angle-up" aria-hidden="true"></i>
+                    </a>
+                </div>
+
+                <p class="footer-copyright">
+                    <span>&copy; 2022 / Powered by <a href="https://gohugo.io/">Hugo</a></span>
+                </p>
+                <p class="footer-copyright">
+                    <span><a href="https://github.com/roryg/ghostwriter">Ghostwriter theme</a> By <a href="http://jollygoodthemes.com">JollyGoodThemes</a></span>
+                    <span>/ <a href="https://github.com/jbub/ghostwriter">Ported</a> to Hugo By <a href="https://github.com/jbub">jbub</a></span>
+                </p>
+            </div>
+        </footer>
+
+        <script src="/js/jquery-1.11.3.min.js"></script>
+        <script src="/js/jquery.fitvids.js"></script>
+        <script src="/js/scripts.js"></script>
+    </body>
+</html>
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+
+<script>
+hljs.configure({languages: []});
+hljs.initHighlightingOnLoad();
+</script>
+
