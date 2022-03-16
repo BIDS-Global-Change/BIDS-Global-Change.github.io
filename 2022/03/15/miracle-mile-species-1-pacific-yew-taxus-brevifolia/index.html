@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Miracle Mile Species 1- Pacific Yew (Taxus brevifolia) &middot; </title>
+        <meta name="description" content="I have started checking off all the conifer species that occur in the Miracle Mile. I recently found some Pacific Yew (Taxus brevifolia) on a trail run with a friend. This was also my first post to iNaturalist. A good time to take a look at the data.
+Load the libraries.
+library(rinat) library(tidyverse) Load the data.
+TrailRun1 &lt;- read.csv(&quot;../../../static/data/TrailRun_PacYew.csv&quot;) glimpse(TrailRun1) ## Rows: 7,077 ## Columns: 10 ## $ X &lt;int&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, … ## $ timestamp &lt;chr&gt; &quot;2022-02-27 16:41:35&quot;, &quot;2022-02-27 16:41:43&quot;, &quot;2022-02-… ## $ position_lat &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,… ## $ position_long &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,… ## $ distance &lt;int&gt; 0, 21, 24, 28, 32, 36, 41, 41, 51, 55, 59, 64, 68, 72, … ## $ altitude &lt;dbl&gt; NA, 791.">
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="generator" content="Hugo 0.82.0" />
+        <meta name="robots" content="index,follow">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <link rel="stylesheet" href="/dist/site.css">
+        <link rel="stylesheet" href="/dist/syntax.css">
+        
+        
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300&subset=latin,cyrillic-ext,latin-ext,cyrillic">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+        
+        
+        
+        
+        
+
+    </head>
+    <body>
+        
+
+        <div id="wrapper">
+            <header class="site-header">
+                <div class="container">
+                    <div class="site-title-wrapper">
+                        
+                            <a class="site-logo" href="">
+                                <img src="#ZgotmplZ" alt="" />
+                            </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                    </div>
+
+                    <ul class="site-nav">
+                        
+    <li class="site-nav-item">
+        <a href="/post/">Blog</a>
+    </li>
+
+    <li class="site-nav-item">
+        <a href="/project/">Projects</a>
+    </li>
+
+    <li class="site-nav-item">
+        <a href="/page/about/">About</a>
+    </li>
+
+    <li class="site-nav-item">
+        <a href="/page/contact/">contact</a>
+    </li>
+
+    <li class="site-nav-item">
+        <a href="/page/links/">links</a>
+    </li>
+
+    <li class="site-nav-item">
+        <a href="https://github.com/BIDS-Global-Change/">GitHub</a>
+    </li>
+
+    <li class="site-nav-item">
+        <a href="https://twitter.com/rjcmarkelz">Twitter</a>
+    </li>
+
+
+                    </ul>
+                </div>
+            </header>
+
+            <div id="container">
+
+
+<link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/routeros.min.css" rel="stylesheet">
+
+
+<div class="container">
+    <article class="post-container" itemscope="" itemtype="http://schema.org/BlogPosting">
+        <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">Miracle Mile Species 1- Pacific Yew (Taxus brevifolia)</h1>
+    
+    <p class="post-date post-line">
+        <span>Published <time datetime="2022-03-15" itemprop="datePublished">Tue, Mar 15, 2022</time></span>
+        <span>by</span>
+        <span itemscope="" itemprop="author" itemtype="https://schema.org/Person">
+            <span itemprop="name">
+                <a href="#" itemprop="url" rel="author">RJ Cody Markelz</a>
+            </span>
+        </span>
+    </p>
+    
+</header>
+
+        <div class="post-content clearfix" itemprop="articleBody">
+    
+
+    
+<script src="/2022/03/15/miracle-mile-species-1-pacific-yew-taxus-brevifolia/index_files/header-attrs/header-attrs.js"></script>
+
+
+<p><img src="/static/img/Taxus_brevifolia.png" /></p>
+<p>I have started checking off all the conifer species that occur in the <a href="/2021/06/17/gbif-miracle-mile-species/">Miracle Mile</a>. I recently found some Pacific Yew (<em>Taxus brevifolia</em>) on a trail run with a friend. This was also my first post to iNaturalist. A good time to take a look at the data.</p>
+<p>Load the libraries.</p>
+<pre class="r"><code>library(rinat)
+library(tidyverse)</code></pre>
+<p>Load the data.</p>
+<pre class="r"><code>TrailRun1 &lt;- read.csv(&quot;../../../static/data/TrailRun_PacYew.csv&quot;)
+glimpse(TrailRun1)</code></pre>
+<pre><code>## Rows: 7,077
+## Columns: 10
+## $ X              &lt;int&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, …
+## $ timestamp      &lt;chr&gt; &quot;2022-02-27 16:41:35&quot;, &quot;2022-02-27 16:41:43&quot;, &quot;2022-02-…
+## $ position_lat   &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+## $ position_long  &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+## $ distance       &lt;int&gt; 0, 21, 24, 28, 32, 36, 41, 41, 51, 55, 59, 64, 68, 72, …
+## $ altitude       &lt;dbl&gt; NA, 791.2, 790.8, 790.6, 790.4, 790.4, 790.0, 789.6, 78…
+## $ cadence        &lt;int&gt; NA, 87, 86, 85, 84, 84, 85, 87, 87, 87, 87, 85, 85, 84,…
+## $ speed          &lt;dbl&gt; NA, 2.58, 2.58, 2.92, 2.92, 3.34, 3.34, 3.78, 3.78, 4.0…
+## $ temperature    &lt;int&gt; NA, 25, 25, 25, 25, 25, 25, 25, 25, 25, 24, 24, 24, 24,…
+## $ vertical_speed &lt;dbl&gt; NA, -0.02, -0.04, -0.06, -0.06, -0.08, -0.10, -0.10, -0…</code></pre>
+<p>Make a Northern California polygon for iNaturalist, pull in the data and take look.</p>
+<pre class="r"><code>bounds &lt;- c(40.194, -124.4323, 42.0021, -120)
+species &lt;- c(&quot;taxus brevifolia&quot;)
+pacyew_iNat &lt;- get_inat_obs(query = species, bounds = bounds, maxresults = 10000, quality = &quot;research&quot;)
+dim(pacyew_iNat)</code></pre>
+<pre><code>## [1] 140  36</code></pre>
+<p>I have one of the newest observations of this species in the data set. My username is rjcmarkelz.</p>
+<pre class="r"><code>glimpse(pacyew_iNat)</code></pre>
+<pre><code>## Rows: 140
+## Columns: 36
+## $ scientific_name                  &lt;chr&gt; &quot;Taxus brevifolia&quot;, &quot;Taxus brevifolia…
+## $ datetime                         &lt;chr&gt; &quot;2022-03-12 15:11:10 -0800&quot;, &quot;2022-03…
+## $ description                      &lt;chr&gt; &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;…
+## $ place_guess                      &lt;chr&gt; &quot;Del Norte County, US-CA, US&quot;, &quot;Del N…
+## $ latitude                         &lt;dbl&gt; 41.72087, 41.79369, 40.48769, 41.0278…
+## $ longitude                        &lt;dbl&gt; -124.0452, -124.0338, -123.3685, -122…
+## $ tag_list                         &lt;chr&gt; &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;…
+## $ common_name                      &lt;chr&gt; &quot;Pacific yew&quot;, &quot;Pacific yew&quot;, &quot;Pacifi…
+## $ url                              &lt;chr&gt; &quot;https://www.inaturalist.org/observat…
+## $ image_url                        &lt;chr&gt; &quot;https://inaturalist-open-data.s3.ama…
+## $ user_login                       &lt;chr&gt; &quot;shaunnastodola&quot;, &quot;shaunnastodola&quot;, &quot;…
+## $ id                               &lt;int&gt; 108479289, 108478955, 108353089, 1080…
+## $ species_guess                    &lt;chr&gt; &quot;Pacific yew&quot;, &quot;Pacific yew&quot;, &quot;Pacifi…
+## $ iconic_taxon_name                &lt;chr&gt; &quot;Plantae&quot;, &quot;Plantae&quot;, &quot;Plantae&quot;, &quot;Pla…
+## $ taxon_id                         &lt;int&gt; 55209, 55209, 55209, 55209, 55209, 55…
+## $ num_identification_agreements    &lt;int&gt; 1, 1, 1, 1, 1, 1, 2, 2, 1, 2, 1, 1, 1…
+## $ num_identification_disagreements &lt;int&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…
+## $ observed_on_string               &lt;chr&gt; &quot;2022-03-12 15:11:10&quot;, &quot;2022-03-12 15…
+## $ observed_on                      &lt;chr&gt; &quot;2022-03-12&quot;, &quot;2022-03-12&quot;, &quot;2022-03-…
+## $ time_observed_at                 &lt;chr&gt; &quot;2022-03-12 23:11:10 UTC&quot;, &quot;2022-03-1…
+## $ time_zone                        &lt;chr&gt; &quot;Pacific Time (US &amp; Canada)&quot;, &quot;Pacifi…
+## $ positional_accuracy              &lt;int&gt; 1621, 1617, 18, NA, 15, 12713, NA, 5,…
+## $ public_positional_accuracy       &lt;int&gt; 27754, 27754, 27939, 27847, 27969, 27…
+## $ geoprivacy                       &lt;chr&gt; &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;…
+## $ taxon_geoprivacy                 &lt;chr&gt; &quot;obscured&quot;, &quot;obscured&quot;, &quot;obscured&quot;, &quot;…
+## $ coordinates_obscured             &lt;chr&gt; &quot;true&quot;, &quot;true&quot;, &quot;true&quot;, &quot;true&quot;, &quot;true…
+## $ positioning_method               &lt;chr&gt; &quot;gps&quot;, &quot;gps&quot;, &quot;&quot;, &quot;gps&quot;, &quot;&quot;, &quot;gps&quot;, &quot;…
+## $ positioning_device               &lt;chr&gt; &quot;gps&quot;, &quot;gps&quot;, &quot;&quot;, &quot;gps&quot;, &quot;&quot;, &quot;gps&quot;, &quot;…
+## $ user_id                          &lt;int&gt; 5413426, 5413426, 2289590, 4268943, 2…
+## $ created_at                       &lt;chr&gt; &quot;2022-03-13 02:53:00 UTC&quot;, &quot;2022-03-1…
+## $ updated_at                       &lt;chr&gt; &quot;2022-03-13 06:49:40 UTC&quot;, &quot;2022-03-1…
+## $ quality_grade                    &lt;chr&gt; &quot;research&quot;, &quot;research&quot;, &quot;research&quot;, &quot;…
+## $ license                          &lt;chr&gt; &quot;CC-BY-NC&quot;, &quot;CC-BY-NC&quot;, &quot;CC-BY-NC&quot;, &quot;…
+## $ sound_url                        &lt;lgl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, N…
+## $ oauth_application_id             &lt;int&gt; 2, 2, 3, 2, 3, 2, 2, 3, 3, NA, 3, 3, …
+## $ captive_cultivated               &lt;chr&gt; &quot;false&quot;, &quot;false&quot;, &quot;false&quot;, &quot;false&quot;, &quot;…</code></pre>
+<pre class="r"><code>head(pacyew_iNat$user_login, 10)</code></pre>
+<pre><code>##  [1] &quot;shaunnastodola&quot;        &quot;shaunnastodola&quot;        &quot;shakeyouroncorhynchus&quot;
+##  [4] &quot;rjcmarkelz&quot;            &quot;nathanielreyes&quot;        &quot;abudnik&quot;              
+##  [7] &quot;sandragonfruit&quot;        &quot;sethberes&quot;             &quot;sethberes&quot;            
+## [10] &quot;abr&quot;</code></pre>
+<p>Here is my image that I uploaded. I had a species confirmation from the community within 12 hours.</p>
+<p><img src="https://inaturalist-open-data.s3.amazonaws.com/photos/181815986/medium.jpeg" /></p>
+<p>Quick map to show all the observations.</p>
+<pre class="r"><code>maps::map(database = &quot;state&quot;, region = &quot;california&quot;)
+points(TrailRun1[ , c(&quot;position_long&quot;, &quot;position_lat&quot;)], pch = &quot;.&quot;, col = &quot;red&quot;, cex = 3)
+points(pacyew_iNat[ , c(&quot;longitude&quot;, &quot;latitude&quot;)], pch = &quot;.&quot;, col = &quot;blue&quot;, cex = 3)</code></pre>
+<p><img src="/2022/03/15/miracle-mile-species-1-pacific-yew-taxus-brevifolia/index_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p>Make a quick plot to show the overlay of the run data and the coordinates of the image I took shown as a red dot.</p>
+<pre class="r"><code>tr_plot1 &lt;- ggplot(TrailRun1, aes(x = position_long, y = position_lat)) +
+                    coord_quickmap() + geom_point() + geom_point(aes(x=-122.1683,y=41.120),color=&quot;red&quot;, size = 5)
+tr_plot1</code></pre>
+<p><img src="/2022/03/15/miracle-mile-species-1-pacific-yew-taxus-brevifolia/index_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+
+</div>
+
+        <footer class="post-footer clearfix">
+        <p class="post-tags">
+            <span>Tagged:</span>
+                <a href="/tags/species-distribution/">species distribution</a>, 
+                <a href="/tags/modeling/">modeling</a>, 
+                <a href="/tags/gis/">GIS</a>, 
+                <a href="/tags/maps/">maps</a>, 
+                <a href="/tags/data/">data</a>, 
+                <a href="/tags/trail-run/">trail run</a>, 
+                <a href="/tags/exercise/">exercise</a>, 
+                <a href="/tags/explore/">explore</a>
+        </p>
+    <div class="share">
+    </div>
+</footer>
+
+        
+    </article>
+</div>
+
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="site-title-wrapper">
+                    <h1 class="site-title">
+                        <a href="/">BIDS- Environmental</a>
+                    </h1>
+                    <a class="button-square button-jump-top js-jump-top" href="#" aria-label="Back to Top">
+                        <i class="fa fa-angle-up" aria-hidden="true"></i>
+                    </a>
+                </div>
+
+                <p class="footer-copyright">
+                    <span>&copy; 2022 / Powered by <a href="https://gohugo.io/">Hugo</a></span>
+                </p>
+                <p class="footer-copyright">
+                    <span><a href="https://github.com/roryg/ghostwriter">Ghostwriter theme</a> By <a href="http://jollygoodthemes.com">JollyGoodThemes</a></span>
+                    <span>/ <a href="https://github.com/jbub/ghostwriter">Ported</a> to Hugo By <a href="https://github.com/jbub">jbub</a></span>
+                </p>
+            </div>
+        </footer>
+
+        <script src="/js/jquery-1.11.3.min.js"></script>
+        <script src="/js/jquery.fitvids.js"></script>
+        <script src="/js/scripts.js"></script>
+    </body>
+</html>
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+
+<script>
+hljs.configure({languages: []});
+hljs.initHighlightingOnLoad();
+</script>
+

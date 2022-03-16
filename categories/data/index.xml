@@ -6,7 +6,19 @@
     <description>Recent content in data on BIDS- Environmental</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 01 Mar 2022 09:07:38 -0800</lastBuildDate><atom:link href="/categories/data/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 15 Mar 2022 09:07:38 -0800</lastBuildDate><atom:link href="/categories/data/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Miracle Mile Species 1- Pacific Yew (Taxus brevifolia)</title>
+      <link>/2022/03/15/miracle-mile-species-1-pacific-yew-taxus-brevifolia/</link>
+      <pubDate>Tue, 15 Mar 2022 09:07:38 -0800</pubDate>
+      
+      <guid>/2022/03/15/miracle-mile-species-1-pacific-yew-taxus-brevifolia/</guid>
+      <description>I have started checking off all the conifer species that occur in the Miracle Mile. I recently found some Pacific Yew (Taxus brevifolia) on a trail run with a friend. This was also my first post to iNaturalist. A good time to take a look at the data.
+Load the libraries.
+library(rinat) library(tidyverse) Load the data.
+TrailRun1 &amp;lt;- read.csv(&amp;quot;../../../static/data/TrailRun_PacYew.csv&amp;quot;) glimpse(TrailRun1) ## Rows: 7,077 ## Columns: 10 ## $ X &amp;lt;int&amp;gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, … ## $ timestamp &amp;lt;chr&amp;gt; &amp;quot;2022-02-27 16:41:35&amp;quot;, &amp;quot;2022-02-27 16:41:43&amp;quot;, &amp;quot;2022-02-… ## $ position_lat &amp;lt;dbl&amp;gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,… ## $ position_long &amp;lt;dbl&amp;gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,… ## $ distance &amp;lt;int&amp;gt; 0, 21, 24, 28, 32, 36, 41, 41, 51, 55, 59, 64, 68, 72, … ## $ altitude &amp;lt;dbl&amp;gt; NA, 791.</description>
+    </item>
+    
     <item>
       <title>Trout and Food Species</title>
       <link>/2022/03/01/trout-and-food-species/</link>
