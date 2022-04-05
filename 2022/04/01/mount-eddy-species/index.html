@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Mount Eddy Species &middot; </title>
+        <meta name="description" content="Pinus balfouriana
+Western White Pine
+Continuing to check off the conifer species that occur in the Miracle Mile so I can make a visit and try to ID all of them. Last summer I found some Foxtail Pine (Pinus balfouriana) and (Pinus monticola) near Mount Eddy in the Klammath Range (among others).
+Load the libraries.
+library(rgbif) library(tidyverse) library(data.table) library(maps) Load the data.
+ski_data &lt;- read.csv(&quot;../../../static/data/SkiTouring.csv&quot;) setwd(&quot;/Users/rjcmarkelz/Documents/Projects/THINK/git.repos/BIDS/DATA/&quot;) TrailRun1 &lt;- read.">
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="generator" content="Hugo 0.82.0" />
+        <meta name="robots" content="index,follow">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <link rel="stylesheet" href="/dist/site.css">
+        <link rel="stylesheet" href="/dist/syntax.css">
+        
+        
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300&subset=latin,cyrillic-ext,latin-ext,cyrillic">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+        
+        
+        
+        
+        
+
+    </head>
+    <body>
+        
+
+        <div id="wrapper">
+            <header class="site-header">
+                <div class="container">
+                    <div class="site-title-wrapper">
+                        
+                            <a class="site-logo" href="">
+                                <img src="#ZgotmplZ" alt="" />
+                            </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                    </div>
+
+                    <ul class="site-nav">
+                        
+    <li class="site-nav-item">
+        <a href="/post/">Blog</a>
+    </li>
+
+    <li class="site-nav-item">
+        <a href="/project/">Projects</a>
+    </li>
+
+    <li class="site-nav-item">
+        <a href="/page/about/">About</a>
+    </li>
+
+    <li class="site-nav-item">
+        <a href="/page/contact/">contact</a>
+    </li>
+
+    <li class="site-nav-item">
+        <a href="/page/links/">links</a>
+    </li>
+
+    <li class="site-nav-item">
+        <a href="https://github.com/BIDS-Global-Change/">GitHub</a>
+    </li>
+
+    <li class="site-nav-item">
+        <a href="https://twitter.com/rjcmarkelz">Twitter</a>
+    </li>
+
+
+                    </ul>
+                </div>
+            </header>
+
+            <div id="container">
+
+
+<link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/routeros.min.css" rel="stylesheet">
+
+
+<div class="container">
+    <article class="post-container" itemscope="" itemtype="http://schema.org/BlogPosting">
+        <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">Mount Eddy Species</h1>
+    
+    <p class="post-date post-line">
+        <span>Published <time datetime="2022-04-01" itemprop="datePublished">Fri, Apr 1, 2022</time></span>
+        <span>by</span>
+        <span itemscope="" itemprop="author" itemtype="https://schema.org/Person">
+            <span itemprop="name">
+                <a href="#" itemprop="url" rel="author">RJ Cody Markelz</a>
+            </span>
+        </span>
+    </p>
+    
+</header>
+
+        <div class="post-content clearfix" itemprop="articleBody">
+    
+
+    
+<script src="/2022/04/01/mount-eddy-species/index_files/header-attrs/header-attrs.js"></script>
+
+
+<p><img src="/static/img/Foxtail_Pine.png" />
+<a href="https://en.wikipedia.org/wiki/Pinus_balfouriana">Pinus balfouriana</a></p>
+<p><img src="/static/img/WesternWhitePineCone_web.jpg" />
+<a href="https://en.wikipedia.org/wiki/Western_white_pine">Western White Pine</a></p>
+<p>Continuing to check off the conifer species that occur in the <a href="/2021/06/17/gbif-miracle-mile-species/">Miracle Mile</a> so I can make a visit and try to ID all of them. Last summer I found some Foxtail Pine (<em>Pinus balfouriana</em>) and (<em>Pinus monticola</em>) near Mount Eddy in the Klammath Range (among others).</p>
+<p>Load the libraries.</p>
+<pre class="r"><code>library(rgbif)
+library(tidyverse)
+library(data.table)
+library(maps)</code></pre>
+<p>Load the data.</p>
+<pre class="r"><code>ski_data &lt;- read.csv(&quot;../../../static/data/SkiTouring.csv&quot;)
+setwd(&quot;/Users/rjcmarkelz/Documents/Projects/THINK/git.repos/BIDS/DATA/&quot;)
+TrailRun1 &lt;- read.csv(&quot;TrailRun_FoxtailPine.csv&quot;)</code></pre>
+<p>Make a quick plot using the latitude and longitude coordinates and color by the date of the tour.</p>
+<pre class="r"><code>run1 &lt;- ggplot(TrailRun1, aes(x = position_long, y = position_lat)) +
+                    coord_quickmap() + geom_point()
+run1</code></pre>
+<p><img src="/2022/04/01/mount-eddy-species/index_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p>Make a general area polygon for GBIF and query the database to see if there are public observations of our two species of interest in the general region I ran in.</p>
+<pre class="r"><code>norcal_geometry &lt;- paste(&#39;POLYGON((-122.6 41.35, -122.35 41.35, -122.35 41.25, -122.4 41.25, -122.6 41.25, -122.6 41.35))&#39;)
+
+mm_species &lt;- c(&quot;pinus balfouriana&quot;, &quot;pinus monticola&quot;)
+
+foxtail_data &lt;- occ_data(scientificName = mm_species, hasCoordinate = TRUE, limit = 10000,
+                   geometry = norcal_geometry)
+
+foxtail_coords &lt;- foxtail_data$data[ , c(&quot;decimalLongitude&quot;, &quot;decimalLatitude&quot;,
+ &quot;individualCount&quot;, &quot;occurrenceStatus&quot;, &quot;coordinateUncertaintyInMeters&quot;,
+  &quot;institutionCode&quot;, &quot;references&quot;)]
+
+mm_all &lt;- occ_data(scientificName = mm_species, hasCoordinate = TRUE, limit = 10000,
+                   geometry = norcal_geometry)
+mm_species_coords_list &lt;- vector(&quot;list&quot;, length(mm_species))
+names(mm_species_coords_list) &lt;- mm_species
+head(mm_species_coords_list)</code></pre>
+<pre><code>## $`pinus balfouriana`
+## NULL
+## 
+## $`pinus monticola`
+## NULL</code></pre>
+<p>Loop through and make a dataframe from the lists.</p>
+<pre class="r"><code>for (x in mm_species) {
+  coords &lt;- mm_all[[x]]$data[ , c(&quot;decimalLongitude&quot;, &quot;decimalLatitude&quot;, &quot;occurrenceStatus&quot;, &quot;coordinateUncertaintyInMeters&quot;, &quot;institutionCode&quot;, &quot;references&quot;)]
+  mm_species_coords_list[[x]] &lt;- data.frame(species = x, coords)
+}
+
+tree_df &lt;- rbindlist(mm_species_coords_list, fill = T)</code></pre>
+<p>Just take a quick look at the raw observations plotted by latitude and longitude. Plot the species on the California map to see the limited polygon sampled.</p>
+<pre class="r"><code>maps::map(database = &quot;state&quot;, region = &quot;california&quot;)
+points(tree_df[ , c(&quot;decimalLongitude&quot;, &quot;decimalLatitude&quot;)], pch = &quot;.&quot;, col = &quot;blue&quot;, cex = 3)</code></pre>
+<p><img src="/2022/04/01/mount-eddy-species/index_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p>Plot all of the species using ggplot for the zoomed in area.</p>
+<pre class="r"><code>run_plot1  &lt;- ggplot(tree_df, aes(x=decimalLongitude, y = decimalLatitude, color = species)) +
+                             geom_point() + labs(color = &quot;Species&quot;, title = &quot;MM Zone&quot;)
+run_plot1</code></pre>
+<p><img src="/2022/04/01/mount-eddy-species/index_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<p>Combine trail running and species occurrence observations.</p>
+<pre class="r"><code>run_plot2 &lt;- ggplot() +
+          coord_quickmap() +
+          geom_point(data = TrailRun1, aes(x = position_long, y = position_lat), color = &#39;black&#39;) +
+          geom_point(data=tree_df, aes(x = decimalLongitude, y = decimalLatitude, color = factor(species))) +
+          xlab(&quot;Longitude&quot;) + ylab(&quot;Latitude&quot;) + labs(color=&#39;Species&#39;)
+run_plot2</code></pre>
+<p><img src="/2022/04/01/mount-eddy-species/index_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+
+</div>
+
+        <footer class="post-footer clearfix">
+        <p class="post-tags">
+            <span>Tagged:</span>
+                <a href="/tags/species-distribution/">species distribution</a>, 
+                <a href="/tags/modeling/">modeling</a>, 
+                <a href="/tags/gis/">GIS</a>, 
+                <a href="/tags/maps/">maps</a>, 
+                <a href="/tags/data/">data</a>, 
+                <a href="/tags/trail-run/">trail run</a>, 
+                <a href="/tags/exercise/">exercise</a>, 
+                <a href="/tags/explore/">explore</a>
+        </p>
+    <div class="share">
+    </div>
+</footer>
+
+        
+    </article>
+</div>
+
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="site-title-wrapper">
+                    <h1 class="site-title">
+                        <a href="/">BIDS- Environmental</a>
+                    </h1>
+                    <a class="button-square button-jump-top js-jump-top" href="#" aria-label="Back to Top">
+                        <i class="fa fa-angle-up" aria-hidden="true"></i>
+                    </a>
+                </div>
+
+                <p class="footer-copyright">
+                    <span>&copy; 2022 / Powered by <a href="https://gohugo.io/">Hugo</a></span>
+                </p>
+                <p class="footer-copyright">
+                    <span><a href="https://github.com/roryg/ghostwriter">Ghostwriter theme</a> By <a href="http://jollygoodthemes.com">JollyGoodThemes</a></span>
+                    <span>/ <a href="https://github.com/jbub/ghostwriter">Ported</a> to Hugo By <a href="https://github.com/jbub">jbub</a></span>
+                </p>
+            </div>
+        </footer>
+
+        <script src="/js/jquery-1.11.3.min.js"></script>
+        <script src="/js/jquery.fitvids.js"></script>
+        <script src="/js/scripts.js"></script>
+    </body>
+</html>
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+
+<script>
+hljs.configure({languages: []});
+hljs.initHighlightingOnLoad();
+</script>
+

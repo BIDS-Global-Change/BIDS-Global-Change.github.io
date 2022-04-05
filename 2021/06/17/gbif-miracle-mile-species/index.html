@@ -141,25 +141,25 @@ library(leaflet)</code></pre>
 <pre class="r"><code>summary(pinus_balfouriana)</code></pre>
 <pre><code>##      Length Class  Mode
 ## meta   4    -none- list
-## data 128    tbl_df list</code></pre>
+## data 134    tbl_df list</code></pre>
 <p>There are many different groups that contribute data to GBIF. Make sure you cite them accordingly so we can continue to have a great stream of species occurrence data. As a a few examples this species has currated research grade observations from iNaturalist and many from the Humboldt State University.</p>
 <pre class="r"><code>head(gbif_citation(pinus_balfouriana), 2)</code></pre>
 <pre><code>## [[1]]
 ## &lt;&lt;rgbif citation&gt;&gt;
-##    Citation: iNaturalist users, Ueda K (2021). iNaturalist Research-grade
-##         Observations. iNaturalist.org. Occurrence dataset
-##         https://doi.org/10.15468/ab3s5x accessed via GBIF.org on 2021-11-17..
+##    Citation: iNaturalist contributors, iNaturalist (2022). iNaturalist
+##         Research-grade Observations. iNaturalist.org. Occurrence dataset
+##         https://doi.org/10.15468/ab3s5x accessed via GBIF.org on 2022-04-05..
 ##         Accessed from R via rgbif (https://github.com/ropensci/rgbif) on
-##         2021-11-16
+##         2022-04-05
 ##    Rights: http://creativecommons.org/licenses/by-nc/4.0/legalcode
 ## 
 ## [[2]]
 ## &lt;&lt;rgbif citation&gt;&gt;
-##    Citation: Humboldt State University (2021). HSC - Humboldt State University
+##    Citation: Humboldt State University (2022). HSC - Humboldt State University
 ##         Vascular Plant Herbarium. Occurrence dataset
-##         https://doi.org/10.15468/qguk7r accessed via GBIF.org on 2021-11-17..
+##         https://doi.org/10.15468/qguk7r accessed via GBIF.org on 2022-04-05..
 ##         Accessed from R via rgbif (https://github.com/ropensci/rgbif) on
-##         2021-11-16
+##         2022-04-05
 ##    Rights: http://creativecommons.org/licenses/by-nc/4.0/legalcode</code></pre>
 <p>Take a look at what types of data are collected.</p>
 <pre class="r"><code>head(names(pinus_balfouriana$data))</code></pre>
@@ -173,29 +173,29 @@ head(pinus_balfouriana_coords)</code></pre>
 <pre><code>## # A tibble: 6 × 5
 ##   decimalLongitude decimalLatitude occurrenceStatus coordinateUncert… references
 ##              &lt;dbl&gt;           &lt;dbl&gt; &lt;chr&gt;                        &lt;dbl&gt; &lt;chr&gt;     
-## 1            -118.            36.8 PRESENT                        130 https://w…
-## 2            -118.            36.5 PRESENT                         NA https://w…
+## 1            -118.            36.6 PRESENT                       1742 https://w…
+## 2            -118.            36.8 PRESENT                        130 https://w…
 ## 3            -118.            36.5 PRESENT                         NA https://w…
-## 4            -118.            36.4 PRESENT                         NA https://w…
+## 4            -118.            36.5 PRESENT                         NA https://w…
 ## 5            -118.            36.4 PRESENT                         NA https://w…
-## 6            -118.            36.5 PRESENT                         NA https://w…</code></pre>
+## 6            -118.            36.4 PRESENT                         NA https://w…</code></pre>
 <pre class="r"><code>summary(pinus_balfouriana_coords)</code></pre>
 <pre><code>##  decimalLongitude  decimalLatitude occurrenceStatus  
-##  Min.   :-123.21   Min.   :35.92   Length:395        
+##  Min.   :-123.21   Min.   :35.92   Length:417        
 ##  1st Qu.:-122.53   1st Qu.:36.49   Class :character  
-##  Median :-118.55   Median :36.77   Mode  :character  
-##  Mean   :-119.20   Mean   :38.12                     
-##  3rd Qu.:-118.30   3rd Qu.:40.95                     
+##  Median :-118.56   Median :36.77   Mode  :character  
+##  Mean   :-119.26   Mean   :38.14                     
+##  3rd Qu.:-118.32   3rd Qu.:40.95                     
 ##  Max.   :  11.45   Max.   :50.83                     
 ##                                                      
 ##  coordinateUncertaintyInMeters  references       
-##  Min.   :    2.0               Length:395        
-##  1st Qu.:   10.0               Class :character  
-##  Median :  200.5               Mode  :character  
-##  Mean   : 2261.2                                 
-##  3rd Qu.:  800.5                                 
-##  Max.   :28519.0                                 
-##  NA&#39;s   :151</code></pre>
+##  Min.   :    2                 Length:417        
+##  1st Qu.:   10                 Class :character  
+##  Median :  201                 Mode  :character  
+##  Mean   : 2479                                   
+##  3rd Qu.:  802                                   
+##  Max.   :28534                                   
+##  NA&#39;s   :152</code></pre>
 <pre class="r"><code># pinus_balfouriana_coords$decimalLongitude # remove this row of bad data
 pinus_balfouriana_coords &lt;- slice(pinus_balfouriana_coords, -(278))</code></pre>
 <pre class="r"><code># two map functions... be clear! There are a few map functions with these different libraries loaded.
@@ -219,24 +219,24 @@ head(pinus_balfouriana_NC)</code></pre>
 ## [1] TRUE
 ## 
 ## $meta$count
-## [1] 112
+## [1] 121
 ## 
 ## 
 ## $data
-## # A tibble: 112 × 120
+## # A tibble: 121 × 122
 ##    key        scientificName  decimalLatitude decimalLongitude issues datasetKey
 ##    &lt;chr&gt;      &lt;chr&gt;                     &lt;dbl&gt;            &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt;     
-##  1 3328047476 Pinus balfouri…            41.3            -122. cdrou… 50c9509d-…
-##  2 2620109834 Pinus balfouri…            40.7            -123. cdrou… 50c9509d-…
-##  3 2814362317 Pinus balfouri…            41.2            -123. cdrou… 50c9509d-…
-##  4 2850958731 Pinus balfouri…            41.3            -122. cdrou… 50c9509d-…
-##  5 2862286454 Pinus balfouri…            41.3            -123. cdrou… 50c9509d-…
-##  6 3067629037 Pinus balfouri…            40.9            -123. cdrou… 50c9509d-…
-##  7 3384272954 Pinus balfouri…            40.9            -123. cdrou… 50c9509d-…
-##  8 3384275879 Pinus balfouri…            40.9            -123. cdrou… 50c9509d-…
-##  9 3384389953 Pinus balfouri…            40.9            -123. cdrou… 50c9509d-…
-## 10 3384772124 Pinus balfouri…            40.9            -123. cdrou… 50c9509d-…
-## # … with 102 more rows, and 114 more variables: publishingOrgKey &lt;chr&gt;,
+##  1 3455305209 Pinus balfouri…            41.3            -123. cdrou… 50c9509d-…
+##  2 3328047476 Pinus balfouri…            41.3            -122. cdrou… 50c9509d-…
+##  3 3456635831 Pinus balfouri…            40.9            -123. cdrou… 50c9509d-…
+##  4 3456682356 Pinus balfouri…            41.2            -123. cdrou… 50c9509d-…
+##  5 2620109834 Pinus balfouri…            40.7            -123. cdrou… 50c9509d-…
+##  6 2814362317 Pinus balfouri…            41.2            -123. cdrou… 50c9509d-…
+##  7 2850958731 Pinus balfouri…            41.3            -122. cdrou… 50c9509d-…
+##  8 2862286454 Pinus balfouri…            41.3            -123. cdrou… 50c9509d-…
+##  9 3067629037 Pinus balfouri…            40.9            -123. cdrou… 50c9509d-…
+## 10 3384272954 Pinus balfouri…            40.9            -123. cdrou… 50c9509d-…
+## # … with 111 more rows, and 116 more variables: publishingOrgKey &lt;chr&gt;,
 ## #   installationKey &lt;chr&gt;, publishingCountry &lt;chr&gt;, protocol &lt;chr&gt;,
 ## #   lastCrawled &lt;chr&gt;, lastParsed &lt;chr&gt;, crawlId &lt;int&gt;,
 ## #   hostingOrganizationKey &lt;chr&gt;, basisOfRecord &lt;chr&gt;, occurrenceStatus &lt;chr&gt;,
@@ -252,7 +252,7 @@ head(pinus_balfouriana_NC)</code></pre>
 <pre class="r"><code>pinus_balfouriana_NC_coords %&gt;% leaflet() %&gt;% addTiles() %&gt;%
 addMarkers(~decimalLongitude, ~decimalLatitude)</code></pre>
 <div id="htmlwidget-1" style="width:672px;height:480px;" class="leaflet html-widget"></div>
-<script type="application/json" data-for="htmlwidget-1">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]},{"method":"addMarkers","args":[[41.317007,40.65773,41.215313,41.316711,41.30745,40.922437,40.933736,40.908228,40.947325,40.910975,40.953208,40.944594,41.31575,41.317367,41.212264,41.222706,41.229703,41.319594,41.221478,41.221528,41.316612,41.351883,41.240508,41.316621,40.926688,41.215205,41.212628,40.944371,41.316998,41.204272,41.315939,40.930603,40.196389,41.318484,40.945768,41.303091,41.301945,40.921978,41.317516,41.302778,41.302223,40.890842,41.091073,41.565592,41.000792,41.318205,41.316868,41.58765,40.958771,41.360536,41.316667,41.32,41.303298,40.940952,41.06,41.341306,41.341306,41.341306,41.341306,41.34131,41.34131,41.341306,41.3191669990644,41.24197,41.026583,41.317917,41.221278,41.318417,41.351806,41.364806,41.359722,41.377806,41.361417,41.75,41.3083,40.94282,41.3065,40.95556,41.0185,41.3026,41.1666,41.576667,41.0492,41.305,40.9752,41.576667,41.3522,41.3031,41.316667,41.316667,41.32,41.32,41.05,41.748333,41.05,41.356667,40.954517,41.0529819260038,41.576667,40.205,41.5794843270466,41.57003,41.57003,41.57276,41.3162,41.5777,41.3195,41.3197746338961,41.319722,41.3693,41.3166,41.28],[-122.485204,-122.649697,-122.785662,-122.487091,-122.956587,-122.883972,-122.880667,-122.888719,-122.907409,-122.888569,-122.893944,-122.905872,-122.489281,-122.489616,-122.79026,-122.787711,-122.786461,-122.482687,-122.789056,-122.788978,-122.486575,-122.984507,-122.764137,-122.486099,-122.884712,-122.785995,-122.789438,-122.888217,-122.490301,-122.793547,-122.489123,-122.87459,-122.973333,-122.487147,-122.907149,-122.947325,-122.956108,-122.88378,-122.48941,-122.952225,-122.954422,-122.959784,-122.970327,-123.211345,-123.049686,-122.494852,-122.491801,-123.080931,-122.880363,-122.584725,-122.483333,-122.48,-122.954574,-122.887428,-122.92,-122.533667,-122.533667,-122.533667,-122.533667,-122.53367,-122.53367,-122.533667,-122.505278,-122.94758,-122.900194,-122.478306,-122.859972,-122.489111,-122.585056,-122.574528,-122.582806,-122.5745,-122.588056,-123.131667,-122.4885,-122.90701,-122.9546,-122.88089,-122.9716,-122.9528,-122.8055,-123.201667,-122.9159,-122.958333,-123.0688,-123.1,-122.5902,-122.9389,-122.483333,-122.483333,-122.483333,-122.483333,-122.9,-123.133333,-122.91,-122.566667,-122.893359,-122.914241783539,-123.201667,-122.98139,-123.198990691566,-123.21158,-123.21158,-123.20858,-122.4849,-123.2043,-122.4793,-122.477529641097,-122.479167,-122.3498,-122.4867,-122.68],null,null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},null,null,null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"limits":{"lat":[40.196389,41.75],"lng":[-123.21158,-122.3498]}},"evals":[],"jsHooks":[]}</script>
+<script type="application/json" data-for="htmlwidget-1">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]},{"method":"addMarkers","args":[[41.33424,41.317007,40.942346,41.190768,40.65773,41.215313,41.316711,41.30745,40.922437,40.933736,40.908228,40.947325,40.910975,40.953208,40.944594,40.196262,41.31575,41.317367,41.212264,41.222706,41.229703,41.319594,41.221478,41.221528,41.316612,41.351883,41.240508,41.316621,40.926688,41.215205,41.212628,40.944371,41.316998,41.204272,41.574071,41.315939,40.930603,40.196389,41.318484,40.945768,41.303091,41.301945,40.921978,41.317516,41.302778,41.302223,40.890842,41.091073,41.565592,41.000792,41.318205,41.316868,41.58765,40.958771,41.360536,41.316667,41.32,41.303298,41.316168,40.940952,41.74879,41.302283,41.06,41.341306,41.341306,41.341306,41.341306,41.34131,41.34131,41.341306,41.3191669990644,41.24197,41.026583,41.317917,41.221278,41.318417,41.351806,41.364806,41.359722,41.377806,41.361417,41.75,41.3083,40.94282,41.3065,40.95556,41.0185,41.3026,41.1666,41.576667,41.0492,41.305,40.9752,41.576667,41.3522,41.3031,41.316667,41.316667,41.32,41.32,41.05,41.748333,41.05,41.356667,40.954517,41.0529819260038,41.576667,40.205,41.5794843270466,41.57003,41.57003,41.57276,41.3162,41.5777,41.3195,41.3197746338961,41.319722,41.3693,41.3166,41.28,41.279999],[-122.752088,-122.485204,-122.904394,-122.910701,-122.649697,-122.785662,-122.487091,-122.956587,-122.883972,-122.880667,-122.888719,-122.907409,-122.888569,-122.893944,-122.905872,-122.973641,-122.489281,-122.489616,-122.79026,-122.787711,-122.786461,-122.482687,-122.789056,-122.788978,-122.486575,-122.984507,-122.764137,-122.486099,-122.884712,-122.785995,-122.789438,-122.888217,-122.490301,-122.793547,-123.208499,-122.489123,-122.87459,-122.973333,-122.487147,-122.907149,-122.947325,-122.956108,-122.88378,-122.48941,-122.952225,-122.954422,-122.959784,-122.970327,-123.211345,-123.049686,-122.494852,-122.491801,-123.080931,-122.880363,-122.584725,-122.483333,-122.48,-122.954574,-122.489248,-122.887428,-123.13494,-122.957914,-122.92,-122.533667,-122.533667,-122.533667,-122.533667,-122.53367,-122.53367,-122.533667,-122.505278,-122.94758,-122.900194,-122.478306,-122.859972,-122.489111,-122.585056,-122.574528,-122.582806,-122.5745,-122.588056,-123.131667,-122.4885,-122.90701,-122.9546,-122.88089,-122.9716,-122.9528,-122.8055,-123.201667,-122.9159,-122.958333,-123.0688,-123.1,-122.5902,-122.9389,-122.483333,-122.483333,-122.483333,-122.483333,-122.9,-123.133333,-122.91,-122.566667,-122.893359,-122.914241783539,-123.201667,-122.98139,-123.198990691566,-123.21158,-123.21158,-123.20858,-122.4849,-123.2043,-122.4793,-122.477529641097,-122.479167,-122.3498,-122.4867,-122.68,-122.679999],null,null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},null,null,null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"limits":{"lat":[40.196262,41.75],"lng":[-123.21158,-122.3498]}},"evals":[],"jsHooks":[]}</script>
 </div>
 <div id="part-2--map-multiple-species" class="section level1">
 <h1>Part 2- Map Multiple species</h1>
@@ -299,29 +299,29 @@ for (x in mm_species) {
 <p>Using the rbindlist() function from the data.frame package to take all of the species observations from a list to a large data.frame. The columns are the species name, the latitude and longitude coordinates, whether or not there was an observation, if there is any uncertainty about how accurate the GPS coordinate was, what platform the observation was made on, and the specific reference for the observation. Make sure you cite the references so we can keep these rich data streams coming!</p>
 <pre class="r"><code>tree_df &lt;- rbindlist(mm_species_coords_list, fill = T)
 dim(tree_df)</code></pre>
-<pre><code>## [1] 5276    7</code></pre>
+<pre><code>## [1] 5637    7</code></pre>
 <pre class="r"><code>head(tree_df)</code></pre>
 <pre><code>##              species decimalLongitude decimalLatitude occurrenceStatus
-## 1: Pinus balfouriana        -122.4852        41.31701          PRESENT
-## 2: Pinus balfouriana        -122.6497        40.65773          PRESENT
-## 3: Pinus balfouriana        -122.7857        41.21531          PRESENT
-## 4: Pinus balfouriana        -122.4871        41.31671          PRESENT
-## 5: Pinus balfouriana        -122.9566        41.30745          PRESENT
-## 6: Pinus balfouriana        -122.8840        40.92244          PRESENT
+## 1: Pinus balfouriana        -122.7521        41.33424          PRESENT
+## 2: Pinus balfouriana        -122.4852        41.31701          PRESENT
+## 3: Pinus balfouriana        -122.9044        40.94235          PRESENT
+## 4: Pinus balfouriana        -122.9107        41.19077          PRESENT
+## 5: Pinus balfouriana        -122.6497        40.65773          PRESENT
+## 6: Pinus balfouriana        -122.7857        41.21531          PRESENT
 ##    coordinateUncertaintyInMeters institutionCode
-## 1:                            NA     iNaturalist
-## 2:                          7880     iNaturalist
-## 3:                             5     iNaturalist
+## 1:                         27816     iNaturalist
+## 2:                            NA     iNaturalist
+## 3:                            77     iNaturalist
 ## 4:                             5     iNaturalist
-## 5:                           258     iNaturalist
+## 5:                          7880     iNaturalist
 ## 6:                             5     iNaturalist
 ##                                           references
-## 1: https://www.inaturalist.org/observations/87043552
-## 2: https://www.inaturalist.org/observations/44672814
-## 3: https://www.inaturalist.org/observations/51134921
-## 4: https://www.inaturalist.org/observations/52646764
-## 5: https://www.inaturalist.org/observations/55657354
-## 6: https://www.inaturalist.org/observations/53280933</code></pre>
+## 1: https://www.inaturalist.org/observations/81808167
+## 2: https://www.inaturalist.org/observations/87043552
+## 3: https://www.inaturalist.org/observations/86123914
+## 4: https://www.inaturalist.org/observations/85415690
+## 5: https://www.inaturalist.org/observations/44672814
+## 6: https://www.inaturalist.org/observations/51134921</code></pre>
 <p>Just take a quick look at the raw observations plotted by latitude and longitude.</p>
 <p>Plot all of the species on the California map.</p>
 <pre class="r"><code>maps::map(database = &quot;state&quot;, region = &quot;california&quot;)
