@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Miracle Mile- Jeffrey&#39;s and Ponderosa Pine &middot; </title>
+        <meta name="description" content="I am continueing on my quest of checking off all the conifer species that occur in the Miracle Mile. I recently found some Jeffrey’s Pine (Pinus jeffreyi) on a trail run while on vacation in the San Bernadino mountains East of Los Angeles. This is in an area where there is also Ponderosa Pine (Pinus Ponderosa). Sometimes the species are confused with one another and can even form hybrids making identification difficult.">
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="generator" content="Hugo 0.82.0" />
+        <meta name="robots" content="index,follow">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <link rel="stylesheet" href="/dist/site.css">
+        <link rel="stylesheet" href="/dist/syntax.css">
+        
+        
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300&subset=latin,cyrillic-ext,latin-ext,cyrillic">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+        
+        
+        
+        
+        
+
+    </head>
+    <body>
+        
+
+        <div id="wrapper">
+            <header class="site-header">
+                <div class="container">
+                    <div class="site-title-wrapper">
+                        
+                            <a class="site-logo" href="">
+                                <img src="#ZgotmplZ" alt="" />
+                            </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                    </div>
+
+                    <ul class="site-nav">
+                        
+    <li class="site-nav-item">
+        <a href="/post/">Blog</a>
+    </li>
+
+    <li class="site-nav-item">
+        <a href="/project/">Projects</a>
+    </li>
+
+    <li class="site-nav-item">
+        <a href="/page/about/">About</a>
+    </li>
+
+    <li class="site-nav-item">
+        <a href="/page/contact/">contact</a>
+    </li>
+
+    <li class="site-nav-item">
+        <a href="/page/links/">links</a>
+    </li>
+
+    <li class="site-nav-item">
+        <a href="https://github.com/BIDS-Global-Change/">GitHub</a>
+    </li>
+
+    <li class="site-nav-item">
+        <a href="https://twitter.com/rjcmarkelz">Twitter</a>
+    </li>
+
+
+                    </ul>
+                </div>
+            </header>
+
+            <div id="container">
+
+
+<link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/routeros.min.css" rel="stylesheet">
+
+
+<div class="container">
+    <article class="post-container" itemscope="" itemtype="http://schema.org/BlogPosting">
+        <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">Miracle Mile- Jeffrey&#39;s and Ponderosa Pine</h1>
+    
+    <p class="post-date post-line">
+        <span>Published <time datetime="2022-05-01" itemprop="datePublished">Sun, May 1, 2022</time></span>
+        <span>by</span>
+        <span itemscope="" itemprop="author" itemtype="https://schema.org/Person">
+            <span itemprop="name">
+                <a href="#" itemprop="url" rel="author">RJ Cody Markelz</a>
+            </span>
+        </span>
+    </p>
+    
+</header>
+
+        <div class="post-content clearfix" itemprop="articleBody">
+    
+
+    
+<script src="/2022/05/01/miracle-mile-jeffreys-and-ponderosa-pine/index_files/header-attrs/header-attrs.js"></script>
+
+
+<!-- ![](/static/img/Pinus_jeffreyi.png) -->
+<p>I am continueing on my quest of checking off all the conifer species that occur in the <a href="/2021/06/17/gbif-miracle-mile-species/">Miracle Mile</a>. I recently found some <a href="https://en.wikipedia.org/wiki/Pinus_jeffreyi">Jeffrey’s Pine</a> (<em>Pinus jeffreyi</em>) on a trail run while on vacation in the San Bernadino mountains East of Los Angeles. This is in an area where there is also <a href="https://en.wikipedia.org/wiki/Pinus_ponderosa">Ponderosa Pine</a> (<em>Pinus Ponderosa</em>). Sometimes the species are confused with one another and can even form hybrids making identification difficult. In general the Ponderosa’s are larger trees, but have smaller cones with the pointy end (umbos) of the individual seeds facing outward. The Jeffery’s pine has larger cones with the umbos facing down or inward making them easier to handle without poking yourself. The following are some quick data queries, manipulation and plotting.</p>
+<p>Load the libraries.</p>
+<pre class="r"><code>library(rinat)
+library(tidyverse)</code></pre>
+<p>Load the trail run data and take a look at the data frame.</p>
+<pre class="r"><code>TrailRun1 &lt;- read.csv(&quot;../../../static/data/TrailRun_JefferyPine.csv&quot;)
+glimpse(TrailRun1)</code></pre>
+<pre><code>## Rows: 2,194
+## Columns: 9
+## $ timestamp      &lt;chr&gt; &quot;2022-04-19 18:45:05&quot;, &quot;2022-04-19 18:45:13&quot;, &quot;2022-04-…
+## $ position_lat   &lt;dbl&gt; NA, NA, NA, NA, 34.23880, 34.23873, 34.23869, 34.23868,…
+## $ position_long  &lt;dbl&gt; NA, NA, NA, NA, -116.8687, -116.8686, -116.8686, -116.8…
+## $ distance       &lt;int&gt; 0, 67, 72, 74, 76, 76, 80, 84, 87, 89, 91, 94, 98, 100,…
+## $ altitude       &lt;dbl&gt; NA, 2112.4, 2112.6, 2112.8, 2113.0, 2113.2, 2114.0, 211…
+## $ cadence        &lt;int&gt; NA, 83, 83, 83, 83, 83, 83, 83, 83, 83, 83, 83, 83, 83,…
+## $ speed          &lt;dbl&gt; NA, 1.74, 1.74, 2.04, 2.04, 2.24, 2.24, 2.44, 2.44, 2.5…
+## $ temperature    &lt;int&gt; NA, 27, 27, 27, 27, 27, 27, 27, 27, 27, 27, 27, 27, 27,…
+## $ vertical_speed &lt;dbl&gt; NA, 0.00, 0.00, -0.02, -0.02, -0.02, -0.02, -0.04, -0.0…</code></pre>
+<p>Make a quick plot for the run.</p>
+<pre class="r"><code>TrailRun_plot &lt;- ggplot(TrailRun1, aes(x = position_long, y = position_lat)) +
+                    coord_quickmap() + geom_point() +
+                    xlab(&quot;Longitude&quot;) + ylab(&quot;Latitude&quot;)
+TrailRun_plot</code></pre>
+<p><img src="/2022/05/01/miracle-mile-jeffreys-and-ponderosa-pine/index_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p>Use the run data plot to bound the query to iNaturalist.</p>
+<pre class="r"><code>bounds &lt;- c(34.2, -116.9, 34.25, -116.85)
+pineJeff_iNat &lt;- get_inat_obs(query = &quot;Pinus jeffreyi&quot;, bounds = bounds, maxresults = 1000)
+pinePond_iNat &lt;- get_inat_obs(query = &quot;Pinus ponderosa&quot;, bounds = bounds, maxresults = 1000)</code></pre>
+<p>Take a quick look at the iNaturalist data frames.</p>
+<pre class="r"><code>glimpse(pineJeff_iNat)</code></pre>
+<pre><code>## Rows: 18
+## Columns: 36
+## $ scientific_name                  &lt;chr&gt; &quot;Pinus jeffreyi&quot;, &quot;Pinus jeffreyi&quot;, &quot;…
+## $ datetime                         &lt;chr&gt; &quot;2022-04-19 12:16:06 -0700&quot;, &quot;2022-04…
+## $ description                      &lt;chr&gt; &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;…
+## $ place_guess                      &lt;chr&gt; &quot;Big Bear, CA 92314, USA&quot;, &quot;San Berna…
+## $ latitude                         &lt;dbl&gt; 34.23130, 34.23308, 34.24027, 34.2253…
+## $ longitude                        &lt;dbl&gt; -116.8719, -116.8767, -116.8508, -116…
+## $ tag_list                         &lt;lgl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, N…
+## $ common_name                      &lt;chr&gt; &quot;Jeffrey pine&quot;, &quot;Jeffrey pine&quot;, &quot;Jeff…
+## $ url                              &lt;chr&gt; &quot;https://www.inaturalist.org/observat…
+## $ image_url                        &lt;chr&gt; &quot;https://inaturalist-open-data.s3.ama…
+## $ user_login                       &lt;chr&gt; &quot;rjcmarkelz&quot;, &quot;dingoe&quot;, &quot;michaelvanly…
+## $ id                               &lt;int&gt; 112159810, 111583583, 107073178, 8380…
+## $ species_guess                    &lt;chr&gt; &quot;Jeffrey pine&quot;, &quot;&quot;, &quot;Jeffrey pine&quot;, &quot;…
+## $ iconic_taxon_name                &lt;chr&gt; &quot;Plantae&quot;, &quot;Plantae&quot;, &quot;Plantae&quot;, &quot;Pla…
+## $ taxon_id                         &lt;int&gt; 48463, 48463, 48463, 48463, 48463, 48…
+## $ num_identification_agreements    &lt;int&gt; 0, 0, 1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0…
+## $ num_identification_disagreements &lt;int&gt; 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0…
+## $ observed_on_string               &lt;chr&gt; &quot;2022-04-19 12:16:06&quot;, &quot;2022-04-15 14…
+## $ observed_on                      &lt;chr&gt; &quot;2022-04-19&quot;, &quot;2022-04-15&quot;, &quot;2022-02-…
+## $ time_observed_at                 &lt;chr&gt; &quot;2022-04-19 19:16:06 UTC&quot;, &quot;2022-04-1…
+## $ time_zone                        &lt;chr&gt; &quot;Pacific Time (US &amp; Canada)&quot;, &quot;Arizon…
+## $ positional_accuracy              &lt;int&gt; 217, 4, 4, 9, 8, 31, 5, 60, 6, 6, 5, …
+## $ public_positional_accuracy       &lt;int&gt; 217, 4, 4, 9, 8, 31, 5, 60, 6, 6, 5, …
+## $ geoprivacy                       &lt;lgl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, N…
+## $ taxon_geoprivacy                 &lt;chr&gt; &quot;open&quot;, &quot;open&quot;, &quot;open&quot;, &quot;open&quot;, &quot;open…
+## $ coordinates_obscured             &lt;chr&gt; &quot;false&quot;, &quot;false&quot;, &quot;false&quot;, &quot;false&quot;, &quot;…
+## $ positioning_method               &lt;chr&gt; &quot;gps&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;…
+## $ positioning_device               &lt;chr&gt; &quot;gps&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;…
+## $ user_id                          &lt;int&gt; 4268943, 1197171, 1085122, 1059598, 1…
+## $ created_at                       &lt;chr&gt; &quot;2022-04-20 15:41:52 UTC&quot;, &quot;2022-04-1…
+## $ updated_at                       &lt;chr&gt; &quot;2022-04-21 15:03:47 UTC&quot;, &quot;2022-04-1…
+## $ quality_grade                    &lt;chr&gt; &quot;needs_id&quot;, &quot;needs_id&quot;, &quot;research&quot;, &quot;…
+## $ license                          &lt;chr&gt; &quot;CC-BY-NC&quot;, &quot;CC-BY-NC&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;…
+## $ sound_url                        &lt;lgl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, N…
+## $ oauth_application_id             &lt;int&gt; 2, 3, 3, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3…
+## $ captive_cultivated               &lt;chr&gt; &quot;false&quot;, &quot;false&quot;, &quot;false&quot;, &quot;false&quot;, &quot;…</code></pre>
+<pre class="r"><code>glimpse(pinePond_iNat)</code></pre>
+<pre><code>## Rows: 7
+## Columns: 36
+## $ scientific_name                  &lt;chr&gt; &quot;Pinus ponderosa&quot;, &quot;Pinus ponderosa&quot;,…
+## $ datetime                         &lt;chr&gt; &quot;2020-07-06 12:32:31 -0700&quot;, &quot;2019-10…
+## $ description                      &lt;lgl&gt; NA, NA, NA, NA, NA, NA, NA
+## $ place_guess                      &lt;chr&gt; &quot;San Bernardino National Forest, Big …
+## $ latitude                         &lt;dbl&gt; 34.23914, 34.21212, 34.22519, 34.2200…
+## $ longitude                        &lt;dbl&gt; -116.8876, -116.8729, -116.8901, -116…
+## $ tag_list                         &lt;lgl&gt; NA, NA, NA, NA, NA, NA, NA
+## $ common_name                      &lt;chr&gt; &quot;Ponderosa Pine&quot;, &quot;Ponderosa Pine&quot;, &quot;…
+## $ url                              &lt;chr&gt; &quot;https://www.inaturalist.org/observat…
+## $ image_url                        &lt;chr&gt; &quot;https://inaturalist-open-data.s3.ama…
+## $ user_login                       &lt;chr&gt; &quot;jiggajantastic&quot;, &quot;josue79&quot;, &quot;shaunmi…
+## $ id                               &lt;int&gt; 52182504, 34645641, 33222579, 3309916…
+## $ species_guess                    &lt;chr&gt; &quot;ponderosa pine&quot;, &quot;ponderosa pine&quot;, &quot;…
+## $ iconic_taxon_name                &lt;chr&gt; &quot;Plantae&quot;, &quot;Plantae&quot;, &quot;Plantae&quot;, &quot;Pla…
+## $ taxon_id                         &lt;int&gt; 48461, 48461, 48461, 48461, 48461, 48…
+## $ num_identification_agreements    &lt;int&gt; 1, 2, 0, 0, 0, 0, 0
+## $ num_identification_disagreements &lt;int&gt; 0, 0, 0, 0, 0, 0, 0
+## $ observed_on_string               &lt;chr&gt; &quot;Mon Jul 06 2020 12:32:31 GMT-0700 (P…
+## $ observed_on                      &lt;chr&gt; &quot;2020-07-06&quot;, &quot;2019-10-20&quot;, &quot;2019-09-…
+## $ time_observed_at                 &lt;chr&gt; &quot;2020-07-06 19:32:31 UTC&quot;, &quot;2019-10-2…
+## $ time_zone                        &lt;chr&gt; &quot;Pacific Time (US &amp; Canada)&quot;, &quot;Pacifi…
+## $ positional_accuracy              &lt;int&gt; 53, 5, NA, 3, 5, 5, 10
+## $ public_positional_accuracy       &lt;int&gt; 53, 5, NA, 3, 5, 5, 10
+## $ geoprivacy                       &lt;lgl&gt; NA, NA, NA, NA, NA, NA, NA
+## $ taxon_geoprivacy                 &lt;chr&gt; &quot;open&quot;, &quot;open&quot;, &quot;open&quot;, &quot;open&quot;, &quot;&quot;, &quot;…
+## $ coordinates_obscured             &lt;chr&gt; &quot;false&quot;, &quot;false&quot;, &quot;false&quot;, &quot;false&quot;, &quot;…
+## $ positioning_method               &lt;chr&gt; &quot;&quot;, &quot;&quot;, &quot;gps&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;
+## $ positioning_device               &lt;chr&gt; &quot;&quot;, &quot;&quot;, &quot;gps&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;
+## $ user_id                          &lt;int&gt; 3241047, 2173678, 105431, 105431, 114…
+## $ created_at                       &lt;chr&gt; &quot;2020-07-06 19:34:17 UTC&quot;, &quot;2019-10-2…
+## $ updated_at                       &lt;chr&gt; &quot;2021-05-31 02:58:06 UTC&quot;, &quot;2019-10-2…
+## $ quality_grade                    &lt;chr&gt; &quot;research&quot;, &quot;research&quot;, &quot;needs_id&quot;, &quot;…
+## $ license                          &lt;chr&gt; &quot;CC-BY-NC&quot;, &quot;&quot;, &quot;CC-BY-NC&quot;, &quot;CC-BY-NC…
+## $ sound_url                        &lt;lgl&gt; NA, NA, NA, NA, NA, NA, NA
+## $ oauth_application_id             &lt;int&gt; 3, 3, 2, 2, 3, 3, 3
+## $ captive_cultivated               &lt;chr&gt; &quot;false&quot;, &quot;false&quot;, &quot;false&quot;, &quot;false&quot;, &quot;…</code></pre>
+<p>Plot all the data on a California map to orient geographically where it is and to check for overlap.</p>
+<pre class="r"><code>maps::map(database = &quot;state&quot;, region = &quot;california&quot;)
+points(pineJeff_iNat[ , c(&quot;longitude&quot;, &quot;latitude&quot;)], pch = &quot;.&quot;, col = &quot;blue&quot;, cex = 3)
+points(pinePond_iNat[ , c(&quot;longitude&quot;, &quot;latitude&quot;)], pch = &quot;.&quot;, col = &quot;red&quot;, cex = 3)
+points(TrailRun1[ , c(&quot;position_long&quot;, &quot;position_lat&quot;)], pch = &quot;.&quot;, col = &quot;black&quot;, cex = 3)</code></pre>
+<p><img src="/2022/05/01/miracle-mile-jeffreys-and-ponderosa-pine/index_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p>Overlay the plots and add research grade symbols (triangle) and needs_id (circle). By default ggplot will have zoomed in on the data given the bounds. We can see that both species occur in the same general area, but there are not any direct overlaps in the research grade observations and my trial running route.</p>
+<pre class="r"><code>run_plot2 &lt;- ggplot() +
+          coord_quickmap() +
+          geom_point(data = TrailRun1, aes(x = position_long, y = position_lat), color = &#39;black&#39;) +
+          geom_point(data=pinePond_iNat, aes(x = longitude, y = latitude, shape = quality_grade), color = &#39;red&#39;, size = 5) +
+          geom_point(data=pineJeff_iNat, aes(x = longitude, y = latitude, shape = quality_grade), color = &#39;blue&#39;, size = 5) +
+          xlab(&quot;Longitude&quot;) + ylab(&quot;Latitude&quot;)
+run_plot2</code></pre>
+<p><img src="/2022/05/01/miracle-mile-jeffreys-and-ponderosa-pine/index_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<p>We have many more Ponderosa pines near Mount Shasta including one I found on another run. For this iNaturalist observation I also took a photo of the cone. If you take a look at the Ponderosa pine observations you can find mine via my username (rjcmarkelz).</p>
+<pre class="r"><code>bounds2 &lt;- c(40.194, -124.4323, 42.0021, -120) # Northern California Bounds
+PondPineNor_iNat &lt;- get_inat_obs(query = &quot;Pinus ponderosa&quot;, bounds = bounds2, maxresults = 100)
+PondPineNor_iNat$user_login # Look for rjcmarkelz</code></pre>
+<pre><code>##   [1] &quot;rjcmarkelz&quot;         &quot;gentilcore&quot;         &quot;marifer_martinez&quot;  
+##   [4] &quot;westboundwarbler&quot;   &quot;screedius&quot;          &quot;mwheeler23&quot;        
+##   [7] &quot;christinag309&quot;      &quot;dreece11&quot;           &quot;chrisbyers&quot;        
+##  [10] &quot;suburbanpoison&quot;     &quot;mbworldexplorer&quot;    &quot;staceybauer&quot;       
+##  [13] &quot;jeriann86&quot;          &quot;sahrajajarmi&quot;       &quot;alan_rockefeller&quot;  
+##  [16] &quot;erikoid&quot;            &quot;mirandabird&quot;        &quot;asabspade&quot;         
+##  [19] &quot;abr&quot;                &quot;sphyrapicus&quot;        &quot;zrrrk&quot;             
+##  [22] &quot;forummotox&quot;         &quot;hwel8533&quot;           &quot;hwel8533&quot;          
+##  [25] &quot;trickman&quot;           &quot;gentilcore&quot;         &quot;maureen-j-jules&quot;   
+##  [28] &quot;mwheeler23&quot;         &quot;kyle_achziger&quot;      &quot;alan_rockefeller&quot;  
+##  [31] &quot;gentilcore&quot;         &quot;gaelabell&quot;          &quot;nicholasperlenfein&quot;
+##  [34] &quot;brennanpopovic&quot;     &quot;ventanaphile&quot;       &quot;ventanaphile&quot;      
+##  [37] &quot;juliansix6&quot;         &quot;bmartinez211&quot;       &quot;jacquelinerose&quot;    
+##  [40] &quot;jacquelinerose&quot;     &quot;isabella384&quot;        &quot;carlina3&quot;          
+##  [43] &quot;jaquiring&quot;          &quot;johnreiss&quot;          &quot;naturalpriest&quot;     
+##  [46] &quot;caenvsci&quot;           &quot;gustafsonja&quot;        &quot;jonaleef&quot;          
+##  [49] &quot;wsjaybird&quot;          &quot;shinybraids&quot;        &quot;highfalutin&quot;       
+##  [52] &quot;socaloutdoors&quot;      &quot;michaelkauffmann&quot;   &quot;wild_redwolf&quot;      
+##  [55] &quot;jrmorris&quot;           &quot;yubabirder&quot;         &quot;tuftedtiffmouse&quot;   
+##  [58] &quot;trailhound666&quot;      &quot;melodiam&quot;           &quot;leptonia&quot;          
+##  [61] &quot;kingratt82&quot;         &quot;alan_rockefeller&quot;   &quot;alan_rockefeller&quot;  
+##  [64] &quot;alan_rockefeller&quot;   &quot;alan_rockefeller&quot;   &quot;danielsabohsu&quot;     
+##  [67] &quot;dgreenberger&quot;       &quot;mandymushii&quot;        &quot;paulbchesler&quot;      
+##  [70] &quot;leptonia&quot;           &quot;leptonia&quot;           &quot;leptonia&quot;          
+##  [73] &quot;erik-jules&quot;         &quot;kylephyte&quot;          &quot;chasealexander&quot;    
+##  [76] &quot;sawyer_olson&quot;       &quot;s_decuir&quot;           &quot;hkibak&quot;            
+##  [79] &quot;s_decuir&quot;           &quot;carosisko&quot;          &quot;tellittothevoid&quot;   
+##  [82] &quot;jennahb&quot;            &quot;tyannasb&quot;           &quot;geobob&quot;            
+##  [85] &quot;ericarippe&quot;         &quot;jspermenter&quot;        &quot;jgunther&quot;          
+##  [88] &quot;chauncey&quot;           &quot;sara_dabovich&quot;      &quot;mtcreed&quot;           
+##  [91] &quot;mtcreed&quot;            &quot;mtcreed&quot;            &quot;kathyhill&quot;         
+##  [94] &quot;jrmorris&quot;           &quot;rhjackso&quot;           &quot;ezradaphic&quot;        
+##  [97] &quot;zanethebrain&quot;       &quot;tyannasb&quot;           &quot;mavrickfarnam&quot;     
+## [100] &quot;calibas&quot;</code></pre>
+<p>Filter and select the image_url so we can compare the size and physical attributes of the cones.</p>
+<pre class="r"><code>PondPineNor_iNat %&gt;% filter(user_login == &quot;rjcmarkelz&quot;) %&gt;% select(image_url)</code></pre>
+<pre><code>##                                                                     image_url
+## 1 https://inaturalist-open-data.s3.amazonaws.com/photos/191166984/medium.jpeg</code></pre>
+<pre class="r"><code>pineJeff_iNat %&gt;% filter(user_login == &quot;rjcmarkelz&quot;) %&gt;% select(image_url)</code></pre>
+<pre><code>##                                                                     image_url
+## 1 https://inaturalist-open-data.s3.amazonaws.com/photos/189431793/medium.jpeg</code></pre>
+<p>Jeffery’s Pine with the larger (hand for scale) cone with the umbos pointed in:
+<img src="https://inaturalist-open-data.s3.amazonaws.com/photos/189431793/medium.jpeg" /></p>
+<p>Ponderosa Pine with the smaller (hand for scale) cone with the umbos pointed out:
+<img src="https://inaturalist-open-data.s3.amazonaws.com/photos/191166984/medium.jpeg" /></p>
+
+</div>
+
+        <footer class="post-footer clearfix">
+        <p class="post-tags">
+            <span>Tagged:</span>
+                <a href="/tags/species-distribution/">species distribution</a>, 
+                <a href="/tags/modeling/">modeling</a>, 
+                <a href="/tags/gis/">GIS</a>, 
+                <a href="/tags/maps/">maps</a>, 
+                <a href="/tags/data/">data</a>, 
+                <a href="/tags/trail-run/">trail run</a>, 
+                <a href="/tags/exercise/">exercise</a>, 
+                <a href="/tags/explore/">explore</a>
+        </p>
+    <div class="share">
+    </div>
+</footer>
+
+        
+    </article>
+</div>
+
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="site-title-wrapper">
+                    <h1 class="site-title">
+                        <a href="/">BIDS- Environmental</a>
+                    </h1>
+                    <a class="button-square button-jump-top js-jump-top" href="#" aria-label="Back to Top">
+                        <i class="fa fa-angle-up" aria-hidden="true"></i>
+                    </a>
+                </div>
+
+                <p class="footer-copyright">
+                    <span>&copy; 2022 / Powered by <a href="https://gohugo.io/">Hugo</a></span>
+                </p>
+                <p class="footer-copyright">
+                    <span><a href="https://github.com/roryg/ghostwriter">Ghostwriter theme</a> By <a href="http://jollygoodthemes.com">JollyGoodThemes</a></span>
+                    <span>/ <a href="https://github.com/jbub/ghostwriter">Ported</a> to Hugo By <a href="https://github.com/jbub">jbub</a></span>
+                </p>
+            </div>
+        </footer>
+
+        <script src="/js/jquery-1.11.3.min.js"></script>
+        <script src="/js/jquery.fitvids.js"></script>
+        <script src="/js/scripts.js"></script>
+    </body>
+</html>
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+
+<script>
+hljs.configure({languages: []});
+hljs.initHighlightingOnLoad();
+</script>
+

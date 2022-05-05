@@ -6,11 +6,11 @@
     <description>Recent content in Categories on BIDS- Environmental</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 15 Apr 2022 09:07:38 -0800</lastBuildDate><atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 01 May 2022 09:07:38 -0800</lastBuildDate><atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>data</title>
       <link>/categories/data/</link>
-      <pubDate>Fri, 15 Apr 2022 09:07:38 -0800</pubDate>
+      <pubDate>Sun, 01 May 2022 09:07:38 -0800</pubDate>
       
       <guid>/categories/data/</guid>
       <description></description>
@@ -19,7 +19,7 @@
     <item>
       <title>exercise</title>
       <link>/categories/exercise/</link>
-      <pubDate>Fri, 15 Apr 2022 09:07:38 -0800</pubDate>
+      <pubDate>Sun, 01 May 2022 09:07:38 -0800</pubDate>
       
       <guid>/categories/exercise/</guid>
       <description></description>
@@ -28,7 +28,7 @@
     <item>
       <title>explore</title>
       <link>/categories/explore/</link>
-      <pubDate>Fri, 15 Apr 2022 09:07:38 -0800</pubDate>
+      <pubDate>Sun, 01 May 2022 09:07:38 -0800</pubDate>
       
       <guid>/categories/explore/</guid>
       <description></description>
@@ -37,7 +37,7 @@
     <item>
       <title>GIS</title>
       <link>/categories/gis/</link>
-      <pubDate>Fri, 15 Apr 2022 09:07:38 -0800</pubDate>
+      <pubDate>Sun, 01 May 2022 09:07:38 -0800</pubDate>
       
       <guid>/categories/gis/</guid>
       <description></description>
@@ -46,7 +46,7 @@
     <item>
       <title>maps</title>
       <link>/categories/maps/</link>
-      <pubDate>Fri, 15 Apr 2022 09:07:38 -0800</pubDate>
+      <pubDate>Sun, 01 May 2022 09:07:38 -0800</pubDate>
       
       <guid>/categories/maps/</guid>
       <description></description>
@@ -55,9 +55,27 @@
     <item>
       <title>modeling</title>
       <link>/categories/modeling/</link>
-      <pubDate>Fri, 15 Apr 2022 09:07:38 -0800</pubDate>
+      <pubDate>Sun, 01 May 2022 09:07:38 -0800</pubDate>
       
       <guid>/categories/modeling/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>species distribution</title>
+      <link>/categories/species-distribution/</link>
+      <pubDate>Sun, 01 May 2022 09:07:38 -0800</pubDate>
+      
+      <guid>/categories/species-distribution/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>trail run</title>
+      <link>/categories/trail-run/</link>
+      <pubDate>Sun, 01 May 2022 09:07:38 -0800</pubDate>
+      
+      <guid>/categories/trail-run/</guid>
       <description></description>
     </item>
     
@@ -80,29 +98,11 @@
     </item>
     
     <item>
-      <title>species distribution</title>
-      <link>/categories/species-distribution/</link>
-      <pubDate>Fri, 15 Apr 2022 09:07:38 -0800</pubDate>
-      
-      <guid>/categories/species-distribution/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>sugar pine</title>
       <link>/categories/sugar-pine/</link>
       <pubDate>Fri, 15 Apr 2022 09:07:38 -0800</pubDate>
       
       <guid>/categories/sugar-pine/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>trail run</title>
-      <link>/categories/trail-run/</link>
-      <pubDate>Fri, 15 Apr 2022 09:07:38 -0800</pubDate>
-      
-      <guid>/categories/trail-run/</guid>
       <description></description>
     </item>
     
