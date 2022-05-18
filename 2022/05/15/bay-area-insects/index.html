@@ -5,8 +5,8 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>Bay Area Insects &middot; </title>
         <meta name="description" content="Load the libraries.
-library(rgbif) library(tidyverse) library(maps) library(leaflet) I am working on a project using data collected at some of the UC Reserves. I needed to see what observations of insects were available in GBIF. I found this drawing tool for bounding boxes. Make sure to export it as GEOJSON and then you can create a POLYGON to use as your query area.
-reserve_geometry &lt;- paste(&#39;POLYGON((-121.383275382 35.7567710044, -121.9875234289 36.3607073262, -122.">
+library(rgbif) library(tidyverse) library(maps) I am working on a project using data collected at some of the UC Reserves. I needed to see what observations of insects were available in GBIF. I found this drawing tool for bounding boxes. Make sure to export it as GEOJSON and then you can create a POLYGON to use as your query area.
+reserve_geometry &lt;- paste(&#39;POLYGON((-121.383275382 35.7567710044, -121.9875234289 36.3607073262, -122.525853507 37.">
         <meta name="HandheldFriendly" content="True">
         <meta name="MobileOptimized" content="320">
         <meta name="generator" content="Hugo 0.82.0" />
@@ -116,8 +116,7 @@ reserve_geometry &lt;- paste(&#39;POLYGON((-121.383275382 35.7567710044, -121.98
 <p>Load the libraries.</p>
 <pre class="r"><code>library(rgbif)
 library(tidyverse)
-library(maps)
-library(leaflet)</code></pre>
+library(maps)</code></pre>
 <p>I am working on a project using data collected at some of the UC Reserves. I needed to see what observations of insects were available in GBIF. I found this <a href="https://boundingbox.klokantech.com/">drawing tool</a> for bounding boxes. Make sure to export it as GEOJSON and then you can create a POLYGON to use as your query area.</p>
 <pre class="r"><code>reserve_geometry &lt;- paste(&#39;POLYGON((-121.383275382 35.7567710044, -121.9875234289 36.3607073262, -122.525853507 37.2841110386, -123.1520742101 38.0753438834, -123.7123769445 38.8153202525, -123.8332265539 39.0972469563, -123.4596913976 39.2930774901, -122.0644277258 39.2250244313, -121.7568105383 38.0320888877, -121.4052480383 37.2578829342, -121.119603507 36.7402099684, -120.9987538976 36.1303379589, -121.383275382 35.7567710044))&#39;)</code></pre>
 <p>Query the greater Bay Area for insects using the classKey for <em>Insecta</em> using the above geometry. Make a new dataframe with only the data from the query for plotting and data manipulation.</p>
