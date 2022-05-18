@@ -6,7 +6,18 @@
     <description>Recent content in modeling on BIDS- Environmental</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 01 May 2022 09:07:38 -0800</lastBuildDate><atom:link href="/tags/modeling/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 15 May 2022 09:07:38 -0800</lastBuildDate><atom:link href="/tags/modeling/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Bay Area Insects</title>
+      <link>/2022/05/15/bay-area-insects/</link>
+      <pubDate>Sun, 15 May 2022 09:07:38 -0800</pubDate>
+      
+      <guid>/2022/05/15/bay-area-insects/</guid>
+      <description>Load the libraries.
+library(rgbif) library(tidyverse) library(maps) library(leaflet) I am working on a project using data collected at some of the UC Reserves. I needed to see what observations of insects were available in GBIF. I found this drawing tool for bounding boxes. Make sure to export it as GEOJSON and then you can create a POLYGON to use as your query area.
+reserve_geometry &amp;lt;- paste(&amp;#39;POLYGON((-121.383275382 35.7567710044, -121.9875234289 36.3607073262, -122.</description>
+    </item>
+    
     <item>
       <title>Miracle Mile- Jeffrey&#39;s and Ponderosa Pine</title>
       <link>/2022/05/01/miracle-mile-jeffreys-and-ponderosa-pine/</link>

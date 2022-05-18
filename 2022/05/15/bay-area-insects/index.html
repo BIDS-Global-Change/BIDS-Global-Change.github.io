@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Bay Area Insects &middot; </title>
+        <meta name="description" content="Load the libraries.
+library(rgbif) library(tidyverse) library(maps) library(leaflet) I am working on a project using data collected at some of the UC Reserves. I needed to see what observations of insects were available in GBIF. I found this drawing tool for bounding boxes. Make sure to export it as GEOJSON and then you can create a POLYGON to use as your query area.
+reserve_geometry &lt;- paste(&#39;POLYGON((-121.383275382 35.7567710044, -121.9875234289 36.3607073262, -122.">
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="generator" content="Hugo 0.82.0" />
+        <meta name="robots" content="index,follow">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <link rel="stylesheet" href="/dist/site.css">
+        <link rel="stylesheet" href="/dist/syntax.css">
+        
+        
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300&subset=latin,cyrillic-ext,latin-ext,cyrillic">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+        
+        
+        
+        
+        
+
+    </head>
+    <body>
+        
+
+        <div id="wrapper">
+            <header class="site-header">
+                <div class="container">
+                    <div class="site-title-wrapper">
+                        
+                            <a class="site-logo" href="">
+                                <img src="#ZgotmplZ" alt="" />
+                            </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                    </div>
+
+                    <ul class="site-nav">
+                        
+    <li class="site-nav-item">
+        <a href="/post/">Blog</a>
+    </li>
+
+    <li class="site-nav-item">
+        <a href="/project/">Projects</a>
+    </li>
+
+    <li class="site-nav-item">
+        <a href="/page/about/">About</a>
+    </li>
+
+    <li class="site-nav-item">
+        <a href="/page/contact/">contact</a>
+    </li>
+
+    <li class="site-nav-item">
+        <a href="/page/links/">links</a>
+    </li>
+
+    <li class="site-nav-item">
+        <a href="https://github.com/BIDS-Global-Change/">GitHub</a>
+    </li>
+
+    <li class="site-nav-item">
+        <a href="https://twitter.com/rjcmarkelz">Twitter</a>
+    </li>
+
+
+                    </ul>
+                </div>
+            </header>
+
+            <div id="container">
+
+
+<link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/routeros.min.css" rel="stylesheet">
+
+
+<div class="container">
+    <article class="post-container" itemscope="" itemtype="http://schema.org/BlogPosting">
+        <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">Bay Area Insects</h1>
+    
+    <p class="post-date post-line">
+        <span>Published <time datetime="2022-05-15" itemprop="datePublished">Sun, May 15, 2022</time></span>
+        <span>by</span>
+        <span itemscope="" itemprop="author" itemtype="https://schema.org/Person">
+            <span itemprop="name">
+                <a href="#" itemprop="url" rel="author">RJ Cody Markelz</a>
+            </span>
+        </span>
+    </p>
+    
+</header>
+
+        <div class="post-content clearfix" itemprop="articleBody">
+    
+
+    
+<script src="/2022/05/15/bay-area-insects/index_files/header-attrs/header-attrs.js"></script>
+
+
+<p>Load the libraries.</p>
+<pre class="r"><code>library(rgbif)
+library(tidyverse)
+library(maps)
+library(leaflet)</code></pre>
+<p>I am working on a project using data collected at some of the UC Reserves. I needed to see what observations of insects were available in GBIF. I found this <a href="https://boundingbox.klokantech.com/">drawing tool</a> for bounding boxes. Make sure to export it as GEOJSON and then you can create a POLYGON to use as your query area.</p>
+<pre class="r"><code>reserve_geometry &lt;- paste(&#39;POLYGON((-121.383275382 35.7567710044, -121.9875234289 36.3607073262, -122.525853507 37.2841110386, -123.1520742101 38.0753438834, -123.7123769445 38.8153202525, -123.8332265539 39.0972469563, -123.4596913976 39.2930774901, -122.0644277258 39.2250244313, -121.7568105383 38.0320888877, -121.4052480383 37.2578829342, -121.119603507 36.7402099684, -120.9987538976 36.1303379589, -121.383275382 35.7567710044))&#39;)</code></pre>
+<p>Query the greater Bay Area for insects using the classKey for <em>Insecta</em> using the above geometry. Make a new dataframe with only the data from the query for plotting and data manipulation.</p>
+<pre class="r"><code>insect &lt;- occ_data(classKey = 216, hasCoordinate = TRUE, limit = 1000, geometry = reserve_geometry)
+insect_coords &lt;- insect$data</code></pre>
+<p>Visualize the data for the state of California.</p>
+<pre class="r"><code>maps::map(database = &quot;state&quot;, region = &quot;california&quot;)
+points(insect_coords[ , c(&quot;decimalLongitude&quot;, &quot;decimalLatitude&quot;)], pch = &quot;.&quot;, col = &quot;blue&quot;, cex = 3)</code></pre>
+<p><img src="/2022/05/15/bay-area-insects/index_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p>Randomly subset the coordinates dataframe and plot species by color. If you have a large screen, you can make a larger plotting window with many more species than 25.</p>
+<pre class="r"><code>set.seed(25344)
+insect_coords_25 &lt;- sample_n(insect_coords, 25)
+species_plot1  &lt;- ggplot(insect_coords_25, aes(x=decimalLongitude, y = decimalLatitude, color =acceptedScientificName)) +
+       geom_point() + labs(x = &quot;Longitude&quot;, y = &quot;Latitude&quot;, color = &quot;Species&quot;, title = &quot;Bay Area Insect Distributions&quot;)
+species_plot1</code></pre>
+<p><img src="/2022/05/15/bay-area-insects/index_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+
+</div>
+
+        <footer class="post-footer clearfix">
+        <p class="post-tags">
+            <span>Tagged:</span>
+                <a href="/tags/species-distribution/">species distribution</a>, 
+                <a href="/tags/modeling/">modeling</a>, 
+                <a href="/tags/gis/">GIS</a>, 
+                <a href="/tags/maps/">maps</a>, 
+                <a href="/tags/data/">data</a>, 
+                <a href="/tags/explore/">explore</a>, 
+                <a href="/tags/gbif/">GBIF</a>
+        </p>
+    <div class="share">
+    </div>
+</footer>
+
+        
+    </article>
+</div>
+
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="site-title-wrapper">
+                    <h1 class="site-title">
+                        <a href="/">BIDS- Environmental</a>
+                    </h1>
+                    <a class="button-square button-jump-top js-jump-top" href="#" aria-label="Back to Top">
+                        <i class="fa fa-angle-up" aria-hidden="true"></i>
+                    </a>
+                </div>
+
+                <p class="footer-copyright">
+                    <span>&copy; 2022 / Powered by <a href="https://gohugo.io/">Hugo</a></span>
+                </p>
+                <p class="footer-copyright">
+                    <span><a href="https://github.com/roryg/ghostwriter">Ghostwriter theme</a> By <a href="http://jollygoodthemes.com">JollyGoodThemes</a></span>
+                    <span>/ <a href="https://github.com/jbub/ghostwriter">Ported</a> to Hugo By <a href="https://github.com/jbub">jbub</a></span>
+                </p>
+            </div>
+        </footer>
+
+        <script src="/js/jquery-1.11.3.min.js"></script>
+        <script src="/js/jquery.fitvids.js"></script>
+        <script src="/js/scripts.js"></script>
+    </body>
+</html>
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+
+<script>
+hljs.configure({languages: []});
+hljs.initHighlightingOnLoad();
+</script>
+

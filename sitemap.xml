@@ -2,14 +2,59 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>/2022/05/15/bay-area-insects/</loc>
+    <lastmod>2022-05-15T09:07:38-08:00</lastmod>
+  </url><url>
     <loc>/</loc>
-    <lastmod>2022-05-01T09:07:38-08:00</lastmod>
+    <lastmod>2022-05-15T09:07:38-08:00</lastmod>
   </url><url>
     <loc>/categories/</loc>
-    <lastmod>2022-05-01T09:07:38-08:00</lastmod>
+    <lastmod>2022-05-15T09:07:38-08:00</lastmod>
   </url><url>
     <loc>/tags/data/</loc>
-    <lastmod>2022-05-01T09:07:38-08:00</lastmod>
+    <lastmod>2022-05-15T09:07:38-08:00</lastmod>
+  </url><url>
+    <loc>/tags/explore/</loc>
+    <lastmod>2022-05-15T09:07:38-08:00</lastmod>
+  </url><url>
+    <loc>/categories/explore/</loc>
+    <lastmod>2022-05-15T09:07:38-08:00</lastmod>
+  </url><url>
+    <loc>/tags/gbif/</loc>
+    <lastmod>2022-05-15T09:07:38-08:00</lastmod>
+  </url><url>
+    <loc>/categories/gbif/</loc>
+    <lastmod>2022-05-15T09:07:38-08:00</lastmod>
+  </url><url>
+    <loc>/tags/gis/</loc>
+    <lastmod>2022-05-15T09:07:38-08:00</lastmod>
+  </url><url>
+    <loc>/categories/gis/</loc>
+    <lastmod>2022-05-15T09:07:38-08:00</lastmod>
+  </url><url>
+    <loc>/tags/maps/</loc>
+    <lastmod>2022-05-15T09:07:38-08:00</lastmod>
+  </url><url>
+    <loc>/categories/maps/</loc>
+    <lastmod>2022-05-15T09:07:38-08:00</lastmod>
+  </url><url>
+    <loc>/tags/modeling/</loc>
+    <lastmod>2022-05-15T09:07:38-08:00</lastmod>
+  </url><url>
+    <loc>/categories/modeling/</loc>
+    <lastmod>2022-05-15T09:07:38-08:00</lastmod>
+  </url><url>
+    <loc>/post/</loc>
+    <lastmod>2022-05-15T09:07:38-08:00</lastmod>
+  </url><url>
+    <loc>/tags/species-distribution/</loc>
+    <lastmod>2022-05-15T09:07:38-08:00</lastmod>
+  </url><url>
+    <loc>/categories/species-distribution/</loc>
+    <lastmod>2022-05-15T09:07:38-08:00</lastmod>
+  </url><url>
+    <loc>/tags/</loc>
+    <lastmod>2022-05-15T09:07:38-08:00</lastmod>
   </url><url>
     <loc>/categories/data/</loc>
     <lastmod>2022-05-01T09:07:38-08:00</lastmod>
@@ -20,43 +65,7 @@
     <loc>/categories/exercise/</loc>
     <lastmod>2022-05-01T09:07:38-08:00</lastmod>
   </url><url>
-    <loc>/tags/explore/</loc>
-    <lastmod>2022-05-01T09:07:38-08:00</lastmod>
-  </url><url>
-    <loc>/categories/explore/</loc>
-    <lastmod>2022-05-01T09:07:38-08:00</lastmod>
-  </url><url>
-    <loc>/tags/gis/</loc>
-    <lastmod>2022-05-01T09:07:38-08:00</lastmod>
-  </url><url>
-    <loc>/categories/gis/</loc>
-    <lastmod>2022-05-01T09:07:38-08:00</lastmod>
-  </url><url>
-    <loc>/tags/maps/</loc>
-    <lastmod>2022-05-01T09:07:38-08:00</lastmod>
-  </url><url>
-    <loc>/categories/maps/</loc>
-    <lastmod>2022-05-01T09:07:38-08:00</lastmod>
-  </url><url>
     <loc>/2022/05/01/miracle-mile-jeffreys-and-ponderosa-pine/</loc>
-    <lastmod>2022-05-01T09:07:38-08:00</lastmod>
-  </url><url>
-    <loc>/tags/modeling/</loc>
-    <lastmod>2022-05-01T09:07:38-08:00</lastmod>
-  </url><url>
-    <loc>/categories/modeling/</loc>
-    <lastmod>2022-05-01T09:07:38-08:00</lastmod>
-  </url><url>
-    <loc>/post/</loc>
-    <lastmod>2022-05-01T09:07:38-08:00</lastmod>
-  </url><url>
-    <loc>/tags/species-distribution/</loc>
-    <lastmod>2022-05-01T09:07:38-08:00</lastmod>
-  </url><url>
-    <loc>/categories/species-distribution/</loc>
-    <lastmod>2022-05-01T09:07:38-08:00</lastmod>
-  </url><url>
-    <loc>/tags/</loc>
     <lastmod>2022-05-01T09:07:38-08:00</lastmod>
   </url><url>
     <loc>/tags/trail-run/</loc>
@@ -94,12 +103,6 @@
   </url><url>
     <loc>/categories/trailrun/</loc>
     <lastmod>2022-03-15T09:07:38-08:00</lastmod>
-  </url><url>
-    <loc>/tags/gbif/</loc>
-    <lastmod>2022-03-01T09:07:38-08:00</lastmod>
-  </url><url>
-    <loc>/categories/gbif/</loc>
-    <lastmod>2022-03-01T09:07:38-08:00</lastmod>
   </url><url>
     <loc>/tags/trout/</loc>
     <lastmod>2022-03-01T09:07:38-08:00</lastmod>
