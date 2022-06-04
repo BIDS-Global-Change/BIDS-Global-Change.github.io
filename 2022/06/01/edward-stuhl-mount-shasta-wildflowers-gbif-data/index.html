@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Edward Stuhl - Mount Shasta Wildflowers GBIF data &middot; </title>
+        <meta name="description" content="I have been working on identifying and painting various local wildflowers from the book Mount Shasta Wild Flowers A Field Guide featuring the water color paintings of Edward Stuhl. Stuhl was an artist and mountaineer that gradually painted 189 plants over a 50 year career exploring the greater Mount Shasta area. All of his paintings are available to view online at CSU Chico here. I was interested in what sort of publicly available observation data there was for some of the more rare species.">
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="generator" content="Hugo 0.82.0" />
+        <meta name="robots" content="index,follow">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <link rel="stylesheet" href="/dist/site.css">
+        <link rel="stylesheet" href="/dist/syntax.css">
+        
+        
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300&subset=latin,cyrillic-ext,latin-ext,cyrillic">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+        
+        
+        
+        
+        
+
+    </head>
+    <body>
+        
+
+        <div id="wrapper">
+            <header class="site-header">
+                <div class="container">
+                    <div class="site-title-wrapper">
+                        
+                            <a class="site-logo" href="">
+                                <img src="#ZgotmplZ" alt="" />
+                            </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                    </div>
+
+                    <ul class="site-nav">
+                        
+    <li class="site-nav-item">
+        <a href="/post/">Blog</a>
+    </li>
+
+    <li class="site-nav-item">
+        <a href="/project/">Projects</a>
+    </li>
+
+    <li class="site-nav-item">
+        <a href="/page/about/">About</a>
+    </li>
+
+    <li class="site-nav-item">
+        <a href="/page/contact/">contact</a>
+    </li>
+
+    <li class="site-nav-item">
+        <a href="/page/links/">links</a>
+    </li>
+
+    <li class="site-nav-item">
+        <a href="https://github.com/BIDS-Global-Change/">GitHub</a>
+    </li>
+
+    <li class="site-nav-item">
+        <a href="https://twitter.com/rjcmarkelz">Twitter</a>
+    </li>
+
+
+                    </ul>
+                </div>
+            </header>
+
+            <div id="container">
+
+
+<link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/routeros.min.css" rel="stylesheet">
+
+
+<div class="container">
+    <article class="post-container" itemscope="" itemtype="http://schema.org/BlogPosting">
+        <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">Edward Stuhl - Mount Shasta Wildflowers GBIF data</h1>
+    
+    <p class="post-date post-line">
+        <span>Published <time datetime="2022-06-01" itemprop="datePublished">Wed, Jun 1, 2022</time></span>
+        <span>by</span>
+        <span itemscope="" itemprop="author" itemtype="https://schema.org/Person">
+            <span itemprop="name">
+                <a href="#" itemprop="url" rel="author">RJ Cody Markelz</a>
+            </span>
+        </span>
+    </p>
+    
+</header>
+
+        <div class="post-content clearfix" itemprop="articleBody">
+    
+
+    
+<script src="/2022/06/01/edward-stuhl-mount-shasta-wildflowers-gbif-data/index_files/header-attrs/header-attrs.js"></script>
+
+
+<p>I have been working on identifying and painting various local wildflowers from the book <a href="http://dev.mountshastawildflowers.com/">Mount Shasta Wild Flowers A Field Guide</a> featuring the water color paintings of Edward Stuhl. Stuhl was an artist and mountaineer that gradually painted 189 plants over a 50 year career exploring the greater Mount Shasta area. All of his paintings are available to view online at CSU Chico <a href="http://archives.csuchico.edu/digital/collection/coll5">here</a>. I was interested in what sort of publicly available observation data there was for some of the more rare species. I downloaded the
+<a href="http://dev.mountshastawildflowers.com/about-the-book/mount-shasta-plant-list/">original list here</a>, and made a few quick formatting edits to get it ready to pull into R.</p>
+<p>Load the libraries.</p>
+<pre class="r"><code>library(tidyverse)
+library(readxl)
+library(rgbif)
+library(data.table)</code></pre>
+<p>Pull in the data, take a quick look, and make a character vector of the species names for the GBIF query.</p>
+<pre class="r"><code>shasta_plants &lt;- read_excel(&quot;../../../static/data/mount.shasta.plant.list.edit.xlsx&quot;)
+
+head(shasta_plants)</code></pre>
+<pre><code>## # A tibble: 6 × 5
+##   ID           Family           Genus       species    `subspecies or variety`
+##   &lt;chr&gt;        &lt;chr&gt;            &lt;chr&gt;       &lt;chr&gt;      &lt;chr&gt;                  
+## 1 Ferns_Allies Dennstaedtiaceae Pteridium   aquilinum  var. pubescens         
+## 2 Ferns_Allies Dryopteridaceae  Polystichum scopulinum &lt;NA&gt;                   
+## 3 Ferns_Allies Equisetaceae     Equisetum   arvense    &lt;NA&gt;                   
+## 4 Ferns_Allies Equisetaceae     Equisetum   hyemale    ssp. affine            
+## 5 Ferns_Allies Ophioglossaceae  Botrychium  pinnatum   &lt;NA&gt;                   
+## 6 Ferns_Allies Ophioglossaceae  Botrychium  pumicola   &lt;NA&gt;</code></pre>
+<pre class="r"><code>dim(shasta_plants)</code></pre>
+<pre><code>## [1] 482   5</code></pre>
+<pre class="r"><code>shasta_plants$query &lt;- as.character(paste(shasta_plants$Genus, shasta_plants$species))
+shasta_species &lt;- shasta_plants$query
+head(shasta_species)</code></pre>
+<pre><code>## [1] &quot;Pteridium aquilinum&quot;    &quot;Polystichum scopulinum&quot; &quot;Equisetum arvense&quot;     
+## [4] &quot;Equisetum hyemale&quot;      &quot;Botrychium pinnatum&quot;    &quot;Botrychium pumicola&quot;</code></pre>
+<p>Make a polygon to query from within and run a GBIF query iterating through the shasta_species character vector. The query takes a while for building this webpage, so I am going to just load the result instead to list the objects. If you want to run the query uncomment the following few lines.</p>
+<pre class="r"><code>mt_shasta_geometry &lt;- paste(&#39;POLYGON((-122.600528 41.551515, -122.001773 41.551515, -122.001773 41.252791, -122.600528 41.252791, -122.600528 41.551515))&#39;)
+
+# shasta_all &lt;- occ_data(scientificName = shasta_species, hasCoordinate = TRUE, limit = 100,
+#                   geometry = mt_shasta_geometry)
+
+load(&quot;../../../static/data/Stuhl_Shasta_species_GBIF.RData&quot;)
+ls()</code></pre>
+<pre><code>## [1] &quot;mt_shasta_geometry&quot; &quot;shasta_all&quot;         &quot;shasta_plants&quot;     
+## [4] &quot;shasta_species&quot;</code></pre>
+<p>Iterate through the GBIF query list and pull out the latitude and longitude of each observation and bind them all together.</p>
+<pre class="r"><code>shasta_species_coords_list &lt;- vector(&quot;list&quot;, length(shasta_species))
+names(shasta_species_coords_list) &lt;- shasta_species
+
+for (x in shasta_species) {
+  coords &lt;- shasta_all[[x]]$data[ , c(&quot;decimalLongitude&quot;, &quot;decimalLatitude&quot;, &quot;occurrenceStatus&quot;)]
+  shasta_species_coords_list[[x]] &lt;- data.frame(cbind(species = x, coords))
+}
+
+species_coord_df &lt;- rbindlist(shasta_species_coords_list, fill = T)
+head(species_coord_df)</code></pre>
+<pre><code>##                species decimalLongitude decimalLatitude occurrenceStatus
+## 1: Pteridium aquilinum        -122.3233        41.28727          PRESENT
+## 2: Pteridium aquilinum        -122.3304        41.31041          PRESENT
+## 3: Pteridium aquilinum        -122.0664        41.27251          PRESENT
+## 4: Pteridium aquilinum        -122.0780        41.28300          PRESENT
+## 5: Pteridium aquilinum        -122.3066        41.27987          PRESENT
+## 6: Pteridium aquilinum        -122.4471        41.44342          PRESENT</code></pre>
+<p>Make a quick plot of the data removing the legend or it will overwhelm the plot with the large number of species.</p>
+<pre class="r"><code>species_p1  &lt;- ggplot(species_coord_df, aes(x=decimalLongitude, y = decimalLatitude, color = species)) +
+                geom_point() +
+                labs(x = &quot;Longitude&quot;, y = &quot;Latitude&quot;, title = &quot;Mount Shasta Plant Species Observations&quot;) + theme(legend.position=&quot;none&quot;)
+species_p1</code></pre>
+<p><img src="/2022/06/01/edward-stuhl-mount-shasta-wildflowers-gbif-data/index_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p>A lifetime of exploration just in my general area! I hope to share more paintings of the same species as I am out and about around Mount Shasta.</p>
+
+</div>
+
+        <footer class="post-footer clearfix">
+        <p class="post-tags">
+            <span>Tagged:</span>
+                <a href="/tags/data/">data</a>, 
+                <a href="/tags/scraping/">scraping</a>, 
+                <a href="/tags/web/">web</a>, 
+                <a href="/tags/extraction/">extraction</a>, 
+                <a href="/tags/meta-data/">meta-data</a>, 
+                <a href="/tags/water-color/">water color</a>, 
+                <a href="/tags/wildflowers/">wildflowers</a>, 
+                <a href="/tags/plants/">plants</a>, 
+                <a href="/tags/mount-shasta/">mount shasta</a>, 
+                <a href="/tags/stuhl/">stuhl</a>
+        </p>
+    <div class="share">
+    </div>
+</footer>
+
+        
+    </article>
+</div>
+
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="site-title-wrapper">
+                    <h1 class="site-title">
+                        <a href="/">BIDS- Environmental</a>
+                    </h1>
+                    <a class="button-square button-jump-top js-jump-top" href="#" aria-label="Back to Top">
+                        <i class="fa fa-angle-up" aria-hidden="true"></i>
+                    </a>
+                </div>
+
+                <p class="footer-copyright">
+                    <span>&copy; 2022 / Powered by <a href="https://gohugo.io/">Hugo</a></span>
+                </p>
+                <p class="footer-copyright">
+                    <span><a href="https://github.com/roryg/ghostwriter">Ghostwriter theme</a> By <a href="http://jollygoodthemes.com">JollyGoodThemes</a></span>
+                    <span>/ <a href="https://github.com/jbub/ghostwriter">Ported</a> to Hugo By <a href="https://github.com/jbub">jbub</a></span>
+                </p>
+            </div>
+        </footer>
+
+        <script src="/js/jquery-1.11.3.min.js"></script>
+        <script src="/js/jquery.fitvids.js"></script>
+        <script src="/js/scripts.js"></script>
+    </body>
+</html>
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+
+<script>
+hljs.configure({languages: []});
+hljs.initHighlightingOnLoad();
+</script>
+

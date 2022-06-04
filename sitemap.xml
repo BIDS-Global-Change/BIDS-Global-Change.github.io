@@ -2,16 +2,55 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>/2022/05/15/bay-area-insects/</loc>
-    <lastmod>2022-05-15T09:07:38-08:00</lastmod>
-  </url><url>
     <loc>/</loc>
-    <lastmod>2022-05-15T09:07:38-08:00</lastmod>
+    <lastmod>2022-06-01T09:07:38-08:00</lastmod>
   </url><url>
     <loc>/categories/</loc>
-    <lastmod>2022-05-15T09:07:38-08:00</lastmod>
+    <lastmod>2022-06-01T09:07:38-08:00</lastmod>
   </url><url>
     <loc>/tags/data/</loc>
+    <lastmod>2022-06-01T09:07:38-08:00</lastmod>
+  </url><url>
+    <loc>/categories/data-scraping-website-meta-data-water-color-wildflowers-plants/</loc>
+    <lastmod>2022-06-01T09:07:38-08:00</lastmod>
+  </url><url>
+    <loc>/2022/06/01/edward-stuhl-mount-shasta-wildflowers-gbif-data/</loc>
+    <lastmod>2022-06-01T09:07:38-08:00</lastmod>
+  </url><url>
+    <loc>/tags/extraction/</loc>
+    <lastmod>2022-06-01T09:07:38-08:00</lastmod>
+  </url><url>
+    <loc>/tags/meta-data/</loc>
+    <lastmod>2022-06-01T09:07:38-08:00</lastmod>
+  </url><url>
+    <loc>/tags/mount-shasta/</loc>
+    <lastmod>2022-06-01T09:07:38-08:00</lastmod>
+  </url><url>
+    <loc>/tags/plants/</loc>
+    <lastmod>2022-06-01T09:07:38-08:00</lastmod>
+  </url><url>
+    <loc>/post/</loc>
+    <lastmod>2022-06-01T09:07:38-08:00</lastmod>
+  </url><url>
+    <loc>/tags/scraping/</loc>
+    <lastmod>2022-06-01T09:07:38-08:00</lastmod>
+  </url><url>
+    <loc>/tags/stuhl/</loc>
+    <lastmod>2022-06-01T09:07:38-08:00</lastmod>
+  </url><url>
+    <loc>/tags/</loc>
+    <lastmod>2022-06-01T09:07:38-08:00</lastmod>
+  </url><url>
+    <loc>/tags/water-color/</loc>
+    <lastmod>2022-06-01T09:07:38-08:00</lastmod>
+  </url><url>
+    <loc>/tags/web/</loc>
+    <lastmod>2022-06-01T09:07:38-08:00</lastmod>
+  </url><url>
+    <loc>/tags/wildflowers/</loc>
+    <lastmod>2022-06-01T09:07:38-08:00</lastmod>
+  </url><url>
+    <loc>/2022/05/15/bay-area-insects/</loc>
     <lastmod>2022-05-15T09:07:38-08:00</lastmod>
   </url><url>
     <loc>/tags/explore/</loc>
@@ -44,16 +83,10 @@
     <loc>/categories/modeling/</loc>
     <lastmod>2022-05-15T09:07:38-08:00</lastmod>
   </url><url>
-    <loc>/post/</loc>
-    <lastmod>2022-05-15T09:07:38-08:00</lastmod>
-  </url><url>
     <loc>/tags/species-distribution/</loc>
     <lastmod>2022-05-15T09:07:38-08:00</lastmod>
   </url><url>
     <loc>/categories/species-distribution/</loc>
-    <lastmod>2022-05-15T09:07:38-08:00</lastmod>
-  </url><url>
-    <loc>/tags/</loc>
     <lastmod>2022-05-15T09:07:38-08:00</lastmod>
   </url><url>
     <loc>/categories/data/</loc>
@@ -119,9 +152,6 @@
     <loc>/categories/data-movement-ski-touring-data-visualization/</loc>
     <lastmod>2022-02-15T09:07:38-08:00</lastmod>
   </url><url>
-    <loc>/tags/meta-data/</loc>
-    <lastmod>2022-02-15T09:07:38-08:00</lastmod>
-  </url><url>
     <loc>/2022/02/15/ski-touring-movement-data/</loc>
     <lastmod>2022-02-15T09:07:38-08:00</lastmod>
   </url><url>
@@ -149,19 +179,10 @@
     <loc>/2022/02/01/uc-reserve-system-environmental-data-1/</loc>
     <lastmod>2022-02-01T09:07:38-08:00</lastmod>
   </url><url>
-    <loc>/tags/extraction/</loc>
-    <lastmod>2022-01-15T09:07:38-08:00</lastmod>
-  </url><url>
-    <loc>/tags/scraping/</loc>
-    <lastmod>2022-01-15T09:07:38-08:00</lastmod>
-  </url><url>
     <loc>/2022/01/15/scraping-weather-data/</loc>
     <lastmod>2022-01-15T09:07:38-08:00</lastmod>
   </url><url>
     <loc>/categories/weather-data-scraping-website-meta-data/</loc>
-    <lastmod>2022-01-15T09:07:38-08:00</lastmod>
-  </url><url>
-    <loc>/tags/web/</loc>
     <lastmod>2022-01-15T09:07:38-08:00</lastmod>
   </url><url>
     <loc>/tags/obsidian/</loc>
