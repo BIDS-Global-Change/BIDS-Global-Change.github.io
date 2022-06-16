@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>California Pitcher Plant - Cobra Lily (Darlingtonia californica) &middot; </title>
+        <meta name="description" content="Spring is in full swing in the higher elevations around Mount Shasta and the surrounding ranges. I am always struck by the large patches of Cobra Lilies that grow along nutrient poor seeps in alpine meadows. I nearly always stop to take some photos and take in all the cool colors and shapes when out on training runs or hikes. I have made many observations of these over the past few years, but here is a quick post to pull out observations from GBIF.">
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="generator" content="Hugo 0.82.0" />
+        <meta name="robots" content="index,follow">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <link rel="stylesheet" href="/dist/site.css">
+        <link rel="stylesheet" href="/dist/syntax.css">
+        
+        
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300&subset=latin,cyrillic-ext,latin-ext,cyrillic">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+        
+        
+        
+        
+        
+
+    </head>
+    <body>
+        
+
+        <div id="wrapper">
+            <header class="site-header">
+                <div class="container">
+                    <div class="site-title-wrapper">
+                        
+                            <a class="site-logo" href="">
+                                <img src="#ZgotmplZ" alt="" />
+                            </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                    </div>
+
+                    <ul class="site-nav">
+                        
+    <li class="site-nav-item">
+        <a href="/post/">Blog</a>
+    </li>
+
+    <li class="site-nav-item">
+        <a href="/project/">Projects</a>
+    </li>
+
+    <li class="site-nav-item">
+        <a href="/page/about/">About</a>
+    </li>
+
+    <li class="site-nav-item">
+        <a href="/page/contact/">contact</a>
+    </li>
+
+    <li class="site-nav-item">
+        <a href="/page/links/">links</a>
+    </li>
+
+    <li class="site-nav-item">
+        <a href="https://github.com/BIDS-Global-Change/">GitHub</a>
+    </li>
+
+    <li class="site-nav-item">
+        <a href="https://twitter.com/rjcmarkelz">Twitter</a>
+    </li>
+
+
+                    </ul>
+                </div>
+            </header>
+
+            <div id="container">
+
+
+<link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/routeros.min.css" rel="stylesheet">
+
+
+<div class="container">
+    <article class="post-container" itemscope="" itemtype="http://schema.org/BlogPosting">
+        <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">California Pitcher Plant - Cobra Lily (Darlingtonia californica)</h1>
+    
+    <p class="post-date post-line">
+        <span>Published <time datetime="2022-06-15" itemprop="datePublished">Wed, Jun 15, 2022</time></span>
+        <span>by</span>
+        <span itemscope="" itemprop="author" itemtype="https://schema.org/Person">
+            <span itemprop="name">
+                <a href="#" itemprop="url" rel="author">RJ Cody Markelz</a>
+            </span>
+        </span>
+    </p>
+    
+</header>
+
+        <div class="post-content clearfix" itemprop="articleBody">
+    
+
+    
+<script src="/2022/06/15/california-pitcher-plant-cobra-lily-darlingtonia-californica/index_files/header-attrs/header-attrs.js"></script>
+
+
+<p><img src="/static/img/Cobra_lily_sketch.png" /></p>
+<p>Spring is in full swing in the higher elevations around Mount Shasta and the surrounding ranges. I am always struck by the large patches of <a href="https://www.fs.fed.us/wildflowers/beauty/serpentines/communities/darlingtonia.shtml">Cobra Lilies</a> that grow along nutrient poor seeps in alpine meadows. I nearly always stop to take some photos and take in all the cool colors and shapes when out on training runs or hikes. I have made many observations of these over the past few years, but here is a quick post to pull out observations from GBIF.</p>
+<p>Load the libraries.</p>
+<pre class="r"><code>library(tidyverse)
+library(rgbif)
+library(gpx)</code></pre>
+<p>Make the large Northern California polygon to look for observations in GBIF.</p>
+<pre class="r"><code>norcal_geometry &lt;- paste(&#39;POLYGON((-124.4323 42.0021, -121.5045 42.0021, -121.5045 40.194, -124.4323 40.194, -124.4323 42.0021))&#39;)
+
+cobra_lily &lt;- occ_data(scientificName = &quot;darlingtonia californica&quot;, hasCoordinate = TRUE, limit = 1000,
+                   geometry = norcal_geometry)
+# length(cobra_lily)
+head(cobra_lily)</code></pre>
+<pre><code>## $meta
+## $meta$offset
+## [1] 900
+## 
+## $meta$limit
+## [1] 100
+## 
+## $meta$endOfRecords
+## [1] FALSE
+## 
+## $meta$count
+## [1] 1129
+## 
+## 
+## $data
+## # A tibble: 1,000 × 125
+##    key        scientificName  decimalLatitude decimalLongitude issues datasetKey
+##    &lt;chr&gt;      &lt;chr&gt;                     &lt;dbl&gt;            &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt;     
+##  1 3499352919 Darlingtonia c…            41.9            -124. cdrou… 50c9509d-…
+##  2 3499475143 Darlingtonia c…            41.9            -124. cdrou… 50c9509d-…
+##  3 3499606799 Darlingtonia c…            41.8            -124. cdrou… 50c9509d-…
+##  4 3499614932 Darlingtonia c…            41.9            -124. cdrou… 50c9509d-…
+##  5 3499614940 Darlingtonia c…            42.0            -124. cdrou… 50c9509d-…
+##  6 3499647846 Darlingtonia c…            41.9            -124. cdrou… 50c9509d-…
+##  7 3698398122 Darlingtonia c…            41.9            -124. cdrou… 50c9509d-…
+##  8 3743185922 Darlingtonia c…            41.9            -124. cdrou… 50c9509d-…
+##  9 3746965657 Darlingtonia c…            41.9            -124. cdrou… 50c9509d-…
+## 10 3747115575 Darlingtonia c…            42.0            -124. cdrou… 50c9509d-…
+## # … with 990 more rows, and 119 more variables: publishingOrgKey &lt;chr&gt;,
+## #   installationKey &lt;chr&gt;, publishingCountry &lt;chr&gt;, protocol &lt;chr&gt;,
+## #   lastCrawled &lt;chr&gt;, lastParsed &lt;chr&gt;, crawlId &lt;int&gt;,
+## #   hostingOrganizationKey &lt;chr&gt;, basisOfRecord &lt;chr&gt;, occurrenceStatus &lt;chr&gt;,
+## #   taxonKey &lt;int&gt;, kingdomKey &lt;int&gt;, phylumKey &lt;int&gt;, classKey &lt;int&gt;,
+## #   orderKey &lt;int&gt;, familyKey &lt;int&gt;, genusKey &lt;int&gt;, speciesKey &lt;int&gt;,
+## #   acceptedTaxonKey &lt;int&gt;, acceptedScientificName &lt;chr&gt;, kingdom &lt;chr&gt;, …</code></pre>
+<p>Quick map of observations.</p>
+<pre class="r"><code>cobra_lily_coords &lt;- cobra_lily$data[ , c(&quot;decimalLongitude&quot;, &quot;decimalLatitude&quot;, &quot;occurrenceStatus&quot;, &quot;coordinateUncertaintyInMeters&quot;, &quot;institutionCode&quot;, &quot;references&quot;)]
+
+maps::map(database = &quot;state&quot;, region = &quot;california&quot;)
+points(cobra_lily_coords[ , c(&quot;decimalLongitude&quot;, &quot;decimalLatitude&quot;)], pch = &quot;.&quot;, col = &quot;red&quot;, cex = 3)</code></pre>
+<p><img src="/2022/06/15/california-pitcher-plant-cobra-lily-darlingtonia-californica/index_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p>Pull in my run data using the gpx R library and subset the route to make plotting easier.</p>
+<pre class="r"><code>run &lt;-  read_gpx(&#39;../../../static/data/cobra_lily_run.gpx&#39;)
+TrailRun1 &lt;- as.data.frame(run$routes)</code></pre>
+<p>Make a quick run plot.</p>
+<pre class="r"><code>TrailRun_plot &lt;- ggplot() +
+          geom_point(data = TrailRun1, aes(x = Longitude, y = Latitude), color = &#39;black&#39;) +
+          xlab(&quot;Longitude&quot;) + ylab(&quot;Latitude&quot;)
+TrailRun_plot</code></pre>
+<p><img src="/2022/06/15/california-pitcher-plant-cobra-lily-darlingtonia-californica/index_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p>Subset the larger California dataset to only include a zoomed in portion where I ran based on the maximum and minimum coordinates from the run plot above.</p>
+<pre class="r"><code>cobra_lily_coords_sub &lt;- subset(cobra_lily_coords, decimalLatitude &gt; 41.3 &amp; decimalLatitude &lt; 41.365 &amp; decimalLongitude &gt; -122.6 &amp; decimalLongitude &lt; -122.5 )</code></pre>
+<p>Overlay the plots and add a triangle for the seep where I observed some Cobra Lilies next to the trail.</p>
+<pre class="r"><code>TrailRun_plot2 &lt;- ggplot() +
+          coord_quickmap() +
+          geom_point(data = TrailRun1, aes(x = Longitude, y = Latitude), color = &#39;black&#39;) +
+          geom_point(data=cobra_lily_coords_sub, aes(x = decimalLongitude, y = decimalLatitude), color = &#39;red&#39;) +
+          geom_point(aes(x = -122.55, y = 41.325), pch=25, size= 12, colour=&quot;purple&quot;) +
+          xlab(&quot;Longitude&quot;) + ylab(&quot;Latitude&quot;)
+TrailRun_plot2</code></pre>
+<p><img src="/2022/06/15/california-pitcher-plant-cobra-lily-darlingtonia-californica/index_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<p>In a follow-up post we will import some additional environmental data to make a multi-layered map.</p>
+
+</div>
+
+        <footer class="post-footer clearfix">
+        <p class="post-tags">
+            <span>Tagged:</span>
+                <a href="/tags/species-distribution/">species distribution</a>, 
+                <a href="/tags/gis/">GIS</a>, 
+                <a href="/tags/maps/">maps</a>, 
+                <a href="/tags/data/">data</a>, 
+                <a href="/tags/trailrun/">trailrun</a>, 
+                <a href="/tags/exercise/">exercise</a>, 
+                <a href="/tags/explore/">explore</a>, 
+                <a href="/tags/cobra-lily/">cobra lily</a>
+        </p>
+    <div class="share">
+    </div>
+</footer>
+
+        
+    </article>
+</div>
+
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="site-title-wrapper">
+                    <h1 class="site-title">
+                        <a href="/">BIDS- Environmental</a>
+                    </h1>
+                    <a class="button-square button-jump-top js-jump-top" href="#" aria-label="Back to Top">
+                        <i class="fa fa-angle-up" aria-hidden="true"></i>
+                    </a>
+                </div>
+
+                <p class="footer-copyright">
+                    <span>&copy; 2022 / Powered by <a href="https://gohugo.io/">Hugo</a></span>
+                </p>
+                <p class="footer-copyright">
+                    <span><a href="https://github.com/roryg/ghostwriter">Ghostwriter theme</a> By <a href="http://jollygoodthemes.com">JollyGoodThemes</a></span>
+                    <span>/ <a href="https://github.com/jbub/ghostwriter">Ported</a> to Hugo By <a href="https://github.com/jbub">jbub</a></span>
+                </p>
+            </div>
+        </footer>
+
+        <script src="/js/jquery-1.11.3.min.js"></script>
+        <script src="/js/jquery.fitvids.js"></script>
+        <script src="/js/scripts.js"></script>
+    </body>
+</html>
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+
+<script>
+hljs.configure({languages: []});
+hljs.initHighlightingOnLoad();
+</script>
+
