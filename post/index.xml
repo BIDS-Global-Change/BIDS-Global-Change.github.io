@@ -6,7 +6,16 @@
     <description>Recent content in Posts on BIDS- Environmental</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 15 Jun 2022 09:07:38 -0800</lastBuildDate><atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 01 Jul 2022 09:07:38 +0000</lastBuildDate><atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>2020 UC Reserve Fires</title>
+      <link>/2022/07/01/2020-uc-reserve-fires/</link>
+      <pubDate>Fri, 01 Jul 2022 09:07:38 +0000</pubDate>
+      
+      <guid>/2022/07/01/2020-uc-reserve-fires/</guid>
+      <description>A short post overlaying a few different GIS layers on one another for a project we are working on. The databases used are large so I just show the code here with one final image instead of including them in the website repository. I needed to subset the fire perimeters from the Cal Fire database and overlap them with the UC Reserve perimeters. I also need to in-file some GPS coordinates of post fire sampling sites.</description>
+    </item>
+    
     <item>
       <title>California Pitcher Plant - Cobra Lily (Darlingtonia californica)</title>
       <link>/2022/06/15/california-pitcher-plant-cobra-lily-darlingtonia-californica/</link>
