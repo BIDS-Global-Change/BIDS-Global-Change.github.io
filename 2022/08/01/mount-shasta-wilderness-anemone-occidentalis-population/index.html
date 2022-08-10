@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Mount Shasta Wilderness- Anemone occidentalis population &middot; </title>
+        <meta name="description" content="I went on a quick overnight to a spring fed creek above 8000 feet on Mount Shasta. I noticed these interesting flowers that I have never seen before. They reminded me of something that Dr. Suess would have illustrated in his various children’s books. After searching the internet with no luck I finally needed rely on some California Botany experts to help with the ID: Anemone occidentalis. The hair-like calyx tissue on top of each ovary are what give this plant it’s unique look once reproductively mature.">
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="generator" content="Hugo 0.82.0" />
+        <meta name="robots" content="index,follow">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <link rel="stylesheet" href="/dist/site.css">
+        <link rel="stylesheet" href="/dist/syntax.css">
+        
+        
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300&subset=latin,cyrillic-ext,latin-ext,cyrillic">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+        
+        
+        
+        
+        
+
+    </head>
+    <body>
+        
+
+        <div id="wrapper">
+            <header class="site-header">
+                <div class="container">
+                    <div class="site-title-wrapper">
+                        
+                            <a class="site-logo" href="">
+                                <img src="#ZgotmplZ" alt="" />
+                            </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                    </div>
+
+                    <ul class="site-nav">
+                        
+    <li class="site-nav-item">
+        <a href="/post/">Blog</a>
+    </li>
+
+    <li class="site-nav-item">
+        <a href="/project/">Projects</a>
+    </li>
+
+    <li class="site-nav-item">
+        <a href="/page/about/">About</a>
+    </li>
+
+    <li class="site-nav-item">
+        <a href="/page/contact/">contact</a>
+    </li>
+
+    <li class="site-nav-item">
+        <a href="/page/links/">links</a>
+    </li>
+
+    <li class="site-nav-item">
+        <a href="https://github.com/BIDS-Global-Change/">GitHub</a>
+    </li>
+
+    <li class="site-nav-item">
+        <a href="https://twitter.com/rjcmarkelz">Twitter</a>
+    </li>
+
+
+                    </ul>
+                </div>
+            </header>
+
+            <div id="container">
+
+
+<link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/routeros.min.css" rel="stylesheet">
+
+
+<div class="container">
+    <article class="post-container" itemscope="" itemtype="http://schema.org/BlogPosting">
+        <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">Mount Shasta Wilderness- Anemone occidentalis population</h1>
+    
+    <p class="post-date post-line">
+        <span>Published <time datetime="2022-08-01" itemprop="datePublished">Mon, Aug 1, 2022</time></span>
+        <span>by</span>
+        <span itemscope="" itemprop="author" itemtype="https://schema.org/Person">
+            <span itemprop="name">
+                <a href="#" itemprop="url" rel="author">RJ Cody Markelz</a>
+            </span>
+        </span>
+    </p>
+    
+</header>
+
+        <div class="post-content clearfix" itemprop="articleBody">
+    
+
+    
+<script src="/2022/08/01/mount-shasta-wilderness-anemone-occidentalis-population/index_files/header-attrs/header-attrs.js"></script>
+
+
+<p><img src="/static/img/dr-seuss-flower.jpeg" /></p>
+<p>I went on a quick overnight to a spring fed creek above 8000 feet on Mount Shasta. I noticed these interesting flowers that I have never seen before. They reminded me of something that Dr. Suess would have illustrated in his various children’s books. After searching the internet with no luck I finally needed rely on some California Botany experts to help with the ID: <a href="https://en.wikipedia.org/wiki/Anemone_occidentalis">Anemone occidentalis</a>. The hair-like calyx tissue on top of each ovary are what give this plant it’s unique look once reproductively mature. These are similar structures to white dandelion heads and aid in seed dispersal via wind.</p>
+<p>Load the libraries.</p>
+<pre class="r"><code>library(tidyverse)
+library(rgbif)
+library(gpx)</code></pre>
+<p>Make the large Northern California polygon to look for observations in GBIF.</p>
+<pre class="r"><code>norcal_geometry &lt;- paste(&#39;POLYGON((-124.4323 42.0021, -121.5045 42.0021, -121.5045 40.194, -124.4323 40.194, -124.4323 42.0021))&#39;)
+
+dr_suess &lt;- occ_data(scientificName = &quot;Anemone occidentalis&quot;, hasCoordinate = TRUE, limit = 1000,
+                   geometry = norcal_geometry)
+# length(dr_suess)
+head(dr_suess)</code></pre>
+<pre><code>## $meta
+## $meta$offset
+## [1] 0
+## 
+## $meta$limit
+## [1] 300
+## 
+## $meta$endOfRecords
+## [1] TRUE
+## 
+## $meta$count
+## [1] 41
+## 
+## 
+## $data
+## # A tibble: 41 × 112
+##    key        scientificName  decimalLatitude decimalLongitude issues datasetKey
+##    &lt;chr&gt;      &lt;chr&gt;                     &lt;dbl&gt;            &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt;     
+##  1 899744820  Anemone occide…            41.6            -123. colma… 7a2660bc-…
+##  2 2417975310 Anemone occide…            40.5            -122. cdrep… ae33dc82-…
+##  3 2982055079 Anemone occide…            41.2            -123. cdrou… 6958627a-…
+##  4 3320762840 Anemone occide…            41.2            -123. gass8… 677aece2-…
+##  5 3320797832 Anemone occide…            41.5            -122. gass8… 677aece2-…
+##  6 3320792153 Anemone occide…            41.5            -123. gass8… 677aece2-…
+##  7 2982018718 Anemone occide…            41.6            -123. gass8… 6958627a-…
+##  8 2982054706 Anemone occide…            41.8            -124. colma… 6958627a-…
+##  9 2430340130 Anemone occide…            41.5            -123. gass8… 9781ce05-…
+## 10 2982048257 Anemone occide…            41.5            -123. colma… 6958627a-…
+## # … with 31 more rows, and 106 more variables: publishingOrgKey &lt;chr&gt;,
+## #   networkKeys &lt;list&gt;, installationKey &lt;chr&gt;, publishingCountry &lt;chr&gt;,
+## #   protocol &lt;chr&gt;, lastCrawled &lt;chr&gt;, lastParsed &lt;chr&gt;, crawlId &lt;int&gt;,
+## #   hostingOrganizationKey &lt;chr&gt;, basisOfRecord &lt;chr&gt;, occurrenceStatus &lt;chr&gt;,
+## #   taxonKey &lt;int&gt;, kingdomKey &lt;int&gt;, phylumKey &lt;int&gt;, classKey &lt;int&gt;,
+## #   orderKey &lt;int&gt;, familyKey &lt;int&gt;, genusKey &lt;int&gt;, speciesKey &lt;int&gt;,
+## #   acceptedTaxonKey &lt;int&gt;, acceptedScientificName &lt;chr&gt;, kingdom &lt;chr&gt;, …</code></pre>
+<p>Quick map of observations in Northern California. There are a few observations across the general bioregion I live near, but none on the hike I went on.</p>
+<pre class="r"><code>dr_suess_coords &lt;- dr_suess$data[ , c(&quot;decimalLongitude&quot;, &quot;decimalLatitude&quot;, &quot;occurrenceStatus&quot;, &quot;coordinateUncertaintyInMeters&quot;, &quot;institutionCode&quot;, &quot;references&quot;)]
+
+maps::map(database = &quot;state&quot;, region = &quot;california&quot;)
+points(dr_suess_coords[ , c(&quot;decimalLongitude&quot;, &quot;decimalLatitude&quot;)], pch = &quot;.&quot;, col = &quot;red&quot;, cex = 3)</code></pre>
+<p><img src="/2022/08/01/mount-shasta-wilderness-anemone-occidentalis-population/index_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p>Pull in my hike data using the gpx R library and subset the route to make plotting easier.</p>
+<pre class="r"><code>hike &lt;-  read_gpx(&#39;../../../static/data/mount_shasta_hiking.gpx&#39;)
+hike1 &lt;- as.data.frame(hike$routes)</code></pre>
+<p>Overlay the hiking data and the image/observation coordinates as a triangle.</p>
+<pre class="r"><code>hike_plot2 &lt;- ggplot() +
+          coord_quickmap() +
+          geom_point(data = hike1, aes(x = Longitude, y = Latitude), color = &#39;black&#39;) +
+          geom_point(aes(x = -122.19, y = 41.36325), pch=25, size= 5, colour=&quot;purple&quot;) +
+          xlab(&quot;Longitude&quot;) + ylab(&quot;Latitude&quot;)
+hike_plot2</code></pre>
+<p><img src="/2022/08/01/mount-shasta-wilderness-anemone-occidentalis-population/index_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+
+</div>
+
+        <footer class="post-footer clearfix">
+        <p class="post-tags">
+            <span>Tagged:</span>
+                <a href="/tags/species-distribution/">species distribution</a>, 
+                <a href="/tags/gis/">GIS</a>, 
+                <a href="/tags/maps/">maps</a>, 
+                <a href="/tags/data/">data</a>, 
+                <a href="/tags/hike/">hike</a>, 
+                <a href="/tags/exercise/">exercise</a>, 
+                <a href="/tags/explore/">explore</a>, 
+                <a href="/tags/anemone-occidentalis/">Anemone occidentalis</a>
+        </p>
+    <div class="share">
+    </div>
+</footer>
+
+        
+    </article>
+</div>
+
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="site-title-wrapper">
+                    <h1 class="site-title">
+                        <a href="/">BIDS- Environmental</a>
+                    </h1>
+                    <a class="button-square button-jump-top js-jump-top" href="#" aria-label="Back to Top">
+                        <i class="fa fa-angle-up" aria-hidden="true"></i>
+                    </a>
+                </div>
+
+                <p class="footer-copyright">
+                    <span>&copy; 2022 / Powered by <a href="https://gohugo.io/">Hugo</a></span>
+                </p>
+                <p class="footer-copyright">
+                    <span><a href="https://github.com/roryg/ghostwriter">Ghostwriter theme</a> By <a href="http://jollygoodthemes.com">JollyGoodThemes</a></span>
+                    <span>/ <a href="https://github.com/jbub/ghostwriter">Ported</a> to Hugo By <a href="https://github.com/jbub">jbub</a></span>
+                </p>
+            </div>
+        </footer>
+
+        <script src="/js/jquery-1.11.3.min.js"></script>
+        <script src="/js/jquery.fitvids.js"></script>
+        <script src="/js/scripts.js"></script>
+    </body>
+</html>
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+
+<script>
+hljs.configure({languages: []});
+hljs.initHighlightingOnLoad();
+</script>
+
